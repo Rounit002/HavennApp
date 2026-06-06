@@ -1,0 +1,12 @@
+{
+    "android": {
+      "release": {
+        "keystore": "my-release-key.keystore",
+        "storePassword": "Rounit@2003",
+        "alias": "myalias",
+        "password": "Rounit@2003",
+        "keystoreType": ""
+      }
+    }
+  }
+  

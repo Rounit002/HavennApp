@@ -1,0 +1,34 @@
+{
+  "name": "com.havenn.studyspace",
+  "displayName": "Havenn",
+  "version": "1.0.0",
+  "description": "Havenn — Study space management (Cordova)",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "cordova prepare",
+    "build:android": "cordova build android"
+  },
+  "keywords": [
+    "cordova",
+    "havenn",
+    "studyspace"
+  ],
+  "author": "Lumenbyte Softwares",
+  "license": "Apache-2.0",
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-camera": {
+        "ANDROIDX_CORE_VERSION": "1.6.+"
+      },
+      "cordova-plugin-filepath": {},
+      "cordova-plugin-android-permissions": {}
+    }
+  },
+  "devDependencies": {
+    "cordova-android": "^12.0.0",
+    "cordova-plugin-android-permissions": "^1.1.5"
+  }
+}
