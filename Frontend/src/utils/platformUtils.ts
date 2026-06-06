@@ -42,7 +42,7 @@ function getHostedDomains(): string[] {
   }
 
   // Fallback to known production host for Havenn
-  domains.push('havenn.onrender.com');
+  domains.push('havennapp.onrender.com');
 
   // Deduplicate and clean
   return Array.from(new Set(domains.filter(Boolean)));
@@ -119,7 +119,7 @@ export function onCordovaReady(callback: () => void): void {
 // Provide TypeScript declaration for window.cordova
 declare global {
   interface Window {
-    cordova?: unknown;
+    cordova?: Cordova;
   }
 }
 

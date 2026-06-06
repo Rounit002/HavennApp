@@ -11,7 +11,7 @@ export const getApiUrl = () => {
                       (typeof window !== 'undefined' && window.location.protocol === 'file:'));
   
   if (isMobileApp) {
-    return 'https://havenn.onrender.com/api';
+    return 'https://havennapp.onrender.com/api';
   }
   
   if (isDevelopment) {
@@ -19,7 +19,7 @@ export const getApiUrl = () => {
     return '/api';
   }
   
-  return 'https://havenn.onrender.com/api';
+  return 'https://havennapp.onrender.com/api';
 };
 
 export const API_BASE_URL = getApiUrl();

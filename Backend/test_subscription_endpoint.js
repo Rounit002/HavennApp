@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 // Use environment variable or default to production URL
-const API_BASE_URL = process.env.API_BASE_URL || 'https://havenn.onrender.com/api';
+const API_BASE_URL = process.env.API_BASE_URL || 'https://havennapp.onrender.com/api';
 
 async function testSubscriptionEndpoint() {
   try {

@@ -34,7 +34,7 @@ if (process.env.NODE_ENV !== 'production') {
 const allowedOrigins = [
   'https://havenn.up.railway.app',              // ✅ frontend
   'https://havennproduction.up.railway.app',   // ✅ backend
-  'https://havenn.onrender.com',
+  'https://havennapp.onrender.com',
   'file://', // Cordova file:// protocol
   'null', // Some WebViews send Origin: null for file:// apps
   'https://localhost', // Cordova WebView origin (needed for mobile app)
