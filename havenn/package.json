@@ -24,11 +24,13 @@
         "ANDROIDX_CORE_VERSION": "1.6.+"
       },
       "cordova-plugin-filepath": {},
-      "cordova-plugin-android-permissions": {}
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-purchase": {}
     }
   },
   "devDependencies": {
-    "cordova-android": "^12.0.0",
-    "cordova-plugin-android-permissions": "^1.1.5"
+    "cordova-android": "^13.0.0",
+    "cordova-plugin-android-permissions": "^1.1.5",
+    "cordova-plugin-purchase": "^13.7.0"
   }
 }

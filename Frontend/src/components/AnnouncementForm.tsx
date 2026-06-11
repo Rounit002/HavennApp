@@ -35,8 +35,8 @@ const ToggleSwitch = ({ enabled, setEnabled }: { enabled: boolean, setEnabled: (
     type="button"
     onClick={() => setEnabled(!enabled)}
     className={`${
-      enabled ? 'bg-indigo-600' : 'bg-gray-200'
-    } relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}
+      enabled ? 'bg-[#1D9E75]' : 'bg-gray-200'
+    } relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:ring-offset-2`}
   >
     <span
       className={`${
@@ -219,10 +219,10 @@ const AnnouncementForm: React.FC<AnnouncementFormProps> = ({
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">Visibility</label>
                       <div className="flex rounded-lg p-1 bg-gray-100">
-                        <button type="button" onClick={() => handleChange('isGlobal', true)} className={`w-1/2 py-2 text-sm rounded-md flex items-center justify-center gap-2 transition-colors ${formData.isGlobal ? 'bg-white text-indigo-700 shadow-sm' : 'text-gray-600 hover:bg-gray-200'}`}>
+                        <button type="button" onClick={() => handleChange('isGlobal', true)} className={`w-1/2 py-2 text-sm rounded-md flex items-center justify-center gap-2 transition-colors ${formData.isGlobal ? 'bg-white text-[#0F6E56] shadow-sm' : 'text-gray-600 hover:bg-gray-200'}`}>
                           <Globe className="h-4 w-4"/> Global
                         </button>
-                        <button type="button" onClick={() => handleChange('isGlobal', false)} className={`w-1/2 py-2 text-sm rounded-md flex items-center justify-center gap-2 transition-colors ${!formData.isGlobal ? 'bg-white text-indigo-700 shadow-sm' : 'text-gray-600 hover:bg-gray-200'}`}>
+                        <button type="button" onClick={() => handleChange('isGlobal', false)} className={`w-1/2 py-2 text-sm rounded-md flex items-center justify-center gap-2 transition-colors ${!formData.isGlobal ? 'bg-white text-[#0F6E56] shadow-sm' : 'text-gray-600 hover:bg-gray-200'}`}>
                           <MapPin className="h-4 w-4"/> Branch Specific
                         </button>
                       </div>
@@ -289,7 +289,7 @@ const AnnouncementForm: React.FC<AnnouncementFormProps> = ({
                     <button
                       type="submit"
                       disabled={loading}
-                      className="flex items-center space-x-2 px-5 py-2.5 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+                      className="flex items-center space-x-2 px-5 py-2.5 text-sm font-medium bg-[#1D9E75] text-white rounded-lg hover:bg-[#0F6E56] disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
                     >
                       <Save className="h-4 w-4" />
                       <span>{loading ? 'Saving...' : (announcement ? 'Save Changes' : 'Create Announcement')}</span>

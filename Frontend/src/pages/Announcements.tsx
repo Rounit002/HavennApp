@@ -72,7 +72,7 @@ const Announcements: React.FC = () => {
           <h1 className="text-base font-semibold">Announcements</h1>
           <button
             onClick={handleAdd}
-            className="px-3 py-1.5 text-sm rounded-md bg-indigo-600 text-white active:scale-[0.98]"
+            className="px-3 py-1.5 text-sm rounded-md bg-[#1D9E75] text-white active:scale-[0.98]"
           >
             New
           </button>
@@ -81,9 +81,9 @@ const Announcements: React.FC = () => {
           <div className="mb-3 flex items-center justify-between">
             <div className="text-xs text-slate-500">View</div>
             <div className="flex bg-slate-100 rounded-lg p-1">
-              <button onClick={() => setViewMode('list')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='list'?'bg-white text-indigo-600 shadow-sm':'text-gray-600'}`}><Rows3 className="h-4 w-4"/></button>
-              <button onClick={() => setViewMode('grid')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='grid'?'bg-white text-indigo-600 shadow-sm':'text-gray-600'}`}><Grid className="h-4 w-4"/></button>
-              <button onClick={() => setViewMode('compact')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='compact'?'bg-white text-indigo-600 shadow-sm':'text-gray-600'}`}><PanelTop className="h-4 w-4"/></button>
+              <button onClick={() => setViewMode('list')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='list'?'bg-white text-[#1D9E75] shadow-sm':'text-gray-600'}`}><Rows3 className="h-4 w-4"/></button>
+              <button onClick={() => setViewMode('grid')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='grid'?'bg-white text-[#1D9E75] shadow-sm':'text-gray-600'}`}><Grid className="h-4 w-4"/></button>
+              <button onClick={() => setViewMode('compact')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='compact'?'bg-white text-[#1D9E75] shadow-sm':'text-gray-600'}`}><PanelTop className="h-4 w-4"/></button>
             </div>
           </div>
           <AnnouncementList
@@ -119,9 +119,9 @@ const Announcements: React.FC = () => {
             <div className="mb-4 flex items-center justify-between">
               <div className="flex items-center gap-2 text-sm text-slate-600">View</div>
               <div className="flex bg-slate-100 rounded-lg p-1">
-                <button onClick={() => setViewMode('list')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='list'?'bg-white text-indigo-600 shadow-sm':'text-gray-600'}`}><Rows3 className="h-4 w-4"/></button>
-                <button onClick={() => setViewMode('grid')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='grid'?'bg-white text-indigo-600 shadow-sm':'text-gray-600'}`}><Grid className="h-4 w-4"/></button>
-                <button onClick={() => setViewMode('compact')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='compact'?'bg-white text-indigo-600 shadow-sm':'text-gray-600'}`}><PanelTop className="h-4 w-4"/></button>
+                <button onClick={() => setViewMode('list')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='list'?'bg-white text-[#1D9E75] shadow-sm':'text-gray-600'}`}><Rows3 className="h-4 w-4"/></button>
+                <button onClick={() => setViewMode('grid')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='grid'?'bg-white text-[#1D9E75] shadow-sm':'text-gray-600'}`}><Grid className="h-4 w-4"/></button>
+                <button onClick={() => setViewMode('compact')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='compact'?'bg-white text-[#1D9E75] shadow-sm':'text-gray-600'}`}><PanelTop className="h-4 w-4"/></button>
               </div>
             </div>
             <AnnouncementList

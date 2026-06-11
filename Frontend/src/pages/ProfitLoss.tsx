@@ -81,10 +81,10 @@ const ProfitLoss: React.FC = () => {
           >
             📈 Profit & Loss
           </motion.h1>
-          <div className="mb-6 h-2 rounded-full bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-sky-500 dark:from-indigo-600 dark:via-fuchsia-600 dark:to-sky-600 shadow-sm ring-1 ring-white/30" />
+          <div className="mb-6 h-2 rounded-full bg-gradient-to-r from-[#E1F5EE] via-fuchsia-500 to-sky-500 dark:from-[#1D9E75] dark:via-fuchsia-600 dark:to-sky-600 shadow-sm ring-1 ring-white/30" />
 
           <motion.div
-            className="bg-white/95 dark:bg-gray-800/95 rounded-xl shadow-sm p-6 mb-6 border border-gray-200 dark:border-gray-700 ring-1 ring-indigo-100/70 dark:ring-indigo-900/40"
+            className="bg-white/95 dark:bg-gray-800/95 rounded-xl shadow-sm p-6 mb-6 border border-gray-200 dark:border-gray-700 ring-1 ring-[#E1F5EE]/70 dark:ring-[#0F6E56]/40"
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.15 }}
@@ -100,7 +100,7 @@ const ProfitLoss: React.FC = () => {
               id="month"
               value={month}
               onChange={(e) => setMonth(e.target.value)}
-              className="w-full px-4 py-2 border border-indigo-200 dark:border-indigo-700 rounded-lg bg-white/95 dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-300 shadow-sm mb-4"
+              className="w-full px-4 py-2 border border-[#9FE1CB] dark:border-[#0F6E56] rounded-lg bg-white/95 dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#9FE1CB] shadow-sm mb-4"
             />
             <label
               htmlFor="branch"
@@ -123,7 +123,7 @@ const ProfitLoss: React.FC = () => {
             </select>
             <button
               onClick={handleFetch}
-              className="w-full sm:w-auto bg-gradient-to-r from-violet-600 via-fuchsia-500 to-sky-500 text-white px-6 py-2 rounded-md shadow-md hover:from-violet-500 hover:via-fuchsia-400 hover:to-sky-400 focus:ring-2 focus:ring-violet-300 ring-1 ring-white/20 transition"
+              className="w-full sm:w-auto bg-gradient-to-r from-[#1D9E75] via-fuchsia-500 to-sky-500 text-white px-6 py-2 rounded-md shadow-md hover:from-[#E1F5EE] hover:via-fuchsia-400 hover:to-sky-400 focus:ring-2 focus:ring-[#9FE1CB] ring-1 ring-white/20 transition"
             >
               Fetch Report
             </button>
@@ -139,7 +139,7 @@ const ProfitLoss: React.FC = () => {
               {/* Header with Actions */}
               <div className="flex justify-between items-center no-print">
                 <div className="flex items-center gap-3">
-                  <Calendar className="w-6 h-6 text-indigo-600" />
+                  <Calendar className="w-6 h-6 text-[#1D9E75]" />
                   <div>
                     <h2 className="text-xl font-bold text-gray-800">{formatMonth(data.month)}</h2>
                     <p className="text-sm text-gray-600">
@@ -203,7 +203,7 @@ const ProfitLoss: React.FC = () => {
                   transition={{ delay: 0.4 }}
                   className={`bg-gradient-to-br rounded-xl p-6 border-2 shadow-lg ${
                     data.profitLoss >= 0
-                      ? 'from-blue-50 to-indigo-100 border-blue-200'
+                      ? 'from-blue-50 to-[#E1F5EE] border-blue-200'
                       : 'from-orange-50 to-amber-100 border-orange-200'
                   }`}
                 >
@@ -246,7 +246,7 @@ const ProfitLoss: React.FC = () => {
                 transition={{ delay: 0.45 }}
                 className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden"
               >
-                <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-4">
+                <div className="bg-gradient-to-r from-[#1D9E75] to-[#0F6E56] px-6 py-4">
                   <h3 className="text-lg font-semibold text-white">Financial Breakdown</h3>
                 </div>
                 <div className="p-6">
@@ -336,3 +336,6 @@ const ProfitLoss: React.FC = () => {
 };
 
 export default ProfitLoss;
+
+
+

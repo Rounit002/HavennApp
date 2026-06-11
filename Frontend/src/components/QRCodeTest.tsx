@@ -145,3 +145,4 @@ const QRCodeTest: React.FC = () => {
 };
 
 export default QRCodeTest;
+

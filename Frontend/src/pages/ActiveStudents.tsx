@@ -177,7 +177,7 @@ const ActiveStudents = () => {
             <div className="flex gap-3 overflow-x-auto py-3">
               <Link
                 to="/students"
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm md:text-base font-medium shadow-sm bg-gradient-to-r from-indigo-50 via-sky-50 to-indigo-100 text-indigo-700 ring-1 ring-indigo-200/50 ${location.pathname.startsWith('/students') && !location.pathname.startsWith('/students/') ? 'ring-2 ring-indigo-300' : ''}`}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm md:text-base font-medium shadow-sm bg-gradient-to-r from-[#E1F5EE] via-sky-50 to-[#E1F5EE] text-[#0F6E56] ring-1 ring-[#9FE1CB]/50 ${location.pathname.startsWith('/students') && !location.pathname.startsWith('/students/') ? 'ring-2 ring-[#9FE1CB]' : ''}`}
               >
                 <Users className="h-4 w-4" />
                 All Students
@@ -191,7 +191,7 @@ const ActiveStudents = () => {
               </Link>
               <Link
                 to="/expired-memberships"
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm md:text-base font-medium shadow-sm bg-gradient-to-r from-rose-50 via-pink-50 to-rose-100 text-rose-700 ring-1 ring-rose-200/50 ${location.pathname.startsWith('/expired-memberships') ? 'ring-2 ring-rose-300' : ''}`}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm md:text-base font-medium shadow-sm bg-gradient-to-r from-rose-50 via-[#E1F5EE] to-rose-100 text-rose-700 ring-1 ring-rose-200/50 ${location.pathname.startsWith('/expired-memberships') ? 'ring-2 ring-rose-300' : ''}`}
               >
                 <AlertTriangle className="h-4 w-4" />
                 Expired Memberships
@@ -219,7 +219,7 @@ const ActiveStudents = () => {
                   <div className="flex bg-slate-100 rounded-lg p-1">
                     <button
                       onClick={() => setViewMode('list')}
-                      className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm ${viewMode === 'list' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
+                      className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm ${viewMode === 'list' ? 'bg-white text-[#1D9E75] shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
                       title="List View"
                     >
                       <Rows3 className="h-4 w-4" />
@@ -227,7 +227,7 @@ const ActiveStudents = () => {
                     </button>
                     <button
                       onClick={() => setViewMode('card')}
-                      className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm ${viewMode === 'card' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
+                      className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm ${viewMode === 'card' ? 'bg-white text-[#1D9E75] shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
                       title="Card View"
                     >
                       <Grid className="h-4 w-4" />
@@ -240,7 +240,7 @@ const ActiveStudents = () => {
                   <input
                     type="text"
                     placeholder="Search students..."
-                    className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-1 focus:ring-purple-300"
+                    className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-1 focus:ring-[#5DCAA5]"
                     value={searchTerm}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
                   />
@@ -382,7 +382,7 @@ const ActiveStudents = () => {
                           <div className="flex items-start justify-between">
                             <div>
                               <h4 className="font-semibold text-gray-800">{student.name}</h4>
-                              <p className="text-xs text-gray-500 flex items-center gap-1"><Calendar className="h-3.5 w-3.5 text-indigo-400"/> Reg: {student.registrationNumber || 'N/A'}</p>
+                              <p className="text-xs text-gray-500 flex items-center gap-1"><Calendar className="h-3.5 w-3.5 text-[#5DCAA5]"/> Reg: {student.registrationNumber || 'N/A'}</p>
                             </div>
                             <span className="px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">Active</span>
                           </div>
@@ -465,3 +465,6 @@ const ActiveStudents = () => {
 };
 
 export default ActiveStudents;
+
+
+

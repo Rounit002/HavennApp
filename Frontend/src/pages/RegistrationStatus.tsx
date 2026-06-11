@@ -331,3 +331,4 @@ const RegistrationStatus: React.FC = () => {
 };
 
 export default RegistrationStatus;
+

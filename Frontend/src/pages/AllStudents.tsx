@@ -523,7 +523,7 @@ const AllStudents = () => {
             <div className="flex gap-3 overflow-x-auto py-3">
               <Link
                 to="/students"
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm md:text-base font-medium shadow-sm bg-gradient-to-r from-indigo-50 via-sky-50 to-indigo-100 text-indigo-700 ring-1 ring-indigo-200/50 ${location.pathname.startsWith('/students') && !location.pathname.startsWith('/students/') ? 'ring-2 ring-indigo-300' : ''}`}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm md:text-base font-medium shadow-sm bg-gradient-to-r from-[#E1F5EE] via-sky-50 to-[#E1F5EE] text-[#0F6E56] ring-1 ring-[#9FE1CB]/50 ${location.pathname.startsWith('/students') && !location.pathname.startsWith('/students/') ? 'ring-2 ring-[#9FE1CB]' : ''}`}
               >
                 <Users className="h-4 w-4" />
                 All Students
@@ -537,7 +537,7 @@ const AllStudents = () => {
               </Link>
               <Link
                 to="/expired-memberships"
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm md:text-base font-medium shadow-sm bg-gradient-to-r from-rose-50 via-pink-50 to-rose-100 text-rose-700 ring-1 ring-rose-200/50 ${location.pathname.startsWith('/expired-memberships') ? 'ring-2 ring-rose-300' : ''}`}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm md:text-base font-medium shadow-sm bg-gradient-to-r from-rose-50 via-[#E1F5EE] to-rose-100 text-rose-700 ring-1 ring-rose-200/50 ${location.pathname.startsWith('/expired-memberships') ? 'ring-2 ring-rose-300' : ''}`}
               >
                 <AlertTriangle className="h-4 w-4" />
                 Expired Memberships
@@ -565,7 +565,7 @@ const AllStudents = () => {
                   <div className="flex bg-slate-100 rounded-lg p-1">
                     <button
                       onClick={() => setViewMode('list')}
-                      className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm ${viewMode === 'list' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
+                      className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm ${viewMode === 'list' ? 'bg-white text-[#1D9E75] shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
                       title="List View"
                     >
                       <Rows3 className="h-4 w-4" />
@@ -573,7 +573,7 @@ const AllStudents = () => {
                     </button>
                     <button
                       onClick={() => setViewMode('card')}
-                      className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm ${viewMode === 'card' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
+                      className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm ${viewMode === 'card' ? 'bg-white text-[#1D9E75] shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
                       title="Card View"
                     >
                       <Grid className="h-4 w-4" />
@@ -586,7 +586,7 @@ const AllStudents = () => {
                   <input
                     type="text"
                     placeholder="Search students..."
-                    className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-1 focus:ring-purple-300"
+                    className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-1 focus:ring-[#5DCAA5]"
                     value={searchTerm}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
                   />
@@ -601,7 +601,7 @@ const AllStudents = () => {
                       <select
                         value={selectedBranchId ?? ''}
                         onChange={(e) => setSelectedBranchId(e.target.value ? Number(e.target.value) : undefined)}
-                        className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                        className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent transition-all"
                       >
                         <option value="">All Branches</option>
                         {branches.map(branch => (
@@ -618,7 +618,7 @@ const AllStudents = () => {
                       <select
                         value={selectedGender}
                         onChange={(e) => setSelectedGender(e.target.value)}
-                        className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                        className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent transition-all"
                       >
                         <option value="">All Genders</option>
                         <option value="male">Male</option>
@@ -634,7 +634,7 @@ const AllStudents = () => {
                         type="date" 
                         value={fromDate} 
                         onChange={(e) => setFromDate(e.target.value)} 
-                        className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" 
+                        className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent transition-all" 
                       />
                     </div>
 
@@ -645,7 +645,7 @@ const AllStudents = () => {
                         type="date" 
                         value={toDate} 
                         onChange={(e) => setToDate(e.target.value)} 
-                        className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" 
+                        className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent transition-all" 
                       />
                     </div>
 
@@ -671,7 +671,7 @@ const AllStudents = () => {
                         </button>
                         <button
                           onClick={handleExportPDF}
-                          className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-white bg-indigo-600 border border-indigo-600 hover:bg-indigo-700 transition-all shadow-sm"
+                          className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-white bg-[#1D9E75] border border-[#1D9E75] hover:bg-[#0F6E56] transition-all shadow-sm"
                           title="Export table as PDF"
                         >
                           <FileText className="h-4 w-4" />
@@ -804,12 +804,12 @@ const AllStudents = () => {
                 ) : currentStudents.length > 0 ? (
                   <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch">
                     {currentStudents.map((student) => (
-                      <div key={student.id} className={`rounded-xl border shadow-md p-4 flex flex-col h-full bg-gradient-to-br ${!student.isActive ? 'from-amber-50 via-orange-50 to-amber-100 border-amber-200' : (student.status === 'active' ? 'from-emerald-50 via-teal-50 to-emerald-100 border-emerald-200' : 'from-rose-50 via-pink-50 to-rose-100 border-rose-200')} ring-1 ring-white/60 transition-transform duration-200 ease-out transform-gpu will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:rotate-[1.5deg]`}> 
+                      <div key={student.id} className={`rounded-xl border shadow-md p-4 flex flex-col h-full bg-gradient-to-br ${!student.isActive ? 'from-amber-50 via-orange-50 to-amber-100 border-amber-200' : (student.status === 'active' ? 'from-emerald-50 via-teal-50 to-emerald-100 border-emerald-200' : 'from-rose-50 via-[#E1F5EE] to-rose-100 border-rose-200')} ring-1 ring-white/60 transition-transform duration-200 ease-out transform-gpu will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:rotate-[1.5deg]`}> 
                         <div className="flex items-start justify-between">
                           <div>
                             <h4 className="font-semibold text-gray-800">{student.name}</h4>
                             <p className="mt-0.5 text-xs text-gray-500 flex items-center gap-1">
-                              <IdCard className="h-3.5 w-3.5 text-indigo-400" /> Reg: {student.registrationNumber || 'N/A'}
+                              <IdCard className="h-3.5 w-3.5 text-[#5DCAA5]" /> Reg: {student.registrationNumber || 'N/A'}
                             </p>
                           </div>
                           <span className={`px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1 ${!student.isActive ? 'bg-yellow-100 text-yellow-800' : (student.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800')}`}>
@@ -838,7 +838,7 @@ const AllStudents = () => {
                         <div className="mt-4 flex items-center justify-between">
                           <div className="flex items-center gap-2">
                             <button onClick={() => handleViewDetails(student.id)} className="text-blue-600 hover:text-blue-800 p-2 rounded hover:bg-blue-50" title="View Details"><Eye size={16} /></button>
-                            <button onClick={() => handleInvoiceClick(student.id)} className="text-indigo-600 hover:text-indigo-800 p-2 rounded hover:bg-indigo-50" title="Invoice"><FileText size={16} /></button>
+                            <button onClick={() => handleInvoiceClick(student.id)} className="text-[#1D9E75] hover:text-[#0F6E56] p-2 rounded hover:bg-[#E1F5EE]" title="Invoice"><FileText size={16} /></button>
                             <button onClick={() => handleDelete(student.id)} className="text-red-600 hover:text-red-800 p-2 rounded hover:bg-red-50" title="Delete"><Trash2 size={16} /></button>
                           </div>
                           <button
@@ -914,3 +914,6 @@ const AllStudents = () => {
 };
 
 export default AllStudents;
+
+
+

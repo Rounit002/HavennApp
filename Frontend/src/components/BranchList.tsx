@@ -70,7 +70,7 @@ const BranchList: React.FC<BranchListProps> = ({ branches, onUpdateBranch, onDel
                 to={`/hostel/branches/${branch.id}/students`}
                 className="flex items-center gap-3 text-gray-800 hover:text-blue-600 font-medium transition-colors group"
               >
-                <div className="bg-gradient-to-r from-blue-100 to-indigo-100 p-2 rounded-lg group-hover:from-blue-200 group-hover:to-indigo-200 transition-all">
+                <div className="bg-gradient-to-r from-blue-100 to-[#E1F5EE] p-2 rounded-lg group-hover:from-blue-200 group-hover:to-[#9FE1CB] transition-all">
                   <MapPin className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
@@ -111,3 +111,4 @@ const BranchList: React.FC<BranchListProps> = ({ branches, onUpdateBranch, onDel
 };
 
 export default BranchList;
+

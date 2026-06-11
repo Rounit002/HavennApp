@@ -442,7 +442,7 @@ const StudentDetails: React.FC = () => {
                  
               <button
                 onClick={() => navigate(-1)}
-                className="mb-4 flex items-center text-purple-600 hover:text-purple-800 no-print"
+                className="mb-4 flex items-center text-[#1D9E75] hover:text-[#0F6E56] no-print"
               >
                 <ArrowLeft size={20} className="mr-2" />
                 Back
@@ -628,3 +628,4 @@ const StudentDetails: React.FC = () => {
 };
 
 export default StudentDetails;
+

@@ -164,7 +164,7 @@ const PrintableProfile: React.FC<PrintableProfileProps> = ({
           </div>
 
           {/* Membership Information - PROMINENT DISPLAY */}
-          <div className="mb-8 print:mb-12 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg print:bg-gray-50">
+          <div className="mb-8 print:mb-12 bg-gradient-to-r from-blue-50 to-[#E1F5EE] p-6 rounded-lg print:bg-gray-50">
             <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center print:text-2xl">
               <Calendar className="w-5 h-5 mr-2 text-blue-600" />
               Membership Information
@@ -279,3 +279,5 @@ const PrintableProfile: React.FC<PrintableProfileProps> = ({
 };
 
 export default PrintableProfile;
+
+

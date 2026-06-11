@@ -103,7 +103,7 @@ const QueryDetail: React.FC = () => {
           </div>
           <button 
             onClick={() => setReplyingTo(comment.id)}
-            className="text-xs text-indigo-600 hover:underline mt-1 pl-1"
+            className="text-xs text-[#1D9E75] hover:underline mt-1 pl-1"
           >
             Reply
           </button>
@@ -118,7 +118,7 @@ const QueryDetail: React.FC = () => {
                 rows={2}
               />
               <div className="mt-2 space-x-2">
-                <button type="submit" className="bg-indigo-600 text-white px-3 py-1 rounded text-sm shadow-sm">Post</button>
+                <button type="submit" className="bg-[#1D9E75] text-white px-3 py-1 rounded text-sm shadow-sm">Post</button>
                 <button type="button" onClick={() => setReplyingTo(null)} className="text-gray-600 text-sm">Cancel</button>
               </div>
             </form>
@@ -147,7 +147,7 @@ const QueryDetail: React.FC = () => {
   return (
     <div className="p-4 sm:p-6 bg-gray-50 min-h-screen">
       <div className="max-w-4xl mx-auto">
-        <button onClick={() => navigate(-1)} className="mb-4 text-indigo-600 hover:underline flex items-center gap-2 text-sm">
+        <button onClick={() => navigate(-1)} className="mb-4 text-[#1D9E75] hover:underline flex items-center gap-2 text-sm">
           <ArrowLeft className="w-4 h-4" />
           Back to Queries
         </button>
@@ -204,7 +204,7 @@ const QueryDetail: React.FC = () => {
                 rows={replyingTo ? 2 : 3}
               />
               <div className="flex items-center justify-between">
-                <button type="submit" className="bg-indigo-600 text-white px-4 py-1.5 rounded-md text-sm shadow-sm hover:bg-indigo-700 flex items-center gap-2">
+                <button type="submit" className="bg-[#1D9E75] text-white px-4 py-1.5 rounded-md text-sm shadow-sm hover:bg-[#0F6E56] flex items-center gap-2">
                   <Send className="w-4 h-4" />
                   Post
                 </button>
@@ -265,3 +265,4 @@ const QueryDetail: React.FC = () => {
 };
 
 export default QueryDetail;
+

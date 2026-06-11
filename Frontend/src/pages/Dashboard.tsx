@@ -136,8 +136,8 @@ const Dashboard: React.FC = () => {
       const el = document.getElementById('registration-link-card');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        el.classList.add('ring-2', 'ring-purple-300');
-        setTimeout(() => el.classList.remove('ring-2', 'ring-purple-300'), 1500);
+        el.classList.add('ring-2', 'ring-[#5DCAA5]');
+        setTimeout(() => el.classList.remove('ring-2', 'ring-[#5DCAA5]'), 1500);
       } else {
         navigate('/dashboard');
       }
@@ -336,25 +336,25 @@ const Dashboard: React.FC = () => {
   }
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
+    <div className="flex h-screen">
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} onBarcodeClick={handleBarcodeClick} />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Navbar />
         <div className="flex-1 overflow-y-auto p-6">
           <div className="max-w-7xl mx-auto">
             
-            <div className="bg-gradient-to-r from-indigo-50 via-white to-violet-50 border border-slate-200 rounded-2xl p-4 sm:p-5 mb-6">
+            <div className="bg-white/60 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 mb-6 shadow-lg">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <h1 className="text-3xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">🏛️ Library Dashboard</h1>
+                <h1 className="text-3xl font-black bg-gradient-to-r from-[#1D9E75] via-[#0D6B82] to-blue-600 bg-clip-text text-transparent">🏛️ Library Dashboard</h1>
                 <div className="flex items-center space-x-2">
                   <span className="text-sm font-medium text-gray-600 hidden sm:inline">View:</span>
-                  <div className="flex bg-slate-100 rounded-lg p-1">
+                  <div className="flex bg-white/60 backdrop-blur-sm border border-white/20 rounded-lg p-1 shadow-sm">
                     <button
                       onClick={() => setDashboardView('standard')}
                       className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all ${
                         dashboardView === 'standard'
-                          ? 'bg-white text-purple-600 shadow-sm'
-                          : 'text-gray-600 hover:text-gray-800'
+                          ? 'bg-white text-[#1D9E75] shadow-sm'
+                          : 'text-gray-700 hover:text-gray-900'
                       }`}
                       title="Standard View"
                     >
@@ -365,8 +365,8 @@ const Dashboard: React.FC = () => {
                       onClick={() => setDashboardView('compact')}
                       className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all ${
                         dashboardView === 'compact'
-                          ? 'bg-white text-purple-600 shadow-sm'
-                          : 'text-gray-600 hover:text-gray-800'
+                          ? 'bg-white text-[#1D9E75] shadow-sm'
+                          : 'text-gray-700 hover:text-gray-900'
                       }`}
                       title="Compact View"
                     >
@@ -377,8 +377,8 @@ const Dashboard: React.FC = () => {
                       onClick={() => setDashboardView('detailed')}
                       className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all ${
                         dashboardView === 'detailed'
-                          ? 'bg-white text-purple-600 shadow-sm'
-                          : 'text-gray-600 hover:text-gray-800'
+                          ? 'bg-white text-[#1D9E75] shadow-sm'
+                          : 'text-gray-700 hover:text-gray-900'
                       }`}
                       title="Detailed View"
                     >
@@ -397,7 +397,7 @@ const Dashboard: React.FC = () => {
               id="branch-select"
               value={selectedBranchId ?? 'all'}
               onChange={(e) => setSelectedBranchId(e.target.value === 'all' ? null : parseInt(e.target.value, 10))}
-              className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1D9E75]"
             >
               <option value="all">All Branches</option>
               {branches.map((branch) => (
@@ -416,7 +416,7 @@ const Dashboard: React.FC = () => {
                   value={studentStats.totalStudents}
                   icon={<Users className="h-6 w-6 text-white" />}
                   iconBgColor="bg-white/20"
-                  containerClassName="h-full min-h-[120px] rounded-lg p-4 text-white shadow-md border-0 bg-gradient-to-br from-purple-400 to-fuchsia-500 relative overflow-hidden transition-transform duration-200 ease-out transform-gpu will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:rotate-[1.5deg]"
+                  containerClassName="h-full min-h-[120px] rounded-lg p-4 text-white shadow-md border-0 bg-gradient-to-br from-[#1D9E75] to-[#1A8FA8] relative overflow-hidden transition-transform duration-200 ease-out transform-gpu will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:rotate-[1.5deg]"
                   titleClassName="text-white/80"
                   valueClassName="text-white"
                   arrowIcon={<ChevronRight className="h-5 w-5 text-white/70" />}
@@ -476,7 +476,7 @@ const Dashboard: React.FC = () => {
                   value={expiringStats.expiring5to7Days}
                   icon={<AlertTriangle className="h-6 w-6 text-white" />}
                   iconBgColor="bg-white/20"
-                  containerClassName="h-full min-h-[120px] rounded-lg p-4 text-white shadow-md border-0 bg-gradient-to-br from-orange-400 to-pink-500 transition-transform duration-200 ease-out transform-gpu will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:rotate-[1.5deg]"
+                  containerClassName="h-full min-h-[120px] rounded-lg p-4 text-white shadow-md border-0 bg-gradient-to-br from-orange-400 to-[#1A8FA8] transition-transform duration-200 ease-out transform-gpu will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:rotate-[1.5deg]"
                   titleClassName="text-white/80"
                   valueClassName="text-white"
                   arrowIcon={<ChevronRight className="h-5 w-5 text-white/70" />}
@@ -557,7 +557,7 @@ const Dashboard: React.FC = () => {
 
                 {/* Action Cards */}
                 <Link to="/students/add" className="block h-full">
-                  <div className="h-full min-h-[120px] bg-gradient-to-br from-violet-400 to-pink-500 text-white rounded-lg shadow-md border-0 p-3 sm:p-4 transition-transform duration-200 ease-out transform-gpu will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:rotate-[1.5deg]">
+                  <div className="h-full min-h-[120px] bg-gradient-to-br from-[#5DCAA5] to-[#1A8FA8] text-white rounded-lg shadow-md border-0 p-3 sm:p-4 transition-transform duration-200 ease-out transform-gpu will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:rotate-[1.5deg]">
                     <div className="flex items-center justify-between">
                       <div className="p-2 rounded-full bg-white/20">
                         <UserPlus className="h-5 w-5 text-white" />
@@ -607,7 +607,7 @@ const Dashboard: React.FC = () => {
 
                 {/* New: Announcements Card */}
                 <Link to="/announcements" className="block h-full">
-                  <div className="h-full min-h-[120px] bg-gradient-to-br from-indigo-400 to-violet-500 text-white rounded-lg shadow-md border-0 p-3 sm:p-4 transition-transform duration-200 ease-out transform-gpu will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:rotate-[1.5deg]">
+                  <div className="h-full min-h-[120px] bg-gradient-to-br from-[#5DCAA5] to-[#E1F5EE] text-white rounded-lg shadow-md border-0 p-3 sm:p-4 transition-transform duration-200 ease-out transform-gpu will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:rotate-[1.5deg]">
                     <div className="flex items-center justify-between">
                       <div className="p-2 rounded-full bg-white/20">
                         <Megaphone className="h-5 w-5 text-white" />
@@ -650,7 +650,7 @@ const Dashboard: React.FC = () => {
                   value={studentStats.totalStudents}
                   icon={<Users className="h-6 w-6 text-white" />}
                   iconBgColor="bg-white/20"
-                  containerClassName="rounded-lg p-5 text-white shadow-md border-0 bg-gradient-to-br from-purple-400 to-fuchsia-500"
+                  containerClassName="rounded-lg p-5 text-white shadow-md border-0 bg-gradient-to-br from-[#1D9E75] to-[#1A8FA8]"
                   titleClassName="text-white/80"
                   valueClassName="text-white"
                   arrowIcon={<ChevronRight className="h-5 w-5 text-white/70" />}
@@ -720,7 +720,7 @@ const Dashboard: React.FC = () => {
                   value={expiringStats.expiring5to7Days}
                   icon={<AlertTriangle className="h-6 w-6 text-white" />}
                   iconBgColor="bg-white/20"
-                  containerClassName="rounded-lg p-5 text-white shadow-md border-0 bg-gradient-to-br from-orange-400 to-pink-500"
+                  containerClassName="rounded-lg p-5 text-white shadow-md border-0 bg-gradient-to-br from-orange-400 to-[#1A8FA8]"
                   titleClassName="text-white/80"
                   valueClassName="text-white"
                   arrowIcon={<ChevronRight className="h-5 w-5 text-white/70" />}
@@ -849,8 +849,8 @@ const Dashboard: React.FC = () => {
                                 <Link key={branch.id} to={`/hostel/branches/${branch.id}/students`} className="block p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200">
                                     <div className="flex items-center justify-between">
                                         <h4 className="font-semibold text-lg text-gray-800 truncate">{branch.name}</h4>
-                                        <div className="p-2 bg-indigo-100 rounded-full">
-                                            <Home className="h-5 w-5 text-indigo-500" />
+                                        <div className="p-2 bg-[#E1F5EE] rounded-full">
+                                            <Home className="h-5 w-5 text-[#E1F5EE]" />
                                         </div>
                                     </div>
                                     <div className="mt-3 flex items-center text-sm text-gray-600">
@@ -873,7 +873,7 @@ const Dashboard: React.FC = () => {
             {/* Attendance Management Section (hidden in Compact View) */}
             {dashboardView !== 'compact' && canManageStudents && library && (
               <div className="mb-8">
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 text-white mb-6">
+                <div className="bg-gradient-to-r from-blue-600 to-[#0F6E56] rounded-xl p-6 text-white mb-6">
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-4">
                     <div>
                       <h2 className="text-2xl font-bold">Attendance Management</h2>
@@ -1064,7 +1064,7 @@ const Dashboard: React.FC = () => {
                   {!showAddForm ? (
                     <button
                       onClick={() => setShowAddForm(true)}
-                      className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition duration-200"
+                      className="bg-[#1D9E75] text-white px-4 py-2 rounded-md hover:bg-[#0F6E56] transition duration-200"
                     >
                       Add Student
                     </button>
@@ -1108,3 +1108,8 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
+
+
+
+
+

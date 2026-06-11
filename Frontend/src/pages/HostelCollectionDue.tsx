@@ -218,18 +218,18 @@ const HostelCollectionDue: React.FC = () => {
               placeholder="Search by Name, Room, Reg No, Phone..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="md:col-span-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300 text-sm md:text-base"
+              className="md:col-span-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#5DCAA5] text-sm md:text-base"
             />
             <input
               type="month"
               value={selectedMonth}
               onChange={(e) => setSelectedMonth(e.target.value)}
-              className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300 text-sm md:text-base"
+              className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#5DCAA5] text-sm md:text-base"
             />
             <select
                 value={selectedBranchId}
                 onChange={(e) => setSelectedBranchId(e.target.value)}
-                className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300 text-sm md:text-base"
+                className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#5DCAA5] text-sm md:text-base"
             >
                 <option value="">All Branches</option>
                 {branches.map(branch => (
@@ -267,7 +267,7 @@ const HostelCollectionDue: React.FC = () => {
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm border">
               <h3 className="text-sm font-medium text-gray-500">Online Collected</h3>
-              <p className="text-xl font-bold text-purple-600">₹{totalOnline.toFixed(2)}</p>
+              <p className="text-xl font-bold text-[#1D9E75]">₹{totalOnline.toFixed(2)}</p>
             </div>
           </motion.div>
           
@@ -334,7 +334,7 @@ const HostelCollectionDue: React.FC = () => {
                           {collection.dueAmount > 0 && (
                             <button
                               onClick={() => handlePayDue(collection)}
-                              className="text-purple-600 hover:text-purple-800 font-medium"
+                              className="text-[#1D9E75] hover:text-[#0F6E56] font-medium"
                             >
                               Pay Due
                             </button>
@@ -367,7 +367,7 @@ const HostelCollectionDue: React.FC = () => {
                       value={paymentAmount}
                       onChange={(e) => setPaymentAmount(e.target.value)}
                       placeholder="Enter payment amount"
-                      className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400"
+                      className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#1D9E75]"
                       step="0.01"
                       min="0.01"
                       max={selectedCollection.dueAmount.toString()}
@@ -380,7 +380,7 @@ const HostelCollectionDue: React.FC = () => {
                       id="paymentType"
                       value={paymentType}
                       onChange={(e) => setPaymentType(e.target.value as 'cash' | 'online')}
-                      className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400"
+                      className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#1D9E75]"
                     >
                       <option value="cash">Cash</option>
                       <option value="online">Online</option>
@@ -398,7 +398,7 @@ const HostelCollectionDue: React.FC = () => {
                       type="button"
                       onClick={handlePaymentSubmit}
                       disabled={paymentLoading}
-                      className="px-4 py-2 bg-purple-600 text-white rounded-md text-sm font-medium hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:bg-purple-300"
+                      className="px-4 py-2 bg-[#1D9E75] text-white rounded-md text-sm font-medium hover:bg-[#0F6E56] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1D9E75] disabled:bg-[#E1F5EE]"
                     >
                       {paymentLoading ? 'Processing...' : 'Submit Payment'}
                     </button>
@@ -413,3 +413,4 @@ const HostelCollectionDue: React.FC = () => {
 };
 
 export default HostelCollectionDue;
+

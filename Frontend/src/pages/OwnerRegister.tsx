@@ -118,10 +118,10 @@ const OwnerRegister: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-orange-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#E1F5EE] to-orange-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
         <div className="text-center mb-8">
-          <div className="mx-auto w-16 h-16 bg-gradient-to-r from-purple-600 to-orange-400 rounded-full flex items-center justify-center mb-4">
+          <div className="mx-auto w-16 h-16 bg-gradient-to-r from-[#1D9E75] to-orange-400 rounded-full flex items-center justify-center mb-4">
             <Building2 className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-2xl font-bold text-gray-900">Register Your Library</h1>
@@ -141,7 +141,7 @@ const OwnerRegister: React.FC = () => {
                 name="ownerName"
                 value={formData.ownerName}
                 onChange={handleInputChange}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 placeholder="Enter your full name"
                 required
               />
@@ -160,7 +160,7 @@ const OwnerRegister: React.FC = () => {
                 name="ownerEmail"
                 value={formData.ownerEmail}
                 onChange={handleInputChange}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 placeholder="Enter your email"
                 required
               />
@@ -179,7 +179,7 @@ const OwnerRegister: React.FC = () => {
                 name="ownerPhone"
                 value={formData.ownerPhone}
                 onChange={handleInputChange}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 placeholder="Enter 10-digit phone number"
                 maxLength={10}
                 required
@@ -199,7 +199,7 @@ const OwnerRegister: React.FC = () => {
                 name="libraryName"
                 value={formData.libraryName}
                 onChange={handleInputChange}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 placeholder="Enter your library name"
                 required
               />
@@ -219,7 +219,7 @@ const OwnerRegister: React.FC = () => {
                 value={formData.libraryCode}
                 onChange={handleInputChange}
                 onBlur={checkLibraryCode}
-                className={`w-full pl-10 pr-20 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
+                className={`w-full pl-10 pr-20 py-3 border rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent ${
                   codeAvailable === true ? 'border-green-300' : 
                   codeAvailable === false ? 'border-red-300' : 'border-gray-300'
                 }`}
@@ -228,7 +228,7 @@ const OwnerRegister: React.FC = () => {
               />
               {checkingCode && (
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-purple-600"></div>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#1D9E75]"></div>
                 </div>
               )}
               {!checkingCode && codeAvailable === true && (
@@ -259,7 +259,7 @@ const OwnerRegister: React.FC = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
-                className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 placeholder="Enter password (min 6 characters)"
                 required
               />
@@ -285,7 +285,7 @@ const OwnerRegister: React.FC = () => {
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleInputChange}
-                className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 placeholder="Confirm your password"
                 required
               />
@@ -303,7 +303,7 @@ const OwnerRegister: React.FC = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-purple-600 to-orange-400 text-white py-3 px-4 rounded-lg font-medium hover:from-purple-700 hover:to-orange-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+            className="w-full bg-gradient-to-r from-[#1D9E75] to-orange-400 text-white py-3 px-4 rounded-lg font-medium hover:from-[#0F6E56] hover:to-orange-500 focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
           >
             {isLoading ? 'Creating Account...' : 'Register Library'}
           </button>
@@ -312,7 +312,7 @@ const OwnerRegister: React.FC = () => {
         <div className="mt-6 text-center">
           <p className="text-gray-600">
             Already have an account?{' '}
-            <Link to="/owner-login" className="text-purple-600 hover:text-purple-700 font-medium">
+            <Link to="/owner-login" className="text-[#1D9E75] hover:text-[#0F6E56] font-medium">
               Sign in here
             </Link>
           </p>
@@ -329,3 +329,4 @@ const OwnerRegister: React.FC = () => {
 };
 
 export default OwnerRegister;
+

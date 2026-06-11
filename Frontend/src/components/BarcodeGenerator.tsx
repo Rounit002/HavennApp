@@ -232,3 +232,4 @@ const BarcodeGenerator: React.FC<BarcodeGeneratorProps> = ({
 };
 
 export default BarcodeGenerator;
+

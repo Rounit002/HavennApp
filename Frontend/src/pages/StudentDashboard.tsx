@@ -382,7 +382,7 @@ const StudentDashboard: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-[#E1F5EE] flex items-center justify-center">
         <div className="bg-white p-8 rounded-xl shadow-lg">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
           <p className="mt-4 text-gray-600 text-center">Loading your dashboard...</p>
@@ -393,7 +393,7 @@ const StudentDashboard: React.FC = () => {
 
   if (!profile) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-[#E1F5EE] flex items-center justify-center">
         <div className="bg-white p-8 rounded-xl shadow-lg text-center">
           <XCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-gray-800 mb-2">Could not load profile</h2>
@@ -410,7 +410,7 @@ const StudentDashboard: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-[#E1F5EE]">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -653,7 +653,7 @@ const StudentDashboard: React.FC = () => {
               </button>
               <button
                 onClick={() => setActiveTab('membership')}
-                className="flex items-center space-x-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors shadow-sm"
+                className="flex items-center space-x-2 bg-[#1D9E75] text-white px-6 py-3 rounded-lg hover:bg-[#0F6E56] transition-colors shadow-sm"
               >
                 <History className="w-5 h-5" />
                 <span>Membership History</span>
@@ -1341,10 +1341,10 @@ const StudentDashboard: React.FC = () => {
                           </p>
                         </div>
                         
-                        <div className="bg-purple-50 rounded-lg p-4">
+                        <div className="bg-[#E1F5EE] rounded-lg p-4">
                           <div className="flex items-center space-x-2 mb-2">
-                            <Wallet className="w-4 h-4 text-purple-600" />
-                            <p className="text-sm font-medium text-purple-800">Payment Status</p>
+                            <Wallet className="w-4 h-4 text-[#1D9E75]" />
+                            <p className="text-sm font-medium text-[#0F6E56]">Payment Status</p>
                           </div>
                           <p className={`text-sm font-semibold ${record.dueAmount > 0 ? 'text-red-600' : 'text-green-600'}`}>
                             {record.dueAmount > 0 ? 'Pending' : 'Completed'}
@@ -1498,3 +1498,5 @@ const StudentDashboard: React.FC = () => {
 };
 
 export default StudentDashboard;
+
+

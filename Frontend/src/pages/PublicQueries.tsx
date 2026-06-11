@@ -52,7 +52,7 @@ const PublicQueries: React.FC = () => {
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Public Queries</h1>
           <button 
             onClick={() => navigate('/queries/new')}
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-sm hover:bg-indigo-700 transition-colors"
+            className="bg-[#1D9E75] text-white px-4 py-2 rounded-lg shadow-sm hover:bg-[#0F6E56] transition-colors"
           >
             Ask a Question
           </button>
@@ -101,3 +101,4 @@ const PublicQueries: React.FC = () => {
 };
 
 export default PublicQueries;
+

@@ -229,7 +229,7 @@ const ExpiringMemberships: React.FC<ExpiringMembershipsProps> = ({ limit, select
         <div className="flex justify-center border-t border-gray-100 p-4">
           <button
             onClick={() => navigate('/expiring-memberships')}
-            className="text-purple-600 hover:text-purple-800 text-sm font-medium flex items-center p-2"
+            className="text-[#1D9E75] hover:text-[#0F6E56] text-sm font-medium flex items-center p-2"
           >
             View all expiring memberships <ChevronRight size={16} className="ml-1" />
           </button>
@@ -240,3 +240,4 @@ const ExpiringMemberships: React.FC<ExpiringMembershipsProps> = ({ limit, select
 };
 
 export default ExpiringMemberships;
+

@@ -111,10 +111,10 @@ const createOwnerAuthRouter = (pool) => {
       // Hash password
       const hashedPassword = await bcrypt.hash(password, 10);
 
-      // Set trial period dates
+      // Set trial period dates (14 days free trial)
       const subscriptionStartDate = new Date();
       const subscriptionEndDate = new Date();
-      subscriptionEndDate.setDate(subscriptionEndDate.getDate() + 7);
+      subscriptionEndDate.setDate(subscriptionEndDate.getDate() + 14);
 
       // Insert new library owner
       const result = await pool.query(

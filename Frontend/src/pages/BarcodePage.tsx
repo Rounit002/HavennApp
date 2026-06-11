@@ -45,9 +45,9 @@ const BarcodePage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-orange-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-[#E1F5EE] to-orange-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1D9E75] mx-auto mb-4"></div>
           <p className="text-gray-600">Loading barcode...</p>
         </div>
       </div>
@@ -56,13 +56,13 @@ const BarcodePage: React.FC = () => {
 
   if (!library) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-orange-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-[#E1F5EE] to-orange-50 flex items-center justify-center">
         <div className="text-center">
           <QrCode className="w-12 h-12 text-red-500 mx-auto mb-4" />
           <p className="text-gray-600 mb-4">Failed to load library information</p>
           <button 
             onClick={handleGoBack}
-            className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            className="px-4 py-2 bg-[#1D9E75] text-white rounded-lg hover:bg-[#0F6E56] transition-colors"
           >
             Go Back
           </button>
@@ -72,7 +72,7 @@ const BarcodePage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-[#E1F5EE] to-orange-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,7 +87,7 @@ const BarcodePage: React.FC = () => {
               </button>
             </div>
             <div className="flex items-center">
-              <QrCode className="w-6 h-6 text-purple-600 mr-2" />
+              <QrCode className="w-6 h-6 text-[#1D9E75] mr-2" />
               <h1 className="text-xl font-semibold text-gray-900">Library Barcode</h1>
             </div>
           </div>
@@ -98,9 +98,9 @@ const BarcodePage: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           {/* Library Info Header */}
-          <div className="bg-gradient-to-r from-purple-600 to-orange-400 px-6 py-4">
+          <div className="bg-gradient-to-r from-[#1D9E75] to-orange-400 px-6 py-4">
             <h2 className="text-2xl font-bold text-white">{library.name}</h2>
-            <p className="text-purple-100 mt-1">Library Code: {library.library_code}</p>
+            <p className="text-[#E1F5EE] mt-1">Library Code: {library.library_code}</p>
           </div>
 
           {/* Barcode Section */}
@@ -184,3 +184,4 @@ const BarcodePage: React.FC = () => {
 };
 
 export default BarcodePage;
+

@@ -43,7 +43,7 @@ const NewQuery: React.FC = () => {
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#1D9E75] focus:border-[#E1F5EE]"
               placeholder="Enter a concise title for your query"
               required
             />
@@ -57,7 +57,7 @@ const NewQuery: React.FC = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={6}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#1D9E75] focus:border-[#E1F5EE]"
               placeholder="Provide a detailed description of your question or suggestion"
               required
             ></textarea>
@@ -66,7 +66,7 @@ const NewQuery: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="bg-indigo-600 text-white px-6 py-2 rounded-lg shadow-sm hover:bg-indigo-700 transition-colors disabled:bg-indigo-300 disabled:cursor-not-allowed"
+              className="bg-[#1D9E75] text-white px-6 py-2 rounded-lg shadow-sm hover:bg-[#0F6E56] transition-colors disabled:bg-[#9FE1CB] disabled:cursor-not-allowed"
             >
               {loading ? 'Submitting...' : 'Submit Query'}
             </button>
@@ -78,3 +78,6 @@ const NewQuery: React.FC = () => {
 };
 
 export default NewQuery;
+
+
+

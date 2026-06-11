@@ -342,7 +342,7 @@ const CollectionDue: React.FC = () => {
           <div className="mb-4">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100">📊 Collection & Due</h1>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Track fees, dues and payments</p>
-            <div className="mt-3 h-2 rounded-full bg-gradient-to-r from-indigo-500 via-amber-500 to-rose-500 dark:from-indigo-600 dark:via-amber-600 dark:to-rose-600 shadow-sm ring-1 ring-white/30" />
+            <div className="mt-3 h-2 rounded-full bg-gradient-to-r from-[#E1F5EE] via-amber-500 to-rose-500 dark:from-[#1D9E75] dark:via-amber-600 dark:to-rose-600 shadow-sm ring-1 ring-white/30" />
           </div>
 
           <div className="mb-6 space-y-4">
@@ -371,13 +371,13 @@ const CollectionDue: React.FC = () => {
             
             {/* Second row - All date filters and Branch */}
             <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
-            <div className="rounded-lg bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 p-2 shadow-sm ring-1 ring-indigo-100/80 dark:ring-indigo-900/40">
-              <label className="text-xs font-semibold text-indigo-700 dark:text-indigo-300 mr-2">Month</label>
+            <div className="rounded-lg bg-[#E1F5EE] dark:bg-[#0F6E56]/20 border border-[#9FE1CB] dark:border-[#0F6E56] p-2 shadow-sm ring-1 ring-[#E1F5EE]/80 dark:ring-[#0F6E56]/40">
+              <label className="text-xs font-semibold text-[#0F6E56] dark:text-[#9FE1CB] mr-2">Month</label>
               <input
                 type="month"
                 value={selectedMonth}
                 onChange={(e) => setSelectedMonth(e.target.value)}
-                className="p-2 border border-indigo-200 dark:border-indigo-700 rounded-md bg-white/95 dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-indigo-400 shadow-sm"
+                className="p-2 border border-[#9FE1CB] dark:border-[#0F6E56] rounded-md bg-white/95 dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-[#5DCAA5] shadow-sm"
                 placeholder="Month"
               />
             </div>
@@ -425,7 +425,7 @@ const CollectionDue: React.FC = () => {
             <StatCard title="Total Collected" value={statsData?.totalPaid} isLoading={isStatsLoading} isCurrency color="emerald" />
             <StatCard title="Total Due" value={statsData?.totalDue} isLoading={isStatsLoading} isCurrency color="rose" />
             <StatCard title="Cash Collected" value={statsData?.totalCash} isLoading={isStatsLoading} isCurrency color="sky" />
-            <StatCard title="Online Collected" value={statsData?.totalOnline} isLoading={isStatsLoading} isCurrency color="violet" />
+            <StatCard title="Online Collected" value={statsData?.totalOnline} isLoading={isStatsLoading} isCurrency color="mint" />
             
           </motion.div>
         )}
@@ -433,10 +433,10 @@ const CollectionDue: React.FC = () => {
         {/* View Toggle */}
         <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-xs font-semibold px-2 py-1 rounded-md bg-gradient-to-r from-indigo-500 via-amber-500 to-rose-500 text-white shadow-sm">View</span>
-            <div className="inline-flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 ring-1 ring-indigo-200/60 dark:ring-indigo-900/40 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm">
-              <button className={`px-3 py-1.5 text-sm transition-colors ${viewMode==='table' ? 'bg-indigo-600 text-white' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'}`} onClick={() => setViewMode('table')}>Table</button>
-              <button className={`px-3 py-1.5 text-sm transition-colors ${viewMode==='cards' ? 'bg-indigo-600 text-white' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'}`} onClick={() => setViewMode('cards')}>Cards</button>
+            <span className="text-xs font-semibold px-2 py-1 rounded-md bg-gradient-to-r from-[#E1F5EE] via-amber-500 to-rose-500 text-white shadow-sm">View</span>
+            <div className="inline-flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 ring-1 ring-[#9FE1CB]/60 dark:ring-[#0F6E56]/40 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm">
+              <button className={`px-3 py-1.5 text-sm transition-colors ${viewMode==='table' ? 'bg-[#1D9E75] text-white' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'}`} onClick={() => setViewMode('table')}>Table</button>
+              <button className={`px-3 py-1.5 text-sm transition-colors ${viewMode==='cards' ? 'bg-[#1D9E75] text-white' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'}`} onClick={() => setViewMode('cards')}>Cards</button>
             </div>
           </div>
           <button
@@ -454,7 +454,7 @@ const CollectionDue: React.FC = () => {
             <div className="text-center p-8"><Loader2 className="h-8 w-8 animate-spin mx-auto" /></div>
             ) : (
             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-              <thead className="bg-gradient-to-r from-indigo-50 via-amber-50 to-rose-50 dark:from-gray-700 dark:via-gray-700 dark:to-gray-700">
+              <thead className="bg-gradient-to-r from-[#E1F5EE] via-amber-50 to-rose-50 dark:from-gray-700 dark:via-gray-700 dark:to-gray-700">
                 <tr>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 dark:text-gray-200 uppercase">Student Name</th>
                   <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Branch</th>
@@ -546,7 +546,7 @@ const CollectionDue: React.FC = () => {
             filteredCollections.map((collection) => (
               <motion.div
                 key={collection.historyId}
-                className="rounded-2xl p-[3px] bg-gradient-to-br from-indigo-600/80 via-amber-500/80 to-rose-500/80 transition-colors shadow-lg"
+                className="rounded-2xl p-[3px] bg-gradient-to-br from-[#1D9E75]/80 via-amber-500/80 to-rose-500/80 transition-colors shadow-lg"
                 whileHover={{ scale: 1.02, rotateX: -2, rotateY: 2 }}
                 whileTap={{ scale: 0.99 }}
                 initial={{ opacity: 0, y: 12 }}
@@ -565,9 +565,9 @@ const CollectionDue: React.FC = () => {
                   </div>
                   <div className="p-4 space-y-2 text-sm">
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-2 py-1 rounded-md text-xs bg-indigo-50 text-indigo-700 border border-indigo-200">{branches.find(b => b.id === collection.branchId)?.name || 'N/A'}</span>
+                      <span className="px-2 py-1 rounded-md text-xs bg-[#E1F5EE] text-[#0F6E56] border border-[#9FE1CB]">{branches.find(b => b.id === collection.branchId)?.name || 'N/A'}</span>
                       <span className="px-2 py-1 rounded-md text-xs bg-sky-50 text-sky-700 border border-sky-200">{collection.shiftTitle || 'N/A'}</span>
-                      <span className="px-2 py-1 rounded-md text-xs bg-violet-50 text-violet-700 border border-violet-200">Seat {collection.seatNumber || 'N/A'}</span>
+                      <span className="px-2 py-1 rounded-md text-xs bg-[#E1F5EE] text-[#0F6E56] border border-[#9FE1CB]">Seat {collection.seatNumber || 'N/A'}</span>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <div className="rounded-md px-2.5 py-1.5 bg-emerald-50 text-emerald-800 border border-emerald-200">Paid: ₹{collection.amountPaid.toFixed(2)}</div>
@@ -614,7 +614,7 @@ const CollectionDue: React.FC = () => {
     {isPayModalOpen && selectedCollection && (
       <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
         <div className="bg-white dark:bg-gray-800 p-0 rounded-xl shadow-xl max-w-md w-full border border-gray-200 dark:border-gray-700 overflow-hidden">
-          <div className="h-10 bg-gradient-to-r from-rose-600 to-pink-600 text-white flex items-center px-4 font-semibold">Pay Due</div>
+          <div className="h-10 bg-gradient-to-r from-rose-600 to-[#1A8FA8] text-white flex items-center px-4 font-semibold">Pay Due</div>
           <div className="p-6">
             <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-100">{selectedCollection.name}</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Total Due Amount: ₹{selectedCollection.dueAmount.toFixed(2)}</p>
@@ -628,7 +628,7 @@ const CollectionDue: React.FC = () => {
             <input type="number" value={paymentAmount} onChange={(e) => setPaymentAmount(e.target.value)} placeholder="Enter payment amount" className="w-full p-2 border rounded-md mb-4 bg-white/95 dark:bg-gray-700/90 border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-rose-300" max={selectedCollection.dueAmount.toString()} />
             <div className="flex justify-end space-x-2">
               <button onClick={() => setIsPayModalOpen(false)} className="px-4 py-2 border rounded-md dark:border-gray-600">Cancel</button>
-              <button onClick={handlePaymentSubmit} disabled={paymentMutation.isPending} className="px-4 py-2 bg-gradient-to-r from-violet-600 via-fuchsia-500 to-sky-500 text-white rounded-md shadow-md hover:from-violet-500 hover:via-fuchsia-400 hover:to-sky-400 focus:ring-2 focus:ring-violet-300 disabled:opacity-60">
+              <button onClick={handlePaymentSubmit} disabled={paymentMutation.isPending} className="px-4 py-2 bg-gradient-to-r from-[#1D9E75] via-fuchsia-500 to-sky-500 text-white rounded-md shadow-md hover:from-[#E1F5EE] hover:via-fuchsia-400 hover:to-sky-400 focus:ring-2 focus:ring-[#9FE1CB] disabled:opacity-60">
                 {paymentMutation.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Submit Payment'}
               </button>
             </div>
@@ -642,15 +642,15 @@ const CollectionDue: React.FC = () => {
 };
 
 // Helper component for rendering the stat cards for admins
-const StatCard = ({ title, value, isLoading, isCurrency = false, color = 'indigo' }) => {
+const StatCard = ({ title, value, isLoading, isCurrency = false, color = 'teal' }) => {
   const palette = {
-    indigo: 'from-indigo-500 to-violet-500',
+    teal: 'from-[#1D9E75] to-[#1A8FA8]',
     emerald: 'from-emerald-500 to-teal-500',
-    rose: 'from-rose-500 to-pink-500',
+    rose: 'from-[#1A8FA8] to-[#9FE1CB]',
     sky: 'from-sky-500 to-blue-500',
-    violet: 'from-violet-500 to-fuchsia-500',
+    mint: 'from-[#5DCAA5] to-[#9FE1CB]',
   } as const;
-  const grad = (palette as any)[color] || palette.indigo;
+  const grad = (palette as any)[color] || palette.teal;
   const numericValue =
     typeof value === 'number'
       ? value
@@ -662,7 +662,7 @@ const StatCard = ({ title, value, isLoading, isCurrency = false, color = 'indigo
          style={{ backgroundImage: undefined }}>
       <div className={`bg-gradient-to-r ${grad} px-4 py-2 text-xs font-semibold`}>{title}</div>
       <div className="bg-white/95 dark:bg-gray-800/95 px-4 py-3">
-        <div className={`text-xl font-bold ${color === 'rose' ? 'text-rose-600 dark:text-rose-300' : color === 'emerald' ? 'text-emerald-600 dark:text-emerald-300' : color === 'sky' ? 'text-sky-600 dark:text-sky-300' : color === 'violet' ? 'text-violet-600 dark:text-violet-300' : 'text-indigo-600 dark:text-indigo-300'}`}>
+        <div className={`text-xl font-bold ${color === 'rose' ? 'text-rose-600 dark:text-rose-300' : color === 'emerald' ? 'text-emerald-600 dark:text-emerald-300' : color === 'sky' ? 'text-sky-600 dark:text-sky-300' : 'text-[#1D9E75] dark:text-[#9FE1CB]'}`}>
           {isLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : (isCurrency ? `₹${numericValue.toFixed(2)}` : numericValue)}
         </div>
       </div>
@@ -671,3 +671,7 @@ const StatCard = ({ title, value, isLoading, isCurrency = false, color = 'indigo
 };
 
 export default CollectionDue;
+
+
+
+

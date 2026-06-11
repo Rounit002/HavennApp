@@ -297,7 +297,7 @@ const AdvancedPayment: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl shadow-2xl p-6 md:p-8 mb-6"
+            className="bg-gradient-to-r from-[#1D9E75] via-[#1A8FA8] to-[#1A8FA8] rounded-3xl shadow-2xl p-6 md:p-8 mb-6"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
@@ -306,7 +306,7 @@ const AdvancedPayment: React.FC = () => {
                 </div>
                 <div>
                   <h1 className="text-3xl font-bold text-white mb-1">Advanced Payment</h1>
-                  <p className="text-indigo-100">Record advance payments from students</p>
+                  <p className="text-[#E1F5EE]">Record advance payments from students</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -331,7 +331,7 @@ const AdvancedPayment: React.FC = () => {
                 </div>
                 <button
                   onClick={openModal}
-                  className="bg-white text-indigo-600 px-4 md:px-6 py-3 rounded-xl font-semibold flex items-center gap-2 hover:bg-indigo-50 transition-all shadow-lg hover:shadow-xl"
+                  className="bg-white text-[#1D9E75] px-4 md:px-6 py-3 rounded-xl font-semibold flex items-center gap-2 hover:bg-[#E1F5EE] transition-all shadow-lg hover:shadow-xl"
                 >
                   <Plus size={20} />
                   Add Payment
@@ -351,7 +351,7 @@ const AdvancedPayment: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-800">Filters</h3>
               {/* Quick stats */}
               <div className="flex items-center gap-4">
-                <div className="bg-indigo-50 text-indigo-700 px-3 py-2 rounded-lg text-sm font-semibold">{totalCount} payments</div>
+                <div className="bg-[#E1F5EE] text-[#0F6E56] px-3 py-2 rounded-lg text-sm font-semibold">{totalCount} payments</div>
                 <div className="bg-emerald-50 text-emerald-700 px-3 py-2 rounded-lg text-sm font-semibold">₹{totalAmount.toFixed(2)}</div>
               </div>
             </div>
@@ -362,7 +362,7 @@ const AdvancedPayment: React.FC = () => {
                 <select
                   value={selectedBranchId || ''}
                   onChange={(e) => setSelectedBranchId(e.target.value ? parseInt(e.target.value) : null)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 >
                   <option value="">All Branches</option>
                   {branches.map((branch) => (
@@ -378,7 +378,7 @@ const AdvancedPayment: React.FC = () => {
                   type="month"
                   value={selectedMonth}
                   onChange={(e) => setSelectedMonth(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 />
               </div>
 
@@ -389,7 +389,7 @@ const AdvancedPayment: React.FC = () => {
                   type="date"
                   value={fromDate}
                   onChange={(e) => setFromDate(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 />
               </div>
 
@@ -400,7 +400,7 @@ const AdvancedPayment: React.FC = () => {
                   type="date"
                   value={toDate}
                   onChange={(e) => setToDate(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 />
               </div>
 
@@ -414,7 +414,7 @@ const AdvancedPayment: React.FC = () => {
                     setToDate('');
                     setSelectedBranchId(null);
                   }}
-                  className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium w-full"
+                  className="px-4 py-2 bg-[#1D9E75] text-white rounded-lg hover:bg-[#0F6E56] transition-colors text-sm font-medium w-full"
                 >
                   This Month
                 </button>
@@ -506,7 +506,7 @@ const AdvancedPayment: React.FC = () => {
                             <div className="flex items-center gap-2">
                               <button
                                 onClick={() => openEdit(payment)}
-                                className="px-3 py-1 rounded-lg bg-indigo-50 text-indigo-700 hover:bg-indigo-100 text-sm font-medium"
+                                className="px-3 py-1 rounded-lg bg-[#E1F5EE] text-[#0F6E56] hover:bg-[#E1F5EE] text-sm font-medium"
                                 title="Edit"
                               >
                                 <Pencil size={16} />
@@ -576,7 +576,7 @@ const AdvancedPayment: React.FC = () => {
                         </div>
                       </div>
                       <div className="flex items-center gap-3 mb-2">
-                        <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white flex items-center justify-center font-bold">
+                        <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#E1F5EE] to-[#0F6E56] text-white flex items-center justify-center font-bold">
                           {(payment.studentName || payment.student_name || 'U').charAt(0).toUpperCase()}
                         </div>
                         <div>
@@ -592,7 +592,7 @@ const AdvancedPayment: React.FC = () => {
                       <div className="flex items-center gap-2 mt-4">
                         <button
                           onClick={() => openEdit(payment)}
-                          className="px-3 py-2 rounded-lg bg-indigo-50 text-indigo-700 hover:bg-indigo-100 text-sm font-medium flex items-center gap-1"
+                          className="px-3 py-2 rounded-lg bg-[#E1F5EE] text-[#0F6E56] hover:bg-[#E1F5EE] text-sm font-medium flex items-center gap-1"
                         >
                           <Pencil size={16} /> Edit
                         </button>
@@ -626,7 +626,7 @@ const AdvancedPayment: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full overflow-hidden max-h-[90vh] flex flex-col"
           >
-            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-6">
+            <div className="bg-gradient-to-r from-[#1D9E75] to-[#0F6E56] p-6">
               <div className="flex items-center justify-between">
                 <h3 className="text-2xl font-bold text-white">Add Advanced Payment</h3>
                 <button
@@ -652,7 +652,7 @@ const AdvancedPayment: React.FC = () => {
                       placeholder="Search student by name or phone..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-[#1D9E75] focus:border-[#E1F5EE]"
                       autoFocus
                     />
                   </div>
@@ -661,7 +661,7 @@ const AdvancedPayment: React.FC = () => {
                   <div className="border-2 border-gray-200 rounded-xl max-h-64 overflow-y-auto">
                     {studentsLoading ? (
                       <div className="flex items-center justify-center py-8">
-                        <Loader2 className="animate-spin text-indigo-600" size={32} />
+                        <Loader2 className="animate-spin text-[#1D9E75]" size={32} />
                       </div>
                     ) : !searchTerm ? (
                       <div className="text-center py-8 text-gray-500">
@@ -678,7 +678,7 @@ const AdvancedPayment: React.FC = () => {
                         <button
                           key={student.id}
                           onClick={() => selectStudent(student)}
-                          className="w-full px-4 py-3 hover:bg-indigo-50 border-b border-gray-100 text-left transition-colors"
+                          className="w-full px-4 py-3 hover:bg-[#E1F5EE] border-b border-gray-100 text-left transition-colors"
                         >
                           <div className="font-semibold text-gray-900">{student.name}</div>
                           <div className="text-sm text-gray-500">{student.phone} • {student.branchName}</div>
@@ -690,11 +690,11 @@ const AdvancedPayment: React.FC = () => {
               ) : (
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">Selected Student</label>
-                  <div className="bg-indigo-50 border-2 border-indigo-200 rounded-xl p-4 flex items-center justify-between">
+                  <div className="bg-[#E1F5EE] border-2 border-[#9FE1CB] rounded-xl p-4 flex items-center justify-between">
                     <div>
-                      <p className="font-bold text-indigo-900">{selectedStudent.name}</p>
-                      <p className="text-sm text-indigo-700">{selectedStudent.phone}</p>
-                      <div className="flex items-center gap-4 mt-2 text-sm text-indigo-600">
+                      <p className="font-bold text-[#0F6E56]">{selectedStudent.name}</p>
+                      <p className="text-sm text-[#0F6E56]">{selectedStudent.phone}</p>
+                      <div className="flex items-center gap-4 mt-2 text-sm text-[#1D9E75]">
                         <span className="flex items-center gap-1">
                           <MapPin size={14} />
                           {selectedStudent.branchName}
@@ -707,7 +707,7 @@ const AdvancedPayment: React.FC = () => {
                     </div>
                     <button
                       onClick={() => setSelectedStudent(null)}
-                      className="text-indigo-600 hover:bg-indigo-100 rounded-lg p-2 transition-colors"
+                      className="text-[#1D9E75] hover:bg-[#E1F5EE] rounded-lg p-2 transition-colors"
                     >
                       <X size={20} />
                     </button>
@@ -727,7 +727,7 @@ const AdvancedPayment: React.FC = () => {
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                     placeholder="Enter advance amount"
-                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-[#1D9E75] focus:border-[#E1F5EE]"
                     disabled={!selectedStudent}
                   />
                 </div>
@@ -744,7 +744,7 @@ const AdvancedPayment: React.FC = () => {
                     type="date"
                     value={paymentDate}
                     onChange={(e) => setPaymentDate(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-[#1D9E75] focus:border-[#E1F5EE]"
                     disabled={!selectedStudent}
                   />
                 </div>
@@ -761,7 +761,7 @@ const AdvancedPayment: React.FC = () => {
                 <button
                   onClick={handleSubmit}
                   disabled={addPaymentMutation.isPending || !selectedStudent}
-                  className="flex-1 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="flex-1 px-6 py-3 bg-gradient-to-r from-[#1D9E75] to-[#0F6E56] text-white rounded-xl hover:from-[#0F6E56] hover:to-[#0F6E56] transition-all shadow-lg hover:shadow-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {addPaymentMutation.isPending ? (
                     <>
@@ -786,7 +786,7 @@ const AdvancedPayment: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             className="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden"
           >
-            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#1D9E75] to-[#0F6E56] p-6 flex items-center justify-between">
               <h3 className="text-xl font-bold text-white">Edit Advance Payment</h3>
               <button onClick={closeEdit} className="text-white hover:bg-white/20 rounded-lg p-2 transition-colors">
                 <X size={22} />
@@ -801,7 +801,7 @@ const AdvancedPayment: React.FC = () => {
                     type="number"
                     value={editAmount}
                     onChange={(e) => setEditAmount(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-[#1D9E75] focus:border-[#E1F5EE]"
                   />
                 </div>
               </div>
@@ -813,7 +813,7 @@ const AdvancedPayment: React.FC = () => {
                     type="date"
                     value={editDate}
                     onChange={(e) => setEditDate(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-[#1D9E75] focus:border-[#E1F5EE]"
                   />
                 </div>
               </div>
@@ -823,7 +823,7 @@ const AdvancedPayment: React.FC = () => {
                   value={editNotes}
                   onChange={(e) => setEditNotes(e.target.value)}
                   rows={3}
-                  className="w-full px-3 py-2 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-[#1D9E75] focus:border-[#E1F5EE]"
                   placeholder="Optional notes"
                 />
               </div>
@@ -832,7 +832,7 @@ const AdvancedPayment: React.FC = () => {
                 <button
                   onClick={handleEditSave}
                   disabled={updatePaymentMutation.isPending}
-                  className="flex-1 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="flex-1 px-6 py-3 bg-gradient-to-r from-[#1D9E75] to-[#0F6E56] text-white rounded-xl hover:from-[#0F6E56] hover:to-[#0F6E56] transition-all shadow-lg hover:shadow-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {updatePaymentMutation.isPending ? (<><Loader2 size={18} className="animate-spin" /> Saving...</>) : 'Save Changes'}
                 </button>
@@ -846,3 +846,7 @@ const AdvancedPayment: React.FC = () => {
 };
 
 export default AdvancedPayment;
+
+
+
+

@@ -149,7 +149,7 @@ const GooglePlaySubscription: React.FC<Props> = ({ productId, onSuccess, onError
   if (loading) {
     return (
       <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 text-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600 mx-auto"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1D9E75] mx-auto"></div>
         <p className="mt-3 text-gray-700">Loading subscription details...</p>
       </div>
     );
@@ -181,7 +181,7 @@ const GooglePlaySubscription: React.FC<Props> = ({ productId, onSuccess, onError
             className={`px-5 py-3 rounded-xl font-semibold transition-all duration-200 ${
               isPurchasing
                 ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                : 'bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 text-white hover:from-blue-600 hover:via-purple-600 hover:to-indigo-600 shadow-lg'
+                : 'bg-gradient-to-r from-blue-500 via-[#1D9E75] to-[#E1F5EE] text-white hover:from-blue-600 hover:via-[#1A8FA8] hover:to-[#0F6E56] shadow-lg'
             }`}
           >
             {isPurchasing ? 'Processing…' : `Subscribe${product?.pricing?.price ? ` — ${product.pricing.price}` : ''}`}
@@ -195,3 +195,6 @@ const GooglePlaySubscription: React.FC<Props> = ({ productId, onSuccess, onError
 };
 
 export default GooglePlaySubscription;
+
+
+

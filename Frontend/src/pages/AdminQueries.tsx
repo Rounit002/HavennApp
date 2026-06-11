@@ -148,7 +148,7 @@ const AdminQueries: React.FC = () => {
                 <div key={query.id} className="p-4 sm:p-5 border rounded-lg shadow-sm bg-white transition-all hover:shadow-md">
                   <div className="flex justify-between items-start gap-3">
                     <div className="flex-grow cursor-pointer" onClick={() => handleNavigate(query.id)}>
-                      <h2 className="text-base sm:text-lg font-semibold text-gray-900 hover:text-indigo-600">{query.title}</h2>
+                      <h2 className="text-base sm:text-lg font-semibold text-gray-900 hover:text-[#1D9E75]">{query.title}</h2>
                       <p className="text-xs sm:text-sm text-gray-500 mt-1">
                         Posted by <span className="font-medium">{query.studentName}</span> on {new Date(query.createdAt).toLocaleDateString()}
                       </p>
@@ -195,3 +195,4 @@ const AdminQueries: React.FC = () => {
 };
 
 export default AdminQueries;
+

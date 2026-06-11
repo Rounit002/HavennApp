@@ -601,3 +601,4 @@ const PublicRegistration: React.FC = () => {
 };
 
 export default PublicRegistration;
+

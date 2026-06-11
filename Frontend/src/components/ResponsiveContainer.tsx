@@ -23,3 +23,4 @@ const ResponsiveContainer: React.FC<Props> = ({ children, withBottomNav }) => {
 };
 
 export default ResponsiveContainer;
+

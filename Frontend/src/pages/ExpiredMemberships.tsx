@@ -435,7 +435,7 @@ const ExpiredMemberships = () => {
             <div className="flex gap-3 overflow-x-auto py-3">
               <Link
                 to="/students"
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm md:text-base font-medium shadow-sm ring-1 ring-transparent transition-colors ${location.pathname.startsWith('/students') && !location.pathname.startsWith('/students/') ? 'bg-indigo-100 text-indigo-700' : 'text-slate-700 hover:bg-slate-100 hover:ring-slate-200'}`}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm md:text-base font-medium shadow-sm ring-1 ring-transparent transition-colors ${location.pathname.startsWith('/students') && !location.pathname.startsWith('/students/') ? 'bg-[#E1F5EE] text-[#0F6E56]' : 'text-slate-700 hover:bg-slate-100 hover:ring-slate-200'}`}
               >
                 <Users className="h-4 w-4" />
                 All Students
@@ -470,7 +470,7 @@ const ExpiredMemberships = () => {
             <div className="flex bg-slate-100 rounded-lg p-1">
               <button
                 onClick={() => setViewMode('list')}
-                className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm ${viewMode === 'list' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm ${viewMode === 'list' ? 'bg-white text-[#1D9E75] shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
                 title="List View"
               >
                 <Rows3 className="h-4 w-4" />
@@ -478,7 +478,7 @@ const ExpiredMemberships = () => {
               </button>
               <button
                 onClick={() => setViewMode('card')}
-                className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm ${viewMode === 'card' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm ${viewMode === 'card' ? 'bg-white text-[#1D9E75] shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
                 title="Card View"
               >
                 <Grid className="h-4 w-4" />
@@ -495,7 +495,7 @@ const ExpiredMemberships = () => {
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                     <input
-                      className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                      className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent transition-all"
                       placeholder="Search by name, phone, or Reg. No."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
@@ -535,7 +535,7 @@ const ExpiredMemberships = () => {
                   <select
                     value={selectedGenderFilter}
                     onChange={(e) => setSelectedGenderFilter(e.target.value)}
-                    className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent transition-all"
                   >
                     <option value="">All Genders</option>
                     <option value="male">Male</option>
@@ -549,7 +549,7 @@ const ExpiredMemberships = () => {
                   <div className="flex flex-col space-y-1">
                     <label className="text-xs font-medium text-gray-600 uppercase tracking-wide">Sort Cards</label>
                     <select
-                      className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                      className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent transition-all"
                       value={`${sortField}-${sortDirection}`}
                       onChange={(e) => {
                         const [field, direction] = e.target.value.split('-');
@@ -667,7 +667,7 @@ const ExpiredMemberships = () => {
                         <div className="flex items-start justify-between">
                           <div>
                             <h4 className="font-semibold text-gray-800">{student.name}</h4>
-                            <p className="text-xs text-gray-500 flex items-center gap-1"><CalendarIcon className="h-3.5 w-3.5 text-indigo-400"/> Reg: {student.registrationNumber || 'N/A'}</p>
+                            <p className="text-xs text-gray-500 flex items-center gap-1"><CalendarIcon className="h-3.5 w-3.5 text-[#5DCAA5]"/> Reg: {student.registrationNumber || 'N/A'}</p>
                           </div>
                           <span className="px-2 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">Expired</span>
                         </div>
@@ -927,3 +927,4 @@ const ExpiredMemberships = () => {
 };
 
 export default ExpiredMemberships;
+

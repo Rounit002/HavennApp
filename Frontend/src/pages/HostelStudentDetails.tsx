@@ -48,7 +48,7 @@ const HostelStudentDetails: React.FC = () => {
         <div className="flex items-center space-x-3">
           <button
             onClick={() => navigate(`/hostel/students/${id}/edit`)}
-            className="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-700 transition-colors"
+            className="inline-flex items-center rounded-md bg-[#1D9E75] px-4 py-2 text-sm font-medium text-white shadow hover:bg-[#0F6E56] transition-colors"
           >
             Edit
           </button>

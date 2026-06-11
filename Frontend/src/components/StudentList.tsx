@@ -105,7 +105,7 @@ const StudentList: React.FC<StudentListProps> = ({ limit, selectedBranchId }) =>
             <input
               type="text"
               placeholder="Search students..."
-              className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-1 focus:ring-purple-300"
+              className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-1 focus:ring-[#5DCAA5]"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -222,7 +222,7 @@ const StudentList: React.FC<StudentListProps> = ({ limit, selectedBranchId }) =>
         <div className="flex justify-center border-t border-gray-100 p-4">
           <button
             onClick={() => navigate('/students')}
-            className="text-purple-600 hover:text-purple-800 text-sm font-medium flex items-center p-2"
+            className="text-[#1D9E75] hover:text-[#0F6E56] text-sm font-medium flex items-center p-2"
           >
             View all students <ChevronRight size={16} className="ml-1" />
           </button>
@@ -233,3 +233,4 @@ const StudentList: React.FC<StudentListProps> = ({ limit, selectedBranchId }) =>
 };
 
 export default StudentList;
+

@@ -55,7 +55,7 @@ const RegistrationLinkCard: React.FC<RegistrationLinkCardProps> = ({ libraryCode
     <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6 mb-6">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-          <Share2 className="w-5 h-5 mr-2 text-purple-600" />
+          <Share2 className="w-5 h-5 mr-2 text-[#1D9E75]" />
           Public Registration Link
         </h3>
         <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">
@@ -74,7 +74,7 @@ const RegistrationLinkCard: React.FC<RegistrationLinkCardProps> = ({ libraryCode
             </div>
             <button
               onClick={() => copyToClipboard(registrationUrl, 'Registration link')}
-              className="flex items-center px-3 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
+              className="flex items-center px-3 py-2 bg-[#1D9E75] text-white rounded-md hover:bg-[#0F6E56] transition-colors"
               title="Copy registration link"
             >
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
@@ -127,7 +127,7 @@ const RegistrationLinkCard: React.FC<RegistrationLinkCardProps> = ({ libraryCode
         <div className="flex space-x-2">
           <button
             onClick={shareLink}
-            className="flex-1 flex items-center justify-center px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
+            className="flex-1 flex items-center justify-center px-4 py-2 bg-[#1D9E75] text-white rounded-md hover:bg-[#0F6E56] transition-colors"
           >
             <Share2 className="w-4 h-4 mr-2" />
             Share Registration Link
@@ -139,3 +139,4 @@ const RegistrationLinkCard: React.FC<RegistrationLinkCardProps> = ({ libraryCode
 };
 
 export default RegistrationLinkCard;
+

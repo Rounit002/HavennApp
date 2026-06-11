@@ -92,7 +92,7 @@ const QueryDetails: React.FC = () => {
             </select>
             <button
               onClick={handleStatusUpdate}
-              className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+              className="bg-[#1D9E75] text-white px-4 py-2 rounded-md hover:bg-[#0F6E56]"
             >
               Update Status
             </button>
@@ -134,3 +134,4 @@ const QueryDetails: React.FC = () => {
 };
 
 export default QueryDetails;
+

@@ -203,7 +203,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
           <select
             value={branchId}
             onChange={(e) => setBranchId(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
             required
           >
             <option value="">Select Branch</option>
@@ -220,7 +220,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
             required
           />
         </div>
@@ -230,7 +230,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="text"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
           />
         </div>
         <div>
@@ -239,7 +239,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="text"
             value={fatherName}
             onChange={(e) => setFatherName(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
           />
         </div>
         <div>
@@ -248,7 +248,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="text"
             value={motherName}
             onChange={(e) => setMotherName(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
           />
         </div>
         <div>
@@ -257,7 +257,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="text"
             value={aadharNumber}
             onChange={(e) => setAadharNumber(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
           />
         </div>
         <div>
@@ -266,7 +266,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="text"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
           />
         </div>
         <div>
@@ -275,7 +275,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="date"
             value={stayStartDate}
             onChange={(e) => setStayStartDate(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
             required
           />
         </div>
@@ -285,7 +285,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="date"
             value={stayEndDate}
             onChange={(e) => setStayEndDate(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
             required
           />
         </div>
@@ -296,7 +296,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             step="0.01"
             value={totalFee}
             onChange={(e) => setTotalFee(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
             required
           />
         </div>
@@ -307,7 +307,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             step="0.01"
             value={cashPaid}
             onChange={(e) => setCashPaid(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
           />
         </div>
         <div>
@@ -317,7 +317,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             step="0.01"
             value={onlinePaid}
             onChange={(e) => setOnlinePaid(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
           />
         </div>
         <div>
@@ -335,7 +335,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="text"
             value={roomNumber}
             onChange={(e) => setRoomNumber(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
             required
           />
         </div>
@@ -346,7 +346,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             step="0.01"
             value={securityMoney}
             onChange={(e) => setSecurityMoney(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
           />
         </div>
         <div>
@@ -355,7 +355,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="text"
             value={registrationNumber}
             onChange={(e) => setRegistrationNumber(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
           />
         </div>
         <div>
@@ -364,7 +364,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="text"
             value={religion}
             onChange={(e) => setReligion(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
             required
           />
         </div>
@@ -373,7 +373,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
           <select
             value={foodPreference}
             onChange={(e) => setFoodPreference(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
             required
           >
             <option value="">Select Food Preference</option>
@@ -386,7 +386,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
           <select
             value={gender}
             onChange={(e) => setGender(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
             required
           >
             <option value="">Select Gender</option>
@@ -400,7 +400,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
           <textarea
             value={remark}
             onChange={(e) => setRemark(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm p-2 transition-colors"
             rows={3}
           />
         </div>
@@ -410,7 +410,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="file"
             accept="image/*"
             onChange={(e) => e.target.files && handleImageUpload(e.target.files[0], setProfileImageUrl)}
-            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#E1F5EE] file:text-[#0F6E56] hover:file:bg-[#E1F5EE]"
             disabled={uploading}
           />
           {profileImageUrl && <p className="mt-1 text-sm text-gray-600">Uploaded: {profileImageUrl.split('/').pop()}</p>}
@@ -421,7 +421,7 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
             type="file"
             accept="image/*"
             onChange={(e) => e.target.files && handleImageUpload(e.target.files[0], setAadharImageUrl)}
-            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#E1F5EE] file:text-[#0F6E56] hover:file:bg-[#E1F5EE]"
             disabled={uploading}
           />
           {aadharImageUrl && <p className="mt-1 text-sm text-gray-600">Uploaded: {aadharImageUrl.split('/').pop()}</p>}
@@ -431,14 +431,14 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
         <button
           type="submit"
           disabled={uploading}
-          className="inline-flex justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors disabled:bg-indigo-400"
+          className="inline-flex justify-center rounded-md bg-[#1D9E75] px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-[#0F6E56] focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:ring-offset-2 transition-colors disabled:bg-[#5DCAA5]"
         >
           {uploading ? 'Uploading...' : initialData ? 'Update Student' : 'Add Student'}
         </button>
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="inline-flex justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors"
+          className="inline-flex justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:ring-offset-2 transition-colors"
         >
           Cancel
         </button>
@@ -448,3 +448,5 @@ const HostelStudentForm: React.FC<HostelStudentFormProps> = ({ branches, onSubmi
 };
 
 export default HostelStudentForm;
+
+

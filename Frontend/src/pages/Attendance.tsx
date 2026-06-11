@@ -329,7 +329,7 @@ const Attendance: React.FC = () => {
         <Navbar />
         <div className="flex-1 overflow-auto p-6">
           <div className="space-y-6">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 text-white">
+            <div className="bg-gradient-to-r from-blue-600 to-[#0F6E56] rounded-xl p-6 text-white">
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <h2 className="text-3xl font-bold mb-2">Attendance Management</h2>
@@ -591,7 +591,7 @@ const Attendance: React.FC = () => {
                         >
                           <td className="px-3 md:px-6 py-3 md:py-4 whitespace-normal sm:whitespace-nowrap">
                             <div className="flex items-center">
-                              <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
+                              <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-400 to-[#E1F5EE] rounded-full flex items-center justify-center">
                                 <span className="text-white font-semibold text-sm">
                                   {record.studentName?.charAt(0)?.toUpperCase() || 'S'}
                                 </span>
@@ -729,3 +729,4 @@ const Attendance: React.FC = () => {
 };
 
 export default Attendance;
+

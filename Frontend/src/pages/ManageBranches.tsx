@@ -62,12 +62,12 @@ const ManageBranches: React.FC = () => {
       badge: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200'
     },
     {
-      bg: 'bg-purple-50 dark:bg-purple-950/30',
-      text: 'text-purple-700 dark:text-purple-300',
-      border: 'border-purple-200 dark:border-purple-800/50',
-      accent: 'from-purple-500 to-violet-600',
-      hover: 'hover:border-purple-400 dark:hover:border-purple-600/50',
-      badge: 'bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-200'
+      bg: 'bg-[#E1F5EE] dark:bg-[#0F6E56]/30',
+      text: 'text-[#0F6E56] dark:text-[#5DCAA5]',
+      border: 'border-[#9FE1CB] dark:border-[#0F6E56]/50',
+      accent: 'from-[#1D9E75] to-[#1A8FA8]',
+      hover: 'hover:border-[#5DCAA5] dark:hover:border-[#1D9E75]/50',
+      badge: 'bg-[#E1F5EE] text-[#0F6E56] dark:bg-[#0F6E56]/40 dark:text-[#9FE1CB]'
     },
     {
       bg: 'bg-amber-50 dark:bg-amber-950/30',
@@ -81,17 +81,17 @@ const ManageBranches: React.FC = () => {
       bg: 'bg-rose-50 dark:bg-rose-950/30',
       text: 'text-rose-700 dark:text-rose-300',
       border: 'border-rose-200 dark:border-rose-800/50',
-      accent: 'from-rose-500 to-pink-600',
+      accent: 'from-rose-500 to-[#1A8FA8]',
       hover: 'hover:border-rose-400 dark:hover:border-rose-600/50',
       badge: 'bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-200'
     },
     {
-      bg: 'bg-indigo-50 dark:bg-indigo-950/30',
-      text: 'text-indigo-700 dark:text-indigo-300',
-      border: 'border-indigo-200 dark:border-indigo-800/50',
-      accent: 'from-indigo-500 to-blue-600',
-      hover: 'hover:border-indigo-400 dark:hover:border-indigo-600/50',
-      badge: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-200'
+      bg: 'bg-[#E1F5EE] dark:bg-[#0F6E56]/30',
+      text: 'text-[#0F6E56] dark:text-[#9FE1CB]',
+      border: 'border-[#9FE1CB] dark:border-[#0F6E56]/50',
+      accent: 'from-[#5DCAA5] to-[#1A8FA8]',
+      hover: 'hover:border-[#5DCAA5] dark:hover:border-[#1D9E75]/50',
+      badge: 'bg-[#E1F5EE] text-[#0F6E56] dark:bg-[#0F6E56]/40 dark:text-[#9FE1CB]'
     }
   ];
 
@@ -236,7 +236,7 @@ const ManageBranches: React.FC = () => {
                   <input
                     type="text"
                     placeholder="Search branches..."
-                    className="pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg bg-white/50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg bg-white/50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
@@ -245,13 +245,13 @@ const ManageBranches: React.FC = () => {
                 <div className="flex bg-white dark:bg-gray-800 rounded-lg p-1 border border-gray-200 dark:border-gray-700">
                   <button
                     onClick={() => setViewMode('grid')}
-                    className={`p-2 rounded-md ${viewMode === 'grid' ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-300' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                    className={`p-2 rounded-md ${viewMode === 'grid' ? 'bg-[#E1F5EE] text-[#1D9E75] dark:bg-[#0F6E56]/30 dark:text-[#9FE1CB]' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
                   >
                     <LayoutGrid size={18} />
                   </button>
                   <button
                     onClick={() => setViewMode('list')}
-                    className={`p-2 rounded-md ${viewMode === 'list' ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-300' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                    className={`p-2 rounded-md ${viewMode === 'list' ? 'bg-[#E1F5EE] text-[#1D9E75] dark:bg-[#0F6E56]/30 dark:text-[#9FE1CB]' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
                   >
                     <List size={18} />
                   </button>
@@ -263,7 +263,7 @@ const ManageBranches: React.FC = () => {
                     setEditingBranch(null);
                     setIsFormOpen(true);
                   }}
-                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-colors shadow-sm"
+                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#1D9E75] to-[#0F6E56] text-white rounded-lg hover:from-[#0F6E56] hover:to-[#0F6E56] transition-colors shadow-sm"
                 >
                   <Plus size={18} />
                   <span className="hidden sm:inline">Add Branch</span>
@@ -283,7 +283,7 @@ const ManageBranches: React.FC = () => {
                   <div className="p-6">
                     <div className="flex justify-between items-center mb-4">
                       <h2 className="text-xl font-semibold text-gray-900 dark:text-white flex items-center">
-                        <span className="w-3 h-3 rounded-full mr-2 bg-indigo-500"></span>
+                        <span className="w-3 h-3 rounded-full mr-2 bg-[#1D9E75]"></span>
                         {editingBranch ? 'Edit Branch' : 'Add New Branch'}
                       </h2>
                       <button
@@ -309,7 +309,7 @@ const ManageBranches: React.FC = () => {
                             value={formData.name}
                             onChange={handleChange}
                             placeholder="Enter branch name"
-                            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white/50 dark:bg-gray-700/50"
+                            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent bg-white/50 dark:bg-gray-700/50"
                             required
                           />
                         </div>
@@ -324,7 +324,7 @@ const ManageBranches: React.FC = () => {
                             value={formData.code}
                             onChange={handleChange}
                             placeholder="e.g., BR-001"
-                            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white/50 dark:bg-gray-700/50"
+                            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent bg-white/50 dark:bg-gray-700/50"
                           />
                         </div>
                         
@@ -338,7 +338,7 @@ const ManageBranches: React.FC = () => {
                             value={formData.address}
                             onChange={handleChange}
                             placeholder="Enter full address"
-                            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white/50 dark:bg-gray-700/50"
+                            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent bg-white/50 dark:bg-gray-700/50"
                           />
                         </div>
                         
@@ -352,7 +352,7 @@ const ManageBranches: React.FC = () => {
                             value={formData.phone}
                             onChange={handleChange}
                             placeholder="+1 (555) 000-0000"
-                            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white/50 dark:bg-gray-700/50"
+                            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent bg-white/50 dark:bg-gray-700/50"
                           />
                         </div>
                         
@@ -366,7 +366,7 @@ const ManageBranches: React.FC = () => {
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="branch@example.com"
-                            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white/50 dark:bg-gray-700/50"
+                            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent bg-white/50 dark:bg-gray-700/50"
                           />
                         </div>
                       </div>
@@ -384,7 +384,7 @@ const ManageBranches: React.FC = () => {
                         </button>
                         <button
                           type="submit"
-                          className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-colors flex items-center gap-2"
+                          className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#1D9E75] to-[#0F6E56] rounded-lg hover:from-[#0F6E56] hover:to-[#0F6E56] transition-colors flex items-center gap-2"
                         >
                           <Check size={16} />
                           {editingBranch ? 'Update Branch' : 'Add Branch'}
@@ -399,12 +399,12 @@ const ManageBranches: React.FC = () => {
             {/* Branches List */}
             {isLoading ? (
               <div className="flex justify-center items-center py-12">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#E1F5EE]"></div>
               </div>
             ) : filteredBranches.length === 0 ? (
               <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-xl border-2 border-dashed border-gray-200 dark:border-gray-700">
-                <div className="mx-auto w-16 h-16 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center mb-4">
-                  <MapPin size={32} className="text-indigo-500" />
+                <div className="mx-auto w-16 h-16 rounded-full bg-[#E1F5EE] dark:bg-[#0F6E56]/30 flex items-center justify-center mb-4">
+                  <MapPin size={32} className="text-[#E1F5EE]" />
                 </div>
                 <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-1">No branches found</h3>
                 <p className="text-gray-500 dark:text-gray-400 mb-4 max-w-md mx-auto">
@@ -418,7 +418,7 @@ const ManageBranches: React.FC = () => {
                       setEditingBranch(null);
                       setIsFormOpen(true);
                     }}
-                    className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+                    className="inline-flex items-center px-4 py-2 bg-[#1D9E75] text-white rounded-lg hover:bg-[#0F6E56] transition-colors text-sm font-medium"
                   >
                     <Plus size={16} className="mr-2" />
                     Add Branch
@@ -491,7 +491,7 @@ const ManageBranches: React.FC = () => {
                                 <Phone className="h-4 w-4 text-gray-400 mr-2" />
                                 <a 
                                   href={`tel:${branch.phone}`} 
-                                  className="text-indigo-600 dark:text-indigo-400 hover:underline"
+                                  className="text-[#1D9E75] dark:text-[#5DCAA5] hover:underline"
                                 >
                                   {branch.phone}
                                 </a>
@@ -503,7 +503,7 @@ const ManageBranches: React.FC = () => {
                                 <Mail className="h-4 w-4 text-gray-400 mr-2" />
                                 <a 
                                   href={`mailto:${branch.email}`}
-                                  className="text-indigo-600 dark:text-indigo-400 hover:underline truncate"
+                                  className="text-[#1D9E75] dark:text-[#5DCAA5] hover:underline truncate"
                                 >
                                   {branch.email}
                                 </a>
@@ -571,14 +571,14 @@ const ManageBranches: React.FC = () => {
                             <div className="space-y-1">
                               {branch.phone && (
                                 <div className="text-sm text-gray-900 dark:text-white">
-                                  <a href={`tel:${branch.phone}`} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                                  <a href={`tel:${branch.phone}`} className="hover:text-[#1D9E75] dark:hover:text-[#5DCAA5] transition-colors">
                                     {branch.phone}
                                   </a>
                                 </div>
                               )}
                               {branch.email && (
                                 <div className="text-xs text-gray-500 dark:text-gray-400 truncate max-w-xs">
-                                  <a href={`mailto:${branch.email}`} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                                  <a href={`mailto:${branch.email}`} className="hover:text-[#1D9E75] dark:hover:text-[#5DCAA5] transition-colors">
                                     {branch.email}
                                   </a>
                                 </div>
@@ -599,7 +599,7 @@ const ManageBranches: React.FC = () => {
                                   setEditingBranch(branch);
                                   setIsFormOpen(true);
                                 }}
-                                className="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
+                                className="text-gray-500 hover:text-[#1D9E75] dark:text-gray-400 dark:hover:text-[#5DCAA5] transition-colors p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
                                 title="Edit branch"
                               >
                                 <Edit2 size={16} />
@@ -628,3 +628,7 @@ const ManageBranches: React.FC = () => {
 };
 
 export default ManageBranches;
+
+
+
+

@@ -75,7 +75,7 @@ const HostelStudentList: React.FC<HostelStudentListProps> = ({ branchId }) => {
             placeholder="Search students..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm transition-colors"
+            className="w-full pl-10 pr-4 py-2 rounded-md border-gray-300 shadow-sm focus:border-[#E1F5EE] focus:ring-[#1D9E75] sm:text-sm transition-colors"
           />
         </div>
       </div>
@@ -106,7 +106,7 @@ const HostelStudentList: React.FC<HostelStudentListProps> = ({ branchId }) => {
                     <td className="px-6 py-4 flex space-x-2">
                       <button
                         onClick={() => handleViewDetails(student.id)}
-                        className="text-indigo-600 hover:text-indigo-800 p-1 transition-colors"
+                        className="text-[#1D9E75] hover:text-[#0F6E56] p-1 transition-colors"
                         title="View Details"
                       >
                         <Eye size={18} />
@@ -154,3 +154,5 @@ const HostelStudentList: React.FC<HostelStudentListProps> = ({ branchId }) => {
 };
 
 export default HostelStudentList;
+
+

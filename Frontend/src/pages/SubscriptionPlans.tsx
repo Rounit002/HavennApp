@@ -84,15 +84,15 @@ const SubscriptionPlans = () => {
     {
       id: 'free_trial',
       name: 'Free Trial Plan',
-      description: 'Kickstart Your Journey – 7 Days Free',
+      description: 'Kickstart Your Journey – 14 Days Free',
       price: '₹0',
       originalPrice: null,
       amount: 0,
       features: [
         'Full access to all features',
-        'Manage unlimited students',
-        'Track attendance',
-        'Generate reports'
+        'Unlimited students & data',
+        'Track attendance & reports',
+        'All premium features unlocked'
       ],
       cta: 'Current Plan',
       isCurrent: isPlanActive('free_trial'),
@@ -121,9 +121,9 @@ const SubscriptionPlans = () => {
       id: '3_month',
       name: '3-Month Plan',
       description: 'Stay Focused for 90 Days',
-      price: '₹680',
-      originalPrice: '₹850',
-      amount: 68000, // ₹680 = 68000 paise
+      price: '₹850',
+      originalPrice: null,
+      amount: 85000, // ₹850 = 85000 paise
       features: [
         'Unlimited students',
         'All features included',
@@ -133,15 +133,15 @@ const SubscriptionPlans = () => {
       cta: 'Choose Plan',
       isCurrent: isPlanActive('3_month'),
       disabled: false,
-      discount: '🎄 Christmas & 🎉 New Year Offer – 20% OFF'
+      discount: null
     },
     {
       id: '6_month',
       name: '6-Month Plan',
       description: 'Make This Your Growth Phase',
-      price: '₹1200',
-      originalPrice: '₹1600',
-      amount: 120000, // ₹1200 = 120000 paise
+      price: '₹1600',
+      originalPrice: null,
+      amount: 160000, // ₹1600 = 160000 paise
       features: [
         'Great value package',
         'All premium features',
@@ -151,15 +151,15 @@ const SubscriptionPlans = () => {
       cta: 'Get Started',
       isCurrent: isPlanActive('6_month'),
       disabled: false,
-      discount: '🎄 Christmas & 🎉 New Year Offer – 25% OFF'
+      discount: null
     },
     {
       id: '12_month',
       name: '12-Month Plan',
       description: 'All In for the Year',
-      price: '₹2000',
-      originalPrice: '₹3000',
-      amount: 200000, // ₹2000 = 200000 paise
+      price: '₹3000',
+      originalPrice: null,
+      amount: 300000, // ₹3000 = 300000 paise
       features: [
         'Best value',
         'All features unlocked',
@@ -169,7 +169,7 @@ const SubscriptionPlans = () => {
       cta: 'Get Best Value',
       isCurrent: isPlanActive('12_month'),
       disabled: false,
-      discount: '🎄 Christmas & 🎉 New Year Offer – 33% OFF'
+      discount: null
     },
     {
       id: '1_day',
@@ -192,7 +192,7 @@ const SubscriptionPlans = () => {
 
   if (loading) {
     return (
-      <div className="flex h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <div className="flex h-screen bg-gradient-to-br from-[#E1F5EE] via-white to-[#E1F5EE]">
         <div
           className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 transition-transform duration-300 ease-in-out z-40 ${isCollapsed ? 'md:w-16' : 'md:w-64'}`}>
           <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} onBarcodeClick={() => {}} />
@@ -201,7 +201,7 @@ const SubscriptionPlans = () => {
           <Navbar />
           <main className="flex-1 flex items-center justify-center">
             <div className="text-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1D9E75] mx-auto"></div>
               <p className="mt-4 text-gray-600">Loading subscription details...</p>
             </div>
           </main>
@@ -211,7 +211,7 @@ const SubscriptionPlans = () => {
   }
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="flex h-screen bg-gradient-to-br from-[#E1F5EE] via-white to-[#E1F5EE]">
       <div
         className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 transition-transform duration-300 ease-in-out z-40 ${isCollapsed ? 'md:w-16' : 'md:w-64'}`}>
         <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} onBarcodeClick={() => {}} />
@@ -222,7 +222,7 @@ const SubscriptionPlans = () => {
           <div className="max-w-6xl mx-auto space-y-8">
 
             <div className="text-center mb-16">
-              <h1 className="text-5xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-6 tracking-tight">Subscription Plans</h1>
+              <h1 className="text-5xl font-black bg-gradient-to-r from-[#0F6E56] via-[#1D9E75] to-[#1A8FA8] bg-clip-text text-transparent mb-6 tracking-tight">Subscription Plans</h1>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
                 Choose a plan that fits your library's growth journey and unlock the full potential of modern library management
               </p>
@@ -256,9 +256,9 @@ const SubscriptionPlans = () => {
             )}
 
             {isWeb && (
-              <div className="bg-blue-50 border border-blue-200 text-blue-800 rounded-xl p-5 mb-10">
+              <div className="bg-[#E1F5EE] border border-[#9FE1CB] text-[#0F6E56] rounded-xl p-5 mb-10">
                 <div className="font-bold mb-1">Subscriptions are managed in the Havenn mobile app</div>
-                <div className="text-sm text-blue-700">
+                <div className="text-sm text-[#0D6B82]">
                   If you’ve already subscribed on the app, your access will be reflected here automatically.
                 </div>
               </div>
@@ -267,16 +267,17 @@ const SubscriptionPlans = () => {
         {/* Trial status banner */}
         {user?.is_trial && subscriptionInfo?.daysLeft !== null && subscriptionInfo?.daysLeft > 0 && (
           <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-8 text-center">
-            <p className="font-bold">🟢 7-Day Free Trial Active – {subscriptionInfo.daysLeft} Days Left</p>
+            <p className="font-bold">🟢 14-Day Free Trial Active – {subscriptionInfo.daysLeft} Days Left</p>
+            <p className="text-sm mt-1">Enjoy unlimited students and full access to all features!</p>
           </div>
         )}
 
         {/* Motivational section */}
-        <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-2xl shadow-2xl p-8 mb-12 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-20 animate-pulse"></div>
+        <div className="bg-gradient-to-r from-[#0F6E56] via-[#1D9E75] to-[#1A8FA8] rounded-2xl shadow-2xl p-8 mb-12 text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#5DCAA5] to-[#1A8FA8] opacity-20 animate-pulse"></div>
           <div className="relative z-10">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 drop-shadow-lg">Most people don't finish what they start. Not you.</h2>
-            <p className="text-lg text-blue-100 font-medium leading-relaxed">
+            <p className="text-lg text-[#E1F5EE] font-medium leading-relaxed">
               This subscription isn't just a payment — it's your decision to run things smarter.
               And it starts now.
             </p>
@@ -289,11 +290,11 @@ const SubscriptionPlans = () => {
             <div 
               key={plan.id} 
               className={`bg-white rounded-2xl shadow-2xl overflow-hidden border-2 relative transform hover:scale-105 transition-all duration-300 hover:shadow-3xl ${
-                plan.isCurrent ? 'border-purple-500 ring-4 ring-purple-200' : 'border-gray-200'
+                plan.isCurrent ? 'border-[#1D9E75] ring-4 ring-[#9FE1CB]' : 'border-gray-200'
               }`}
             >
               {/* Card Header with Gradient */}
-              <div className="h-2 bg-gradient-to-r from-blue-400 to-purple-500"></div>
+              <div className="h-2 bg-gradient-to-r from-[#0F6E56] to-[#9FE1CB]"></div>
               
               <div className="p-8">
                 <h3 className="text-2xl font-black text-gray-900 mb-3 tracking-tight">{plan.name}</h3>
@@ -304,9 +305,9 @@ const SubscriptionPlans = () => {
                   {plan.originalPrice && (
                     <div className="text-lg font-semibold text-gray-400 line-through">{plan.originalPrice}</div>
                   )}
-                  <div className="text-4xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{plan.price}</div>
+                  <div className="text-4xl font-black bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] bg-clip-text text-transparent">{plan.price}</div>
                   {plan.discount && (
-                    <span className="inline-flex items-center px-3 py-1 text-sm font-bold text-white rounded-full bg-gradient-to-r from-red-500 via-pink-500 to-rose-500 shadow-lg">
+                    <span className="inline-flex items-center px-3 py-1 text-sm font-bold text-white rounded-full bg-gradient-to-r from-red-500 via-[#E1F5EE] to-rose-500 shadow-lg">
                       {plan.discount}
                     </span>
                   )}
@@ -332,7 +333,7 @@ const SubscriptionPlans = () => {
           {/* 9-Month Plan */}
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-gray-200 relative transform hover:scale-105 transition-all duration-300 hover:shadow-3xl">
             {/* Card Header with Standard Gradient */}
-            <div className="h-2 bg-gradient-to-r from-blue-400 to-purple-500"></div>
+            <div className="h-2 bg-gradient-to-r from-[#0F6E56] to-[#9FE1CB]"></div>
             
             <div className="p-8">
               <h3 className="text-2xl font-black text-gray-900 mb-3 tracking-tight">9-Month Plan</h3>
@@ -340,7 +341,7 @@ const SubscriptionPlans = () => {
               
               {/* Pricing */}
               <div className="mb-8">
-                <div className="text-4xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">₹2800</div>
+                <div className="text-4xl font-black bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] bg-clip-text text-transparent">₹2800</div>
               </div>
               
               <ul className="space-y-4 mb-8">
@@ -425,3 +426,8 @@ const SubscriptionPlans = () => {
 };
 
 export default SubscriptionPlans;
+
+
+
+
+

@@ -288,9 +288,9 @@ const Expenses: React.FC = () => {
             >
               💸 Expenses
             </motion.h1>
-            <div className="mb-6 h-2 rounded-full bg-gradient-to-r from-indigo-500 via-amber-500 to-rose-500 dark:from-indigo-600 dark:via-amber-600 dark:to-rose-600 shadow-sm ring-1 ring-white/30" />
+            <div className="mb-6 h-2 rounded-full bg-gradient-to-r from-[#E1F5EE] via-amber-500 to-rose-500 dark:from-[#1D9E75] dark:via-amber-600 dark:to-rose-600 shadow-sm ring-1 ring-white/30" />
             <motion.div
-              className="bg-white/95 dark:bg-gray-800/95 shadow-sm rounded-xl p-6 mb-4 border border-gray-200 dark:border-gray-700 ring-1 ring-indigo-100/70 dark:ring-indigo-900/40"
+              className="bg-white/95 dark:bg-gray-800/95 shadow-sm rounded-xl p-6 mb-4 border border-gray-200 dark:border-gray-700 ring-1 ring-[#E1F5EE]/70 dark:ring-[#0F6E56]/40"
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.15 }}
@@ -299,7 +299,7 @@ const Expenses: React.FC = () => {
               <select
                 value={selectedBranchId ?? ''}
                 onChange={handleBranchChange}
-                className="w-full sm:w-1/3 px-4 py-2 border border-indigo-200 dark:border-indigo-700 rounded-md bg-white/95 dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-300 shadow-sm"
+                className="w-full sm:w-1/3 px-4 py-2 border border-[#9FE1CB] dark:border-[#0F6E56] rounded-md bg-white/95 dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#9FE1CB] shadow-sm"
               >
                 <option value="">All Branches</option>
                 {branches.map(branch => (
@@ -310,7 +310,7 @@ const Expenses: React.FC = () => {
               </select>
             </motion.div>
             <motion.div
-              className="bg-white/95 dark:bg-gray-800/95 shadow-sm rounded-xl p-6 mb-8 border border-gray-200 dark:border-gray-700 ring-1 ring-indigo-100/70 dark:ring-indigo-900/40"
+              className="bg-white/95 dark:bg-gray-800/95 shadow-sm rounded-xl p-6 mb-8 border border-gray-200 dark:border-gray-700 ring-1 ring-[#E1F5EE]/70 dark:ring-[#0F6E56]/40"
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.15 }}
@@ -321,7 +321,7 @@ const Expenses: React.FC = () => {
                   name="title"
                   value={formData.title}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-indigo-200 dark:border-indigo-700 rounded-md bg-white/95 dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-300 shadow-sm"
+                  className="w-full px-4 py-2 border border-[#9FE1CB] dark:border-[#0F6E56] rounded-md bg-white/95 dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#9FE1CB] shadow-sm"
                 >
                   <option value="">Select Title</option>
                   {products.map(product => (
@@ -354,7 +354,7 @@ const Expenses: React.FC = () => {
                   value={formData.remark}
                   onChange={handleChange}
                   placeholder="Remark"
-                  className="w-full px-4 py-2 border border-violet-200 dark:border-violet-700 rounded-md bg-white/95 dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-violet-300 shadow-sm"
+                  className="w-full px-4 py-2 border border-[#9FE1CB] dark:border-[#0F6E56] rounded-md bg-white/95 dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#9FE1CB] shadow-sm"
                 />
                 <input
                   type="date"
@@ -380,7 +380,7 @@ const Expenses: React.FC = () => {
               <div className="mt-4 flex justify-end space-x-2">
                 <button
                   onClick={handleSubmit}
-                  className="bg-gradient-to-r from-violet-600 via-fuchsia-500 to-sky-500 text-white px-6 py-2 rounded-md shadow-md hover:from-violet-500 hover:via-fuchsia-400 hover:to-sky-400 focus:ring-2 focus:ring-violet-300 ring-1 ring-white/20 transition"
+                  className="bg-gradient-to-r from-[#1D9E75] via-fuchsia-500 to-sky-500 text-white px-6 py-2 rounded-md shadow-md hover:from-[#E1F5EE] hover:via-fuchsia-400 hover:to-sky-400 focus:ring-2 focus:ring-[#9FE1CB] ring-1 ring-white/20 transition"
                 >
                   {editingExpense ? 'Update Expense' : 'Add Expense'}
                 </button>
@@ -412,7 +412,7 @@ const Expenses: React.FC = () => {
                     </h2>
                     <div className="overflow-x-auto bg-white/95 dark:bg-gray-800/95 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700">
                       <table className="min-w-full text-sm">
-                        <thead className="bg-gradient-to-r from-indigo-50 via-amber-50 to-rose-50 dark:from-gray-700 dark:via-gray-700 dark:to-gray-700 text-gray-700 dark:text-gray-200 font-semibold">
+                        <thead className="bg-gradient-to-r from-[#E1F5EE] via-amber-50 to-rose-50 dark:from-gray-700 dark:via-gray-700 dark:to-gray-700 text-gray-700 dark:text-gray-200 font-semibold">
                           <tr>
                             <th className="py-3 px-4 text-left">Title</th>
                             <th className="py-3 px-4 text-left">Amount</th>
@@ -440,7 +440,7 @@ const Expenses: React.FC = () => {
                                 <div className="flex items-center gap-2">
                                   <button
                                     onClick={() => handleEdit(expense)}
-                                    className="px-2 py-1 text-xs rounded-md bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800"
+                                    className="px-2 py-1 text-xs rounded-md bg-[#E1F5EE] text-[#0F6E56] border border-[#9FE1CB] hover:bg-[#E1F5EE] dark:bg-[#0F6E56]/30 dark:text-[#9FE1CB] dark:border-[#0F6E56]"
                                   >
                                     Edit
                                   </button>
@@ -476,3 +476,6 @@ const Expenses: React.FC = () => {
 };
 
 export default Expenses;
+
+
+

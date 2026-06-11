@@ -209,21 +209,21 @@ const SeatsPage = () => {
               <div>
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-gray-200">Seat Assignments</h1>
                 <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mt-1">Manage library seat availability</p>
-                <div className="mt-3 h-2 rounded-full bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-sky-500 dark:from-indigo-600 dark:via-fuchsia-600 dark:to-sky-600 shadow-sm ring-1 ring-white/30" />
+                <div className="mt-3 h-2 rounded-full bg-gradient-to-r from-[#E1F5EE] via-fuchsia-500 to-sky-500 dark:from-[#1D9E75] dark:via-fuchsia-600 dark:to-sky-600 shadow-sm ring-1 ring-white/30" />
               </div>
-              <button onClick={() => navigate(-1)} className="flex items-center text-indigo-600 hover:text-indigo-800 transition-colors">
+              <button onClick={() => navigate(-1)} className="flex items-center text-[#1D9E75] hover:text-[#0F6E56] transition-colors">
                 <ArrowLeft size={20} className="mr-1" /> Back
               </button>
             </div>
 
             <div className="mb-4 flex flex-wrap gap-4">
-              <div className="rounded-lg bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 p-2 shadow-sm ring-1 ring-indigo-100/80 dark:ring-indigo-900/40 hover:ring-indigo-300/60 transition">
-                <label htmlFor="branch-select" className="text-xs font-semibold text-indigo-700 dark:text-indigo-300 mr-2">Branch</label>
+              <div className="rounded-lg bg-[#E1F5EE] dark:bg-[#0F6E56]/20 border border-[#9FE1CB] dark:border-[#0F6E56] p-2 shadow-sm ring-1 ring-[#E1F5EE]/80 dark:ring-[#0F6E56]/40 hover:ring-[#9FE1CB]/60 transition">
+                <label htmlFor="branch-select" className="text-xs font-semibold text-[#0F6E56] dark:text-[#9FE1CB] mr-2">Branch</label>
                 <select
                   id="branch-select"
                   value={selectedBranchId ?? ''}
                   onChange={(e) => setSelectedBranchId(e.target.value ? parseInt(e.target.value, 10) : null)}
-                  className="border border-indigo-200 dark:border-indigo-700 rounded-md px-3 py-2 text-sm bg-white/95 dark:bg-gray-800/95 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-sm"
+                  className="border border-[#9FE1CB] dark:border-[#0F6E56] rounded-md px-3 py-2 text-sm bg-white/95 dark:bg-gray-800/95 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#5DCAA5] shadow-sm"
                 >
                   <option value="">All Branches</option>
                   {branches.map((branch) => (
@@ -258,7 +258,7 @@ const SeatsPage = () => {
 
             {/* Contextual Stats */}
             <div className="mb-4 flex flex-wrap items-center gap-3">
-              <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-gradient-to-r from-indigo-50 to-violet-50 dark:from-gray-800 dark:to-gray-800 border border-indigo-200/70 dark:border-gray-700/70 ring-1 ring-indigo-100/60 shadow">
+              <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-gradient-to-r from-[#E1F5EE] to-[#E1F5EE] dark:from-gray-800 dark:to-gray-800 border border-[#9FE1CB]/70 dark:border-gray-700/70 ring-1 ring-[#E1F5EE]/60 shadow">
                 <span className="text-xs font-medium text-gray-500">Total</span>
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-100">{totalSeats}</span>
               </div>
@@ -267,7 +267,7 @@ const SeatsPage = () => {
                 <span className="text-xs font-medium text-emerald-700 dark:text-emerald-300">Available</span>
                 <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">{availableSeats}</span>
               </div>
-              <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-gradient-to-r from-rose-100 to-pink-100 dark:from-rose-900/20 dark:to-pink-900/20 border border-rose-300 dark:border-rose-800/70 ring-1 ring-rose-200/70 shadow">
+              <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-gradient-to-r from-rose-100 to-[#9FE1CB] dark:from-rose-900/20 dark:to-[#0F6E56]/20 border border-rose-300 dark:border-rose-800/70 ring-1 ring-rose-200/70 shadow">
                 <span className="h-2 w-2 rounded-full bg-rose-500" />
                 <span className="text-xs font-medium text-rose-700 dark:text-rose-300">Assigned</span>
                 <span className="text-sm font-semibold text-rose-700 dark:text-rose-300">{assignedSeats}</span>
@@ -287,7 +287,7 @@ const SeatsPage = () => {
                 {filteredSeats.map((seat) => (
                   <div
                     key={seat.id}
-                    className="rounded-2xl p-[3px] bg-gradient-to-br from-indigo-600/80 via-fuchsia-600/80 to-sky-500/80 hover:from-indigo-600/90 hover:via-fuchsia-600/90 hover:to-sky-500/90 transition-colors hover:shadow-xl shadow-lg"
+                    className="rounded-2xl p-[3px] bg-gradient-to-br from-[#1D9E75]/80 via-fuchsia-600/80 to-sky-500/80 hover:from-[#1D9E75]/90 hover:via-fuchsia-600/90 hover:to-sky-500/90 transition-colors hover:shadow-xl shadow-lg"
                   >
                     <div className={`rounded-[14px] border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all min-h-[180px] overflow-hidden 
                       ${(() => {
@@ -304,7 +304,7 @@ const SeatsPage = () => {
                           ? seat.shifts.some(s => s.shiftId === selectedShiftId && s.isAssigned)
                           : seat.shifts.some(s => s.isAssigned);
                         const bandClass = assigned
-                          ? 'from-rose-600 to-pink-600'
+                          ? 'from-rose-600 to-[#1A8FA8]'
                           : 'from-emerald-600 to-teal-600';
                         const labelText = assigned ? 'Assigned' : 'Available';
                         return (
@@ -371,14 +371,14 @@ const SeatsPage = () => {
                     value={newSeatNumbers}
                     onChange={(e) => setNewSeatNumbers(e.target.value)}
                     placeholder="Enter seat numbers (e.g., 1,2,3)"
-                    className="w-full border border-gray-300 dark:border-gray-600 rounded-md p-2 text-sm bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                    className="w-full border border-gray-300 dark:border-gray-600 rounded-md p-2 text-sm bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-[#1D9E75] focus:border-[#1D9E75]"
                     required
                     disabled={isAdding || !selectedBranchId}
                   />
                 </div>
                 <button
                   onClick={handleAddSeats}
-                  className="flex items-center gap-2 bg-gradient-to-r from-violet-600 via-fuchsia-500 to-sky-500 text-white px-4 py-2 rounded-md shadow-md hover:from-violet-500 hover:via-fuchsia-400 hover:to-sky-400 focus:ring-2 focus:ring-violet-300 ring-1 ring-white/20 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center gap-2 bg-gradient-to-r from-[#1D9E75] via-fuchsia-500 to-sky-500 text-white px-4 py-2 rounded-md shadow-md hover:from-[#E1F5EE] hover:via-fuchsia-400 hover:to-sky-400 focus:ring-2 focus:ring-[#9FE1CB] ring-1 ring-white/20 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={isAdding || !newSeatNumbers.trim() || !selectedBranchId}
                 >
                   {isAdding ? (<><Loader2 size={16} className="animate-spin" /> Adding...</>) : (<><PlusCircle size={16} /> Add Seats</>)}
@@ -393,3 +393,7 @@ const SeatsPage = () => {
 };
 
 export default SeatsPage;
+
+
+
+

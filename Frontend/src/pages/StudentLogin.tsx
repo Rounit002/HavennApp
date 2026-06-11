@@ -70,15 +70,15 @@ const StudentLogin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-blue-50 to-cyan-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#E1F5EE] via-[#9FE1CB] to-white flex items-center justify-center p-4">
       <div className="w-full max-w-md space-y-6">
         
         <div className="bg-white rounded-2xl shadow-2xl p-8 backdrop-blur-sm border border-white/20">
           <div className="text-center mb-8">
-            <div className="mx-auto w-20 h-20 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-full flex items-center justify-center mb-6 shadow-xl">
+            <div className="mx-auto w-20 h-20 bg-gradient-to-r from-[#0F6E56] via-[#1D9E75] to-[#1A8FA8] rounded-full flex items-center justify-center mb-6 shadow-xl">
               <GraduationCap className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-3xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">Student Login</h1>
+            <h1 className="text-3xl font-black bg-gradient-to-r from-[#0F6E56] to-[#1A8FA8] bg-clip-text text-transparent mb-2">Student Login</h1>
             <p className="text-gray-600 font-medium">Access your library account</p>
           </div>
 
@@ -95,13 +95,13 @@ const StudentLogin: React.FC = () => {
                   name="libraryCode"
                   value={formData.libraryCode}
                   onChange={handleInputChange}
-                  className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium uppercase"
+                  className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium uppercase"
                   placeholder="Enter library code"
                   maxLength={20}
                   required
                 />
               </div>
-              <p className="text-xs text-blue-600 mt-2 font-medium">
+              <p className="text-xs text-[#0D6B82] mt-2 font-medium">
                 💡 Ask your library for the library code
               </p>
             </div>
@@ -118,7 +118,7 @@ const StudentLogin: React.FC = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
+                  className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
                   placeholder="Enter your phone number"
                   maxLength={10}
                   required
@@ -138,7 +138,7 @@ const StudentLogin: React.FC = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full pl-12 pr-12 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
+                  className="w-full pl-12 pr-12 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
                   placeholder="Enter your password"
                   required
                 />
@@ -150,7 +150,7 @@ const StudentLogin: React.FC = () => {
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
-              <p className="text-xs text-blue-600 mt-2 font-medium">
+              <p className="text-xs text-[#0D6B82] mt-2 font-medium">
                 💡 Your password is the same as your phone number
               </p>
             </div>
@@ -159,14 +159,14 @@ const StudentLogin: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white py-4 px-6 rounded-xl font-black text-lg hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+              className="w-full bg-gradient-to-r from-[#0F6E56] via-[#1D9E75] to-[#1A8FA8] text-white py-4 px-6 rounded-xl font-black text-lg hover:from-[#0F6E56] hover:via-[#0F6E56] hover:to-[#0D6B82] focus:outline-none focus:ring-4 focus:ring-[#9FE1CB] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
               {isLoading ? '🔄 Signing In...' : '🎓 Sign In'}
             </button>
           </form>
 
           <div className="mt-6 text-center">
-            <div className="bg-gradient-to-r from-blue-100 to-indigo-100 rounded-xl p-4">
+            <div className="bg-gradient-to-r from-[#E1F5EE] to-[#C6F0DF] rounded-xl p-4">
               <p className="text-gray-700 text-sm font-medium">
                 📚 Don't have an account? Contact your library to get registered.
               </p>
@@ -188,3 +188,6 @@ const StudentLogin: React.FC = () => {
 };
 
 export default StudentLogin;
+
+
+

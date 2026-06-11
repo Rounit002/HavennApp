@@ -296,7 +296,7 @@ const EnhancedAttendance: React.FC = () => {
         <div className="flex-1 overflow-auto p-6">
           <div className="space-y-6">
             {/* Enhanced Header with View Mode Toggle */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-4 sm:p-6 text-white">
+            <div className="bg-gradient-to-r from-blue-600 to-[#0F6E56] rounded-xl p-4 sm:p-6 text-white">
               <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4 mb-6">
                 <div>
                   <h2 className="text-2xl sm:text-3xl font-bold mb-2">Attendance Management</h2>
@@ -509,7 +509,7 @@ const EnhancedAttendance: React.FC = () => {
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
                   <div className="flex items-center">
-                    <TrendingUp className="w-8 h-8 text-purple-300 mr-3" />
+                    <TrendingUp className="w-8 h-8 text-[#5DCAA5] mr-3" />
                     <div>
                       <p className="text-2xl font-bold">
                         {stats ? Math.round((attendance.length / stats.totalStudents) * 100) : 0}%
@@ -584,7 +584,7 @@ const EnhancedAttendance: React.FC = () => {
                         }`}>
                           <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
                             <div className="flex items-center">
-                              <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
+                              <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-400 to-[#E1F5EE] rounded-full flex items-center justify-center">
                                 <span className="text-white font-semibold text-xs sm:text-sm">
                                   {record.studentName?.charAt(0)?.toUpperCase() || 'S'}
                                 </span>
@@ -709,3 +709,5 @@ const EnhancedAttendance: React.FC = () => {
 };
 
 export default EnhancedAttendance;
+
+

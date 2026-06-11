@@ -89,7 +89,7 @@ const OwnerLogin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#E1F5EE] via-[#E1F5EE] to-[#9FE1CB] flex items-center justify-center p-4">
       {showForgotPassword ? (
         <div className="w-full max-w-md space-y-6">
           <ForgotPassword 
@@ -102,21 +102,21 @@ const OwnerLogin: React.FC = () => {
           
           <div className="bg-white rounded-2xl shadow-2xl p-8 backdrop-blur-sm border border-white/20">
             <div className="text-center mb-8">
-              <div className="mx-auto w-20 h-20 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 rounded-full flex items-center justify-center mb-6 shadow-xl">
+              <div className="mx-auto w-20 h-20 bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] rounded-full flex items-center justify-center mb-6 shadow-xl">
                 <Building2 className="w-10 h-10 text-white" />
               </div>
-              <h1 className="text-3xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">Sign In</h1>
+              <h1 className="text-3xl font-black bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] bg-clip-text text-transparent mb-2">Sign In</h1>
               <p className="text-gray-600 font-medium">Owner or Staff/Admin Access</p>
             </div>
 
             {/* Enhanced Mode Switch */}
-            <div className="flex mb-8 p-2 bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl">
+            <div className="flex mb-8 p-2 bg-gradient-to-r from-[#E1F5EE] to-[#9FE1CB] rounded-xl">
               <button
                 type="button"
                 onClick={() => setMode('owner')}
                 className={`flex-1 py-3 rounded-lg text-sm font-bold transition-all duration-300 ${
                   mode === 'owner' 
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-xl transform scale-105' 
+                    ? 'bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] text-white shadow-xl transform scale-105' 
                     : 'text-gray-600 hover:text-gray-800 hover:bg-white/50'
                 }`}
               >
@@ -127,7 +127,7 @@ const OwnerLogin: React.FC = () => {
                 onClick={() => setMode('user')}
                 className={`flex-1 py-3 rounded-lg text-sm font-bold transition-all duration-300 ${
                   mode === 'user' 
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-xl transform scale-105' 
+                    ? 'bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] text-white shadow-xl transform scale-105' 
                     : 'text-gray-600 hover:text-gray-800 hover:bg-white/50'
                 }`}
               >
@@ -148,7 +148,7 @@ const OwnerLogin: React.FC = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
+                      className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1A8FA8] focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
                       placeholder="Enter your phone number"
                       required
                     />
@@ -164,7 +164,7 @@ const OwnerLogin: React.FC = () => {
                       name="password"
                       value={formData.password}
                       onChange={handleInputChange}
-                      className="w-full pl-12 pr-12 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
+                      className="w-full pl-12 pr-12 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1A8FA8] focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
                       placeholder="Enter your password"
                       required
                     />
@@ -181,7 +181,7 @@ const OwnerLogin: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-400 text-white py-4 px-6 rounded-xl font-black text-lg hover:from-purple-700 hover:via-pink-700 hover:to-orange-500 focus:outline-none focus:ring-4 focus:ring-purple-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                  className="w-full bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] text-white py-4 px-6 rounded-xl font-black text-lg hover:from-[#0F6E56] hover:to-[#0D6B82] focus:outline-none focus:ring-4 focus:ring-[#1A8FA8] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
                 >
                   {isLoading ? '🔄 Signing In...' : '🚀 Sign In as Owner'}
                 </button>
@@ -198,7 +198,7 @@ const OwnerLogin: React.FC = () => {
                       name="libraryCode"
                       value={userData.libraryCode}
                       onChange={(e) => setUserData(prev => ({ ...prev, libraryCode: e.target.value }))}
-                      className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium uppercase"
+                      className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1A8FA8] focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium uppercase"
                       placeholder="Enter library code"
                       required
                     />
@@ -214,7 +214,7 @@ const OwnerLogin: React.FC = () => {
                       name="username"
                       value={userData.username}
                       onChange={(e) => setUserData(prev => ({ ...prev, username: e.target.value }))}
-                      className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
+                      className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1A8FA8] focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
                       placeholder="Enter username"
                       required
                     />
@@ -230,7 +230,7 @@ const OwnerLogin: React.FC = () => {
                       name="user_password"
                       value={userData.password}
                       onChange={(e) => setUserData(prev => ({ ...prev, password: e.target.value }))}
-                      className="w-full pl-12 pr-12 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
+                      className="w-full pl-12 pr-12 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1A8FA8] focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
                       placeholder="Enter your password"
                       required
                     />
@@ -247,7 +247,7 @@ const OwnerLogin: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isUserLoading}
-                  className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-400 text-white py-4 px-6 rounded-xl font-black text-lg hover:from-purple-700 hover:via-pink-700 hover:to-orange-500 focus:outline-none focus:ring-4 focus:ring-purple-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                  className="w-full bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] text-white py-4 px-6 rounded-xl font-black text-lg hover:from-[#0F6E56] hover:to-[#0D6B82] focus:outline-none focus:ring-4 focus:ring-[#1A8FA8] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
                 >
                   {isUserLoading ? '🔄 Signing In...' : '👥 Sign In as Staff/Admin'}
                 </button>
@@ -258,17 +258,17 @@ const OwnerLogin: React.FC = () => {
             <div className="mt-6 text-center">
               <button
                 onClick={() => setShowForgotPassword(true)}
-                className="text-purple-600 hover:text-purple-700 font-bold text-sm transition-colors duration-200"
+                className="text-[#1D9E75] hover:text-[#0F6E56] font-bold text-sm transition-colors duration-200"
               >
                 🔑 Forgot Password?
               </button>
             </div>
 
             <div className="mt-6 text-center">
-              <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-4">
+              <div className="bg-gradient-to-r from-[#E1F5EE] to-[#9FE1CB] rounded-xl p-4">
                 <p className="text-gray-700 font-medium">
                   Don't have an account?{' '}
-                  <Link to="/owner-register" className="text-purple-600 hover:text-purple-700 font-bold transition-colors duration-200">
+                  <Link to="/owner-register" className="text-[#1D9E75] hover:text-[#0F6E56] font-bold transition-colors duration-200">
                     🏛️ Register your library
                   </Link>
                 </p>
@@ -288,3 +288,4 @@ const OwnerLogin: React.FC = () => {
 };
 
 export default OwnerLogin;
+

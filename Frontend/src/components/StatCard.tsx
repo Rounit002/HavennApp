@@ -16,7 +16,7 @@ interface StatCardProps {
 
 const StatCard = ({ title, value, icon, iconBgColor, textColor = 'text-gray-900', arrowIcon, containerClassName, titleClassName, valueClassName }: StatCardProps) => {
   return (
-    <div className={`${containerClassName ? containerClassName : 'bg-white rounded-xl p-5 flex flex-col shadow-sm border border-gray-100 relative overflow-hidden'}`}>
+    <div className={`${containerClassName ? containerClassName : 'bg-white/60 backdrop-blur-md rounded-xl p-5 flex flex-col shadow-lg border border-white/30 relative overflow-hidden'}`}>
       <div className={`${iconBgColor} p-2 rounded-lg inline-block`}>
         {icon}
       </div>
@@ -34,3 +34,4 @@ const StatCard = ({ title, value, icon, iconBgColor, textColor = 'text-gray-900'
 };
 
 export default StatCard;
+

@@ -48,13 +48,13 @@ const TransactionPage: React.FC = () => {
           <h1 className="text-3xl font-bold mb-2 text-gray-800 dark:text-gray-100 flex items-center gap-2">
             <span role="img" aria-label="money">💰</span> Transactions
           </h1>
-          <div className="mb-6 h-2 rounded-full bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-sky-500 dark:from-indigo-600 dark:via-fuchsia-600 dark:to-sky-600 shadow-sm ring-1 ring-white/30" />
+          <div className="mb-6 h-2 rounded-full bg-gradient-to-r from-[#E1F5EE] via-fuchsia-500 to-sky-500 dark:from-[#1D9E75] dark:via-fuchsia-600 dark:to-sky-600 shadow-sm ring-1 ring-white/30" />
 
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4 }}
-            className="bg-white/95 dark:bg-gray-800/95 shadow-sm rounded-xl p-4 mb-6 w-full border border-gray-200 dark:border-gray-700 ring-1 ring-indigo-100/70 dark:ring-indigo-900/40"
+            className="bg-white/95 dark:bg-gray-800/95 shadow-sm rounded-xl p-4 mb-6 w-full border border-gray-200 dark:border-gray-700 ring-1 ring-[#E1F5EE]/70 dark:ring-[#0F6E56]/40"
           >
             <AddTransactionForm onAddSuccess={handleAddSuccess} />
           </motion.div>
@@ -77,7 +77,7 @@ const TransactionPage: React.FC = () => {
               className="overflow-x-auto bg-white/95 dark:bg-gray-800/95 shadow-sm rounded-xl w-full border border-gray-200 dark:border-gray-700"
             >
               <table className="w-full text-sm text-left table-auto">
-                <thead className="bg-gradient-to-r from-indigo-50 via-fuchsia-50 to-sky-50 dark:from-gray-700 dark:via-gray-700 dark:to-gray-700 text-gray-700 dark:text-gray-200 font-semibold">
+                <thead className="bg-gradient-to-r from-[#E1F5EE] via-fuchsia-50 to-sky-50 dark:from-gray-700 dark:via-gray-700 dark:to-gray-700 text-gray-700 dark:text-gray-200 font-semibold">
                   <tr>
                     <th className="px-4 py-3">Name</th>
                     <th className="px-4 py-3">Cash Receipt</th>
@@ -111,3 +111,6 @@ const TransactionPage: React.FC = () => {
 };
 
 export default TransactionPage;
+
+
+

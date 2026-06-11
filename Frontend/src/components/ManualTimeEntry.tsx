@@ -175,3 +175,4 @@ const ManualTimeEntry: React.FC<ManualTimeEntryProps> = ({
 };
 
 export default ManualTimeEntry;
+

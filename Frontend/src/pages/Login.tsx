@@ -34,16 +34,16 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#E1F5EE] via-[#E1F5EE] to-[#9FE1CB] flex items-center justify-center p-4">
       <div className="w-full max-w-md space-y-6">
         
         <div className="bg-white bg-opacity-95 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-sm border border-white/20">
           <div className="p-8">
             <div className="text-center mb-8">
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 mb-6 shadow-xl">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] mb-6 shadow-xl">
                 <Lock className="h-8 w-8 text-white" />
               </div>
-              <h1 className="text-3xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">Admin Login</h1>
+              <h1 className="text-3xl font-black bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] bg-clip-text text-transparent mb-2">Admin Login</h1>
               <p className="text-gray-600 font-medium">Sign in to access your dashboard</p>
             </div>
 
@@ -61,7 +61,7 @@ const Login = () => {
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="pl-12 w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
+                    className="pl-12 w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1A8FA8] focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
                     placeholder="Enter your username"
                     required
                     autoComplete="username"
@@ -82,7 +82,7 @@ const Login = () => {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-12 w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
+                    className="pl-12 w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1A8FA8] focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white font-medium"
                     placeholder="Enter your password"
                     required
                     autoComplete="current-password"
@@ -94,7 +94,7 @@ const Login = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white py-4 px-6 rounded-xl font-black text-lg hover:from-purple-700 hover:via-pink-700 hover:to-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 disabled:opacity-70 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                  className="w-full bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] text-white py-4 px-6 rounded-xl font-black text-lg hover:from-[#0F6E56] hover:to-[#0D6B82] focus:outline-none focus:ring-4 focus:ring-[#1A8FA8] disabled:opacity-70 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
                 >
                   {loading ? 'Signing in...' : 'Sign In'}
                 </button>
@@ -102,7 +102,7 @@ const Login = () => {
             </form>
 
             <div className="mt-8 text-center">
-              <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-4">
+              <div className="bg-gradient-to-r from-[#E1F5EE] to-[#9FE1CB] rounded-xl p-4">
                 <p className="text-sm font-bold text-gray-700">🏛️ My Library Management System</p>
                 <p className="text-xs text-gray-600 mt-1">Secure • Modern • Efficient</p>
               </div>
@@ -115,3 +115,4 @@ const Login = () => {
 };
 
 export default Login;
+

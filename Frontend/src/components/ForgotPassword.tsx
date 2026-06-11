@@ -115,7 +115,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onBack, mode }) => {
   return (
     <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
       <div className="text-center mb-8">
-        <div className="mx-auto w-16 h-16 bg-gradient-to-r from-purple-600 to-orange-400 rounded-full flex items-center justify-center mb-4">
+        <div className="mx-auto w-16 h-16 bg-gradient-to-r from-[#1D9E75] to-orange-400 rounded-full flex items-center justify-center mb-4">
           <Lock className="w-8 h-8 text-white" />
         </div>
         <h1 className="text-2xl font-bold text-gray-900">
@@ -140,7 +140,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onBack, mode }) => {
                   type="text"
                   value={verificationData.libraryCode}
                   onChange={(e) => setVerificationData(prev => ({ ...prev, libraryCode: e.target.value }))}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                   placeholder="Enter library code"
                   required
                 />
@@ -156,7 +156,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onBack, mode }) => {
                 type="email"
                 value={verificationData.email}
                 onChange={(e) => setVerificationData(prev => ({ ...prev, email: e.target.value }))}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 placeholder="Enter your email address"
                 required
               />
@@ -171,7 +171,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onBack, mode }) => {
                 type="tel"
                 value={verificationData.phone}
                 onChange={(e) => setVerificationData(prev => ({ ...prev, phone: e.target.value }))}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 placeholder="Enter your phone number"
                 required
               />
@@ -181,7 +181,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onBack, mode }) => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-purple-600 to-orange-400 text-white py-3 px-4 rounded-lg font-medium hover:from-purple-700 hover:to-orange-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+            className="w-full bg-gradient-to-r from-[#1D9E75] to-orange-400 text-white py-3 px-4 rounded-lg font-medium hover:from-[#0F6E56] hover:to-orange-500 focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
           >
             {isLoading ? 'Verifying...' : 'Verify Account'}
           </button>
@@ -196,7 +196,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onBack, mode }) => {
                 type="password"
                 value={resetData.newPassword}
                 onChange={(e) => setResetData(prev => ({ ...prev, newPassword: e.target.value }))}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 placeholder="Enter new password"
                 required
                 minLength={6}
@@ -212,7 +212,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onBack, mode }) => {
                 type="password"
                 value={resetData.confirmPassword}
                 onChange={(e) => setResetData(prev => ({ ...prev, confirmPassword: e.target.value }))}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent"
                 placeholder="Confirm new password"
                 required
                 minLength={6}
@@ -223,7 +223,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onBack, mode }) => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-purple-600 to-orange-400 text-white py-3 px-4 rounded-lg font-medium hover:from-purple-700 hover:to-orange-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+            className="w-full bg-gradient-to-r from-[#1D9E75] to-orange-400 text-white py-3 px-4 rounded-lg font-medium hover:from-[#0F6E56] hover:to-orange-500 focus:outline-none focus:ring-2 focus:ring-[#1D9E75] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
           >
             {isLoading ? 'Resetting Password...' : 'Reset Password'}
           </button>
@@ -233,7 +233,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onBack, mode }) => {
       <div className="mt-6 text-center">
         <button
           onClick={onBack}
-          className="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium"
+          className="inline-flex items-center text-[#1D9E75] hover:text-[#0F6E56] font-medium"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Login
@@ -244,3 +244,4 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onBack, mode }) => {
 };
 
 export default ForgotPassword;
+

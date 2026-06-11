@@ -480,7 +480,7 @@ const AddStudentForm: React.FC = () => {
             {/* Header */}
             <div className="mb-6">
               <div className="flex items-center gap-3">
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r from-[#E1F5EE] to-[#0F6E56] text-white shadow-md">
                   <UserPlus className="w-5 h-5" />
                 </div>
                 <div>
@@ -506,7 +506,7 @@ const AddStudentForm: React.FC = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
               required
             />
           </div>
@@ -520,7 +520,7 @@ const AddStudentForm: React.FC = () => {
             name="registrationNumber"
             value={formData.registrationNumber || ''}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -533,7 +533,7 @@ const AddStudentForm: React.FC = () => {
             name="fatherName"
             value={formData.fatherName || ''}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -546,7 +546,7 @@ const AddStudentForm: React.FC = () => {
             name="aadharNumber"
             value={formData.aadharNumber || ''}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -559,7 +559,7 @@ const AddStudentForm: React.FC = () => {
             name="email"
             value={formData.email || ''}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -572,7 +572,7 @@ const AddStudentForm: React.FC = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
             required
           />
         </div>
@@ -585,7 +585,7 @@ const AddStudentForm: React.FC = () => {
             name="gender"
             value={formData.gender || 'male'}
             onChange={handleNativeSelectChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           >
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -602,7 +602,7 @@ const AddStudentForm: React.FC = () => {
             name="address"
             value={formData.address || ''}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -629,7 +629,7 @@ const AddStudentForm: React.FC = () => {
             name="membershipStart"
             value={formData.membershipStart}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
             required
           />
         </div>
@@ -643,7 +643,7 @@ const AddStudentForm: React.FC = () => {
             name="membershipEnd"
             value={formData.membershipEnd}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
             required
           />
         </div>
@@ -657,7 +657,7 @@ const AddStudentForm: React.FC = () => {
             name="createdAt"
             value={formData.createdAt}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
             required
           />
         </div>
@@ -732,7 +732,7 @@ const AddStudentForm: React.FC = () => {
             onChange={handleChange}
             step="0.01"
             min="0"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -747,7 +747,7 @@ const AddStudentForm: React.FC = () => {
             onChange={handleChange}
             step="0.01"
             min="0"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -762,7 +762,7 @@ const AddStudentForm: React.FC = () => {
             onChange={handleChange}
             step="0.01"
             min="0"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -777,7 +777,7 @@ const AddStudentForm: React.FC = () => {
             onChange={handleChange}
             step="0.01"
             min="0"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -792,7 +792,7 @@ const AddStudentForm: React.FC = () => {
             onChange={handleChange}
             step="0.01"
             min="0"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -830,7 +830,7 @@ const AddStudentForm: React.FC = () => {
             name="remark"
             value={formData.remark || ''}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
             rows={3}
           />
         </div>
@@ -876,7 +876,7 @@ const AddStudentForm: React.FC = () => {
         </div>
         <button
           onClick={handleSubmit}
-          className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-fuchsia-600 text-white py-3 px-4 rounded-xl font-semibold hover:from-indigo-700 hover:via-purple-700 hover:to-fuchsia-700 transition-all duration-200 shadow-md hover:shadow-lg"
+          className="w-full bg-gradient-to-r from-[#1D9E75] via-[#1A8FA8] to-fuchsia-600 text-white py-3 px-4 rounded-xl font-semibold hover:from-[#0F6E56] hover:via-[#0F6E56] hover:to-fuchsia-700 transition-all duration-200 shadow-md hover:shadow-lg"
           disabled={!!error}
         >
           Add Student
@@ -891,3 +891,7 @@ const AddStudentForm: React.FC = () => {
 };
 
 export default AddStudentForm;
+
+
+
+

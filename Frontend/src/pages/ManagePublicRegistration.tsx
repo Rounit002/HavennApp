@@ -56,3 +56,4 @@ const ManagePublicRegistration: React.FC = () => {
 };
 
 export default ManagePublicRegistration;
+

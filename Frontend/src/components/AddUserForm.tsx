@@ -58,7 +58,7 @@ const AddUserForm: React.FC = () => {
             value={formData.username}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -72,7 +72,7 @@ const AddUserForm: React.FC = () => {
             value={formData.password}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -84,7 +84,7 @@ const AddUserForm: React.FC = () => {
             name="role"
             value={formData.role}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           >
             <option value="admin">Admin</option>
             <option value="staff">Staff</option>
@@ -92,7 +92,7 @@ const AddUserForm: React.FC = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-200"
+          className="w-full bg-[#1D9E75] text-white py-2 px-4 rounded-lg hover:bg-[#0F6E56] transition duration-200"
         >
           Add User
         </button>
@@ -102,3 +102,4 @@ const AddUserForm: React.FC = () => {
 };
 
 export default AddUserForm;
+

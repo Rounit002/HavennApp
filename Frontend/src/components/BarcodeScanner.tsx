@@ -333,7 +333,7 @@ const BarcodeScanner: React.FC<BarcodeScannerProps> = ({ onScanSuccess, onClose,
                 title={isCameraOn ? 'Turn off camera' : 'Turn on camera'}>
                 {isCameraOn ? <VideoOff className="w-6 h-6" /> : <Video className="w-6 h-6" />}
               </button>
-              <button onClick={flipFacing} className="p-3 bg-indigo-100 text-indigo-700 rounded-full hover:bg-indigo-200 transition-colors"
+              <button onClick={flipFacing} className="p-3 bg-[#E1F5EE] text-[#0F6E56] rounded-full hover:bg-[#9FE1CB] transition-colors"
                 title={`Flip to ${facingMode === 'environment' ? 'front' : 'back'} camera`}>
                 <RefreshCw className="w-6 h-6" />
               </button>
@@ -360,3 +360,5 @@ const BarcodeScanner: React.FC<BarcodeScannerProps> = ({ onScanSuccess, onClose,
 };
 
 export default BarcodeScanner;
+
+

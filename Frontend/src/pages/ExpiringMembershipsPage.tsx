@@ -137,7 +137,7 @@ const ExpiringMembershipsPage = () => {
               <select
                 value={selectedRange}
                 onChange={(e) => setSelectedRange(e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1D9E75]"
               >
                 <option value="all">All Expiring Soon</option>
                 <option value="1-2">1-2 Days</option>

@@ -66,7 +66,7 @@ class ErrorBoundary extends React.Component<React.PropsWithChildren<{}>, ErrorBo
               </p>
               <Button
                 onClick={() => window.location.reload()}
-                className="bg-indigo-600 hover:bg-indigo-700 text-white"
+                className="bg-[#1D9E75] hover:bg-[#0F6E56] text-white"
               >
                 Refresh Page
               </Button>
@@ -378,7 +378,7 @@ const SchedulePage: React.FC = () => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                 <div className="lg:col-span-1 space-y-8">
                   <Card className="shadow-lg border-gray-200 dark:border-gray-700">
-                    <CardHeader className="bg-gradient-to-br from-indigo-500 to-violet-600 text-white rounded-t-lg">
+                    <CardHeader className="bg-gradient-to-br from-[#E1F5EE] to-[#1D9E75] text-white rounded-t-lg">
                       <CardTitle className="flex items-center justify-between">
                         <span>Calendar</span>
                         <CalendarIcon className="h-5 w-5 text-white" />
@@ -398,7 +398,7 @@ const SchedulePage: React.FC = () => {
                             setIsAddDialogOpen(true);
                           }}
                           disabled={isLoading}
-                          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white"
+                          className="w-full bg-[#1D9E75] hover:bg-[#0F6E56] text-white"
                         >
                           <Plus size={18} className="mr-2" /> Add New Event
                         </Button>
@@ -427,7 +427,7 @@ const SchedulePage: React.FC = () => {
                     <CardContent>
                       {isLoading ? (
                         <div className="py-12 flex justify-center items-center">
-                          <Loader2 className="h-8 w-8 animate-spin text-indigo-600" />
+                          <Loader2 className="h-8 w-8 animate-spin text-[#1D9E75]" />
                         </div>
                       ) : (
                         <Table>
@@ -620,3 +620,6 @@ const SchedulePage: React.FC = () => {
 };
 
 export default SchedulePage;
+
+
+

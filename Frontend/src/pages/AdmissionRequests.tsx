@@ -244,7 +244,7 @@ const AdmissionRequests: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
+    <div className="flex h-screen bg-gradient-to-br from-slate-50 via-white to-[#E1F5EE]">
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} onBarcodeClick={handleBarcodeClick} />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Navbar />
@@ -264,7 +264,7 @@ const AdmissionRequests: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                  <Card className="bg-gradient-to-br from-indigo-500 to-violet-600 border-0 text-white ring-1 ring-white/10 transition-transform duration-200 ease-out transform-gpu hover:-translate-y-1 hover:scale-[1.02] hover:rotate-[1deg]">
+                  <Card className="bg-gradient-to-br from-[#E1F5EE] to-[#1D9E75] border-0 text-white ring-1 ring-white/10 transition-transform duration-200 ease-out transform-gpu hover:-translate-y-1 hover:scale-[1.02] hover:rotate-[1deg]">
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div>
@@ -342,9 +342,9 @@ const AdmissionRequests: React.FC = () => {
                         </CardDescription>
                       </div>
                       <div className="flex bg-slate-100 rounded-lg p-1 w-fit">
-                        <button onClick={() => setViewMode('table')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='table'?'bg-white text-indigo-600 shadow-sm':'text-gray-600'}`} title="Table View"><Rows3 className="h-4 w-4"/></button>
-                        <button onClick={() => setViewMode('grid')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='grid'?'bg-white text-indigo-600 shadow-sm':'text-gray-600'}`} title="Grid View"><GridIcon className="h-4 w-4"/></button>
-                        <button onClick={() => setViewMode('compact')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='compact'?'bg-white text-indigo-600 shadow-sm':'text-gray-600'}`} title="Compact"><PanelTop className="h-4 w-4"/></button>
+                        <button onClick={() => setViewMode('table')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='table'?'bg-white text-[#1D9E75] shadow-sm':'text-gray-600'}`} title="Table View"><Rows3 className="h-4 w-4"/></button>
+                        <button onClick={() => setViewMode('grid')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='grid'?'bg-white text-[#1D9E75] shadow-sm':'text-gray-600'}`} title="Grid View"><GridIcon className="h-4 w-4"/></button>
+                        <button onClick={() => setViewMode('compact')} className={`px-3 py-1.5 rounded-md text-sm ${viewMode==='compact'?'bg-white text-[#1D9E75] shadow-sm':'text-gray-600'}`} title="Compact"><PanelTop className="h-4 w-4"/></button>
                       </div>
                     </div>
                   </CardHeader>
@@ -817,3 +817,6 @@ const AdmissionRequests: React.FC = () => {
 };
 
 export default AdmissionRequests;
+
+
+

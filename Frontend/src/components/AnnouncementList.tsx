@@ -44,7 +44,7 @@ interface AnnouncementListProps {
 // A more visually appealing loading spinner
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center w-full h-64">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1D9E75]"></div>
   </div>
 );
 
@@ -61,7 +61,7 @@ const EmptyState = ({ isAdmin, onAdd }: { isAdmin?: boolean; onAdd?: () => void;
     {isAdmin && onAdd && (
       <button
         onClick={onAdd}
-        className="mt-6 flex items-center mx-auto space-x-2 bg-indigo-600 text-white px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-all duration-200 shadow-sm hover:shadow-md"
+        className="mt-6 flex items-center mx-auto space-x-2 bg-[#1D9E75] text-white px-5 py-2.5 rounded-lg hover:bg-[#0F6E56] transition-all duration-200 shadow-sm hover:shadow-md"
       >
         <Plus className="h-5 w-5" />
         <span>Create First Announcement</span>
@@ -157,7 +157,7 @@ const AnnouncementList: React.FC<AnnouncementListProps> = ({
   const cardBaseClasses = "rounded-xl border shadow-md transition-transform duration-200 ease-out transform-gpu will-change-transform ring-1 ring-white/20 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:rotate-[1.25deg] overflow-hidden text-white";
   const pickGradient = (ann: Announcement) => {
     // Strong, dashboard-like gradients
-    if (ann.isGlobal) return 'bg-gradient-to-br from-indigo-500 to-violet-600 border-transparent';
+    if (ann.isGlobal) return 'bg-gradient-to-br from-[#E1F5EE] to-[#1D9E75] border-transparent';
     // Branch-specific: alternate by id for visual interest
     const mod = ann.id % 3;
     if (mod === 0) return 'bg-gradient-to-br from-emerald-500 to-teal-600 border-transparent';
@@ -180,7 +180,7 @@ const AnnouncementList: React.FC<AnnouncementListProps> = ({
         {isAdmin && onAdd && (
           <button
             onClick={onAdd}
-            className="flex items-center space-x-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-all duration-200 shadow-sm hover:shadow-md"
+            className="flex items-center space-x-2 bg-[#1D9E75] text-white px-4 py-2 rounded-lg hover:bg-[#0F6E56] transition-all duration-200 shadow-sm hover:shadow-md"
           >
             <Plus className="h-5 w-5" />
             <span className="hidden sm:block">New Announcement</span>
@@ -276,3 +276,6 @@ const AnnouncementList: React.FC<AnnouncementListProps> = ({
 };
 
 export default AnnouncementList;
+
+
+

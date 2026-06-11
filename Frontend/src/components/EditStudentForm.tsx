@@ -475,7 +475,7 @@ const EditStudentForm: React.FC = () => {
             {/* Header */}
             <div className="mb-6">
               <div className="flex items-center gap-3">
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r from-[#E1F5EE] to-[#0F6E56] text-white shadow-md">
                   <UserCog className="w-5 h-5" />
                 </div>
                 <div className="flex items-center gap-3">
@@ -498,7 +498,7 @@ const EditStudentForm: React.FC = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
             required
           />
         </div>
@@ -510,7 +510,7 @@ const EditStudentForm: React.FC = () => {
             name="registrationNumber"
             value={formData.registrationNumber}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -521,7 +521,7 @@ const EditStudentForm: React.FC = () => {
             name="fatherName"
             value={formData.fatherName}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -531,7 +531,7 @@ const EditStudentForm: React.FC = () => {
             name="gender"
             value={formData.gender}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           >
             <option value="">Select Gender</option>
             <option value="male">Male</option>
@@ -547,7 +547,7 @@ const EditStudentForm: React.FC = () => {
             name="aadharNumber"
             value={formData.aadharNumber}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -558,7 +558,7 @@ const EditStudentForm: React.FC = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -569,7 +569,7 @@ const EditStudentForm: React.FC = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
             required
           />
         </div>
@@ -581,7 +581,7 @@ const EditStudentForm: React.FC = () => {
             name="address"
             value={formData.address}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
             required
           />
         </div>
@@ -605,7 +605,7 @@ const EditStudentForm: React.FC = () => {
             name="membershipStart"
             value={formData.membershipStart}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
             required
           />
         </div>
@@ -617,7 +617,7 @@ const EditStudentForm: React.FC = () => {
             name="membershipEnd"
             value={formData.membershipEnd}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
             required
           />
         </div>
@@ -670,7 +670,7 @@ const EditStudentForm: React.FC = () => {
             onChange={handleChange}
             step="0.01"
             min="0"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -683,7 +683,7 @@ const EditStudentForm: React.FC = () => {
             onChange={handleChange}
             step="0.01"
             min="0"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -696,7 +696,7 @@ const EditStudentForm: React.FC = () => {
             onChange={handleChange}
             step="0.01"
             min="0"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -709,7 +709,7 @@ const EditStudentForm: React.FC = () => {
             onChange={handleChange}
             step="0.01"
             min="0"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -722,7 +722,7 @@ const EditStudentForm: React.FC = () => {
             onChange={handleChange}
             step="0.01"
             min="0"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
           />
         </div>
         <div>
@@ -754,7 +754,7 @@ const EditStudentForm: React.FC = () => {
             name="remark"
             value={formData.remark}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5DCAA5]"
             rows={3}
           />
         </div>
@@ -824,3 +824,6 @@ const EditStudentForm: React.FC = () => {
 };
 
 export default EditStudentForm;
+
+
+

@@ -5,82 +5,93 @@
 
 @layer base {
   :root {
-    --background: 25 38% 96%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 23% 97%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 265 67% 40%;
+    --primary: 161 71% 40%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 265 77% 83%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 186 74% 33%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 15% 95%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 15% 95%;
+    --accent-foreground: 222 47% 11%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 65% 53%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 214 24% 90%;
+    --input: 214 24% 90%;
+    --ring: 186 74% 33%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222.2 84% 4.9%;
-    --sidebar-primary: 265 67% 40%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 161 71% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 265 77% 83%;
-    --sidebar-accent-foreground: 265 67% 40%;
-    --sidebar-border: 214.3 31.8% 91.4%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 156 52% 88%;
+    --sidebar-accent-foreground: 161 71% 35%;
+    --sidebar-border: 214 24% 90%;
+    --sidebar-ring: 186 74% 33%;
+
+    --color-primary: #1D9E75;
+    --color-primary-dark: #0F6E56;
+    --color-primary-light: #5DCAA5;
+    --color-secondary: #1A8FA8;
+    --color-secondary-dark: #0D6B82;
+    --color-surface: #E1F5EE;
+    --color-accent: #9FE1CB;
+    --gradient-primary: linear-gradient(135deg, #1D9E75, #1A8FA8);
+    --gradient-dark: linear-gradient(135deg, #0F6E56, #1D9E75);
+    --gradient-light: linear-gradient(135deg, #1D9E75, #5DCAA5);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 224 16% 12%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 224 16% 14%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 224 16% 14%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 265 67% 40%; 
+    --primary: 161 71% 45%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 186 74% 28%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 224 16% 18%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 224 16% 18%;
     --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62% 45%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 222.2 84% 4.9%;
+    --border: 217 20% 18%;
+    --input: 217 20% 18%;
+    --ring: 186 74% 28%;
+    --sidebar-background: 224 16% 12%;
     --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 265 67% 40%;
+    --sidebar-primary: 161 71% 45%;
     --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent: 186 74% 25%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-ring: 212.7 26.8% 83.9%;
+    --sidebar-border: 217 20% 18%;
+    --sidebar-ring: 186 74% 28%;
   }
 }
 
@@ -91,7 +102,17 @@
 
   body {
     @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(800px 400px at 0% 0%, rgba(29, 158, 117, 0.08), transparent 60%),
+      radial-gradient(800px 400px at 100% 100%, rgba(26, 143, 168, 0.08), transparent 60%),
+      radial-gradient(600px 300px at 100% 0%, rgba(159, 225, 203, 0.06), transparent 60%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+    background-attachment: fixed;
   }
+  a, button, input, select, textarea {
+    @apply transition-colors duration-200 ease-out;
+  }
+  html { scroll-behavior: smooth; }
 }
 
 .stat-card {
@@ -119,3 +140,4 @@
     display: block !important;
   }
 }
+

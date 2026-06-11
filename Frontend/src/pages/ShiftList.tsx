@@ -87,7 +87,7 @@ const ShiftList: React.FC = () => {
     
     if (diffInHours > 24) return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300';
     if (diffInHours > 0) return 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300';
-    if (diffInHours > -3) return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300';
+    if (diffInHours > -3) return 'bg-[#E1F5EE] text-[#0F6E56] dark:bg-[#0F6E56]/30 dark:text-[#9FE1CB]';
     return 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400';
   };
 
@@ -115,7 +115,7 @@ const ShiftList: React.FC = () => {
         <div className="flex-1 overflow-y-auto p-4 sm:p-6">
           <div className="max-w-7xl mx-auto">
             <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm animate-fade-in">
-              <CardHeader className="border-b border-gray-200 dark:border-gray-700 bg-gradient-to-br from-indigo-500 to-violet-600 text-white rounded-t-lg">
+              <CardHeader className="border-b border-gray-200 dark:border-gray-700 bg-gradient-to-br from-[#E1F5EE] to-[#1D9E75] text-white rounded-t-lg">
                 <CardTitle className="flex items-center gap-2 text-2xl sm:text-3xl font-bold">
                   <Clock size={24} className="text-white" />
                   Shifts Overview
@@ -126,7 +126,7 @@ const ShiftList: React.FC = () => {
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4">
                   <div className="w-full sm:w-64">
                     <Select value={selectedBranchId} onValueChange={setSelectedBranchId}>
-                      <SelectTrigger className="ring-1 ring-indigo-100/70 dark:ring-indigo-900/40">
+                      <SelectTrigger className="ring-1 ring-[#E1F5EE]/70 dark:ring-[#0F6E56]/40">
                         <SelectValue placeholder="Filter by branch" />
                       </SelectTrigger>
                       <SelectContent>
@@ -140,7 +140,7 @@ const ShiftList: React.FC = () => {
                 </div>
                 {isLoading ? (
                   <div className="flex justify-center items-center py-12">
-                    <Loader2 size={28} className="animate-spin text-indigo-500" />
+                    <Loader2 size={28} className="animate-spin text-[#E1F5EE]" />
                   </div>
                 ) : error ? (
                   <Alert variant="destructive" className="bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-700">
@@ -151,9 +151,9 @@ const ShiftList: React.FC = () => {
                   <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-center py-12 px-4 bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-gray-800 dark:to-gray-800/50 rounded-xl border border-dashed border-indigo-200 dark:border-gray-700"
+                    className="text-center py-12 px-4 bg-gradient-to-br from-[#E1F5EE] to-blue-50 dark:from-gray-800 dark:to-gray-800/50 rounded-xl border border-dashed border-[#9FE1CB] dark:border-gray-700"
                   >
-                    <Calendar size={48} className="mx-auto text-indigo-400 dark:text-indigo-500 mb-3" />
+                    <Calendar size={48} className="mx-auto text-[#5DCAA5] dark:text-[#E1F5EE] mb-3" />
                     <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-1">No shifts scheduled</h3>
                     <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto">
                       Get started by adding a new shift to your schedule.
@@ -173,7 +173,7 @@ const ShiftList: React.FC = () => {
                           transition={{ delay: index * 0.05 }}
                           className="group relative"
                         >
-                          <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl opacity-0 group-hover:opacity-100 blur transition duration-200 group-hover:duration-300"></div>
+                          <div className="absolute -inset-0.5 bg-gradient-to-r from-[#E1F5EE] to-[#E1F5EE] rounded-xl opacity-0 group-hover:opacity-100 blur transition duration-200 group-hover:duration-300"></div>
                           
                           <div className="relative bg-white dark:bg-gray-800 rounded-xl p-5 h-full border border-gray-200 dark:border-gray-700 hover:border-transparent group-hover:shadow-lg transition-all duration-200">
                             <div className="flex justify-between items-start mb-4">
@@ -203,7 +203,7 @@ const ShiftList: React.FC = () => {
                                   </div>
                                 ))}
                                 {shift.studentCount > 3 && (
-                                  <div className="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800 bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-xs font-medium text-indigo-600 dark:text-indigo-300">
+                                  <div className="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800 bg-[#E1F5EE] dark:bg-[#0F6E56]/50 flex items-center justify-center text-xs font-medium text-[#1D9E75] dark:text-[#9FE1CB]">
                                     +{shift.studentCount - 3}
                                   </div>
                                 )}
@@ -211,7 +211,7 @@ const ShiftList: React.FC = () => {
                               
                               <Link
                                 to={`/shifts/${shift.id}/students`}
-                                className="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors group/button"
+                                className="inline-flex items-center text-sm font-medium text-[#1D9E75] hover:text-[#0F6E56] dark:text-[#5DCAA5] dark:hover:text-[#9FE1CB] transition-colors group/button"
                               >
                                 View details
                                 <ChevronRight size={16} className="ml-1 group-hover/button:translate-x-0.5 transition-transform" />
@@ -219,10 +219,10 @@ const ShiftList: React.FC = () => {
                             </div>
                             
                             <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-                              <div className="flex items-center justify-between bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-3">
+                              <div className="flex items-center justify-between bg-[#E1F5EE] dark:bg-[#0F6E56]/20 rounded-lg p-3">
                                 <div className="flex items-center">
                                   <div className="p-2 rounded-lg bg-white dark:bg-gray-700/50 shadow-sm mr-3">
-                                    <Clock size={16} className="text-indigo-600 dark:text-indigo-300" />
+                                    <Clock size={16} className="text-[#1D9E75] dark:text-[#9FE1CB]" />
                                   </div>
                                   <div>
                                     <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-0.5">Shift Time</p>
@@ -234,7 +234,7 @@ const ShiftList: React.FC = () => {
                                 <div className="h-10 w-px bg-gray-200 dark:bg-gray-600 mx-3"></div>
                                 <div className="flex items-center">
                                   <div className="p-2 rounded-lg bg-white dark:bg-gray-700/50 shadow-sm mr-3">
-                                    <Users size={16} className="text-indigo-600 dark:text-indigo-300" />
+                                    <Users size={16} className="text-[#1D9E75] dark:text-[#9FE1CB]" />
                                   </div>
                                   <div>
                                     <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-0.5">Students</p>
@@ -290,3 +290,6 @@ const ShiftList: React.FC = () => {
 };
 
 export default ShiftList;
+
+
+

@@ -138,8 +138,8 @@ const HostelDashboard: React.FC = () => {
                           <Link key={branch.id} to={`/hostel/branches/${branch.id}/students`} className="block p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200">
                             <div className="flex items-center justify-between">
                               <h4 className="font-semibold text-lg text-gray-800 truncate">{branch.name}</h4>
-                              <div className="p-2 bg-indigo-100 rounded-full">
-                                <Home className="h-5 w-5 text-indigo-500" />
+                              <div className="p-2 bg-[#E1F5EE] rounded-full">
+                                <Home className="h-5 w-5 text-[#E1F5EE]" />
                               </div>
                             </div>
                             <div className="mt-3 flex items-center text-sm text-gray-600">
@@ -166,3 +166,5 @@ const HostelDashboard: React.FC = () => {
 };
 
 export default HostelDashboard;
+
+

@@ -148,3 +148,4 @@ const DeleteAccount: React.FC = () => {
 };
 
 export default DeleteAccount;
+

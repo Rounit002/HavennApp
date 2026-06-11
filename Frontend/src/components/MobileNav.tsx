@@ -22,7 +22,7 @@ const MobileNav: React.FC = () => {
             <NavLink
               to={to}
               className={({ isActive }) => `flex flex-col items-center justify-center py-2.5 text-xs ${
-                isActive ? 'text-indigo-600' : 'text-gray-600'
+                isActive ? 'text-[#1D9E75]' : 'text-gray-600'
               }`}
             >
               <Icon size={20} />
@@ -36,3 +36,4 @@ const MobileNav: React.FC = () => {
 };
 
 export default MobileNav;
+

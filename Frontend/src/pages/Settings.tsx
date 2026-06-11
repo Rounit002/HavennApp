@@ -218,7 +218,7 @@ const Settings = () => {
   if (error) return <div>Error loading profile: {error.message}</div>;
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="flex h-screen bg-gradient-to-br from-[#E1F5EE] via-white to-[#9FE1CB]">
       <div
         className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 transition-transform duration-300 ease-in-out z-40 ${isCollapsed ? 'md:w-16' : 'md:w-64'}`}>
         <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} onBarcodeClick={() => {}} />
@@ -230,7 +230,7 @@ const Settings = () => {
             {/* Clean Responsive Header */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 lg:p-8">
               <div className="flex flex-col sm:flex-row items-center gap-4">
-                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-3 sm:p-4 rounded-2xl shadow-lg">
+                <div className="bg-gradient-to-r from-blue-600 to-[#0F6E56] p-3 sm:p-4 rounded-2xl shadow-lg">
                   <SettingsIcon className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
                 </div>
                 <div className="text-center sm:text-left">
@@ -251,7 +251,7 @@ const Settings = () => {
                 <div className="bg-green-50 text-green-700 rounded-full px-3 py-1.5 text-xs sm:text-sm font-semibold">
                   ⚡ Fast
                 </div>
-                <div className="bg-purple-50 text-purple-700 rounded-full px-3 py-1.5 text-xs sm:text-sm font-semibold">
+                <div className="bg-[#9FE1CB] text-[#085041] rounded-full px-3 py-1.5 text-xs sm:text-sm font-semibold">
                   🎨 Modern
                 </div>
               </div>
@@ -259,15 +259,15 @@ const Settings = () => {
             
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
               {/* Personal Information Card */}
-              <div className="bg-gradient-to-br from-white via-blue-50 to-purple-50 rounded-3xl shadow-2xl border-2 border-blue-200 p-8 relative overflow-hidden group hover:shadow-3xl transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5 group-hover:from-blue-600/10 group-hover:to-purple-600/10 transition-all duration-300"></div>
+              <div className="bg-gradient-to-br from-white via-[#E1F5EE] to-[#9FE1CB] rounded-3xl shadow-2xl border-2 border-[#9FE1CB] p-8 relative overflow-hidden group hover:shadow-3xl transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1D9E75]/5 to-[#1A8FA8]/5 group-hover:from-[#1D9E75]/10 group-hover:to-[#1A8FA8]/10 transition-all duration-300"></div>
                 <div className="relative z-10">
                   <div className="flex items-center mb-6">
-                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-2xl mr-4 shadow-xl">
+                    <div className="bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] p-3 rounded-2xl mr-4 shadow-xl">
                       <User className="h-8 w-8 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                      <h3 className="text-2xl font-black bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] bg-clip-text text-transparent">
                         👤 Personal Information
                       </h3>
                       <p className="text-gray-600 font-medium">Update your profile details</p>
@@ -286,7 +286,7 @@ const Settings = () => {
                             name="libraryName" 
                             value={formData.libraryName} 
                             onChange={handleChange}
-                            className="border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/80 hover:bg-white font-medium p-4"
+                            className="border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1A8FA8] focus:border-transparent transition-all duration-300 bg-white/80 hover:bg-white font-medium p-4"
                           />
                         </div>
                       )}
@@ -328,7 +328,7 @@ const Settings = () => {
                             name="ownerPhone" 
                             value={formData.ownerPhone} 
                             onChange={handleChange}
-                            className="border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/80 hover:bg-white font-medium p-4"
+                            className="border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1A8FA8] focus:border-transparent transition-all duration-300 bg-white/80 hover:bg-white font-medium p-4"
                           />
                         </div>
                       )}
@@ -337,7 +337,7 @@ const Settings = () => {
                       <Button 
                         type="submit" 
                         disabled={profileMutation.isPending || ownerProfileMutation.isPending}
-                        className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white font-bold py-3 px-8 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                        className="bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] hover:from-[#0F6E56] hover:to-[#0D6B82] text-white font-bold py-3 px-8 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 focus:ring-4 focus:ring-[#1A8FA8]"
                       >
                         <Save className="h-5 w-5 mr-2" />
                         {profileMutation.isPending || ownerProfileMutation.isPending ? '💾 Saving...' : '✨ Save Changes'}
@@ -374,7 +374,7 @@ const Settings = () => {
                         value={formData.oldPassword} 
                         onChange={handleChange} 
                         type="password"
-                        className="border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 bg-white/80 hover:bg-white font-medium p-4"
+                        className="border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1A8FA8] focus:border-transparent transition-all duration-300 bg-white/80 hover:bg-white font-medium p-4"
                       />
                     </div>
                     <div>
@@ -408,7 +408,7 @@ const Settings = () => {
                     <div className="flex justify-end">
                       <Button 
                         type="submit"
-                        className="bg-gradient-to-r from-green-600 via-emerald-600 to-green-700 hover:from-green-700 hover:via-emerald-700 hover:to-green-800 text-white font-bold py-3 px-8 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                        className="bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] hover:from-[#0F6E56] hover:to-[#0D6B82] text-white font-bold py-3 px-8 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 focus:ring-4 focus:ring-[#1A8FA8]"
                       >
                         <Lock className="h-5 w-5 mr-2" />
                         🔐 Update Password
@@ -489,15 +489,15 @@ const Settings = () => {
                 </div>
 
                 {/* Staff Management Section */}
-                <div className="bg-gradient-to-br from-white via-purple-50 to-indigo-50 rounded-3xl shadow-2xl border-2 border-purple-200 p-8 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-indigo-600/5"></div>
+                <div className="bg-gradient-to-br from-white via-[#E1F5EE] to-[#9FE1CB] rounded-3xl shadow-2xl border-2 border-[#9FE1CB] p-8 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1D9E75]/5 to-[#1A8FA8]/5"></div>
                   <div className="relative z-10">
                     <div className="flex items-center mb-6">
-                      <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-3 rounded-2xl mr-4 shadow-xl">
+                      <div className="bg-gradient-to-r from-[#1D9E75] to-[#1A8FA8] p-3 rounded-2xl mr-4 shadow-xl">
                         <Crown className="h-8 w-8 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-black bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                        <h3 className="text-2xl font-black bg-gradient-to-r from-[#1D9E75] to-[#0F6E56] bg-clip-text text-transparent">
                           👥 Staff Management
                         </h3>
                         <p className="text-gray-600 font-medium">Manage team members and permissions</p>
@@ -548,3 +548,4 @@ const Settings = () => {
 };
 
 export default Settings;
+
