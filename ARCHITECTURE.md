@@ -68,7 +68,11 @@ Mounted in `server.js` under `/api/*` with auth/data/subscription guards where n
   `products`, `settings`
 - Public/mixed: `announcements` (any authenticated), `queries`, `public-registration`, `admission-requests`
 - `subscriptions`: Plan/status endpoints used by frontend to gate features
-- `subscriptions/google-play`: Google Play Billing endpoints (owner-auth only where applicable)
+- `subscriptions/revenuecat`: Primary subscription integration (Android via Google Play, mounted at `/api/subscriptions/revenuecat`). RevenueCat is the source of truth for entitlements; the backend mirrors state onto the `libraries` table so `validateSubscription` keeps working.
+  - `POST /api/subscriptions/revenuecat/sync` (owner-auth) – called by the app right after purchase/restore; fetches the subscriber record from the RevenueCat REST API and updates the DB immediately (no webhook wait). Also refreshes `req.session.owner` flags.
+  - `POST /api/subscriptions/revenuecat/webhook` (server-to-server) – receives RevenueCat events (renewals/cancellations/expirations) and reconciles the DB; protected by a shared `Authorization` header; always returns 200 to avoid retry storms.
+  - App User ID convention: `havenn_<libraryId>`, set by the frontend so events/subscriptions map back to the correct tenant.
+- `subscriptions/google-play`: Legacy direct Google Play Billing endpoints (owner-auth where applicable), retained for reference/fallback but superseded by RevenueCat
   - `POST /api/subscriptions/google-play/verify` – verifies purchase tokens with Google; updates `libraries` and acknowledges
   - `POST /api/subscriptions/google-play/webhook` – optional Pub/Sub push handler for renewals/cancellations/expirations
   - `GET /api/subscriptions/google-play/health` – sanity check for service account/auth (owner-auth)
@@ -79,15 +83,20 @@ Mounted in `server.js` under `/api/*` with auth/data/subscription guards where n
     `transactions`, `collections`, `advance_payments`, `expenses`, `products`, `lockers`,
     `announcements`, `queries`, and hostel-related tables
 - Many tables are expected to include a `library_id` to enforce data isolation
-  - Libraries table also includes Google Play fields (migration `010_add_google_play_fields.sql`):
-    - `google_play_purchase_token` (TEXT), `google_play_product_id` (VARCHAR), `google_play_subscription_id` (VARCHAR)
+  - Libraries table includes subscription/billing fields across migrations:
+    - Google Play (legacy, migration `010_add_google_play_fields.sql`): `google_play_purchase_token` (TEXT), `google_play_product_id` (VARCHAR), `google_play_subscription_id` (VARCHAR)
+    - RevenueCat (migration `011_add_revenuecat_fields.sql`, idempotent): `subscription_expires_at` (TIMESTAMPTZ, shared expiry used by both flows), `revenuecat_app_user_id` (VARCHAR, stores `havenn_<libraryId>`)
+    - General gating columns kept in sync by the sync/webhook routes: `is_subscription_active`, `is_trial`, `subscription_status`, `subscription_plan`, `subscription_start_date`, `subscription_end_date`
 
 ## Integrations
 - Cloudinary: image uploads (multer memory storage, 200KB limit, image mimetypes)
 - Razorpay: subscription payments (env-configured; currently HIDDEN on web UI but preserved; setup guide in `Backend/SETUP_INSTRUCTIONS.md`)
-- Google Play Billing (Android/Cordova): subscriptions via `cordova-plugin-purchase@^13`
-  - Frontend uses a `GooglePlaySubscription` component for purchase flow
-  - Backend verifies with Google Play Developer API (googleapis) and acknowledges purchases
+- RevenueCat (Android/Cordova, PRIMARY subscription system): subscriptions via `cordova-plugin-purchases@^8.0.7`, which wraps the Google Play Billing client plus RevenueCat's backend (receipt validation, entitlements, restore)
+  - Frontend `services/revenueCatService.ts` wraps the cordova-injected `window.Purchases` global (configureWith / getOfferings / purchasePackage / restorePurchases / logIn / logOut / getCustomerInfo + `onCustomerInfoUpdated` event) in Promises; all methods are no-ops on web
+  - `context/RevenueCatContext.tsx` owns SDK lifecycle: configures + identifies the owner (Cordova only), derives `isPremium` from the active entitlement, exposes purchase/restore/openPaywall, and calls the backend `/subscriptions/revenuecat/sync` to reconcile server state
+  - Backend `routes/revenueCatSubscriptions.js` verifies/reconciles via the RevenueCat REST API (`api.revenuecat.com`, native `https`) and mirrors entitlement state onto `libraries`
+  - Replaced the legacy `cordova-plugin-purchase@^13` (removed — both plugins bundle a Google Play Billing client and cannot coexist / caused duplicate-class build failures)
+- Google Play Billing (legacy direct integration): backend verifies with Google Play Developer API (googleapis) and acknowledges purchases; retained for reference but superseded by RevenueCat
 - Brevo/Sendinblue: email notifications (e.g., membership expiration reminders)
 
 ## Background Jobs and Emails
@@ -106,10 +115,12 @@ Mounted in `server.js` under `/api/*` with auth/data/subscription guards where n
 
 - Platform utilities and subscriptions UI:
   - `utils/platformUtils.ts` provides `isCordova`, `isWeb`, `getPlatform()`, and `onCordovaReady()`
-  - Subscription page (`SubscriptionPlans.tsx`):
-    - Cordova: renders `GooglePlaySubscription` (uses `window.CdvPurchase`)
-    - Web: shows an informational card – subscriptions are managed in the mobile app
-    - Razorpay UI is intentionally wrapped in `isWeb && false` and commented as HIDDEN for safe rollback
+  - `App.tsx` wraps the tree in `RevenueCatProvider` (inside `AuthProvider`) and mounts a global `<Paywall />` modal opened via `useRevenueCat().openPaywall()`
+  - Premium gating: `useRevenueCat()` / `usePremium()` hooks expose `isPremium` + `isReady`
+    - Cordova: derived from the active RevenueCat entitlement (`window.Purchases`)
+    - Web: derived from the backend `is_subscription_active` flag (RevenueCat SDK is never loaded)
+  - On logout, `AuthContext` calls `revenueCatService.logOut()` to clear the RevenueCat identity (Cordova only)
+  - Razorpay UI is intentionally wrapped in `isWeb && false` and commented as HIDDEN for safe rollback
 
 ## Example Request Flows
 - Owner Login
@@ -129,9 +140,9 @@ Mounted in `server.js` under `/api/*` with auth/data/subscription guards where n
 ## Delivery Targets
 - Web: Express serves SPA from `Backend/dist` with wildcard fallback to `dist/index.html`
 - Mobile: Cordova Android (`havenn/config.xml`) loads the hosted SPA; camera permissions enabled; CORS configured to accept `file://` and `null` origins for WebView
-  - Google Play Billing via `cordova-plugin-purchase` requires Billing permission in AndroidManifest
-  - Ensure `<uses-permission android:name="com.android.vending.BILLING" />` is present (plugin may auto-add)
-  - Recommended Android minSdkVersion ≥ 24 (config currently sets 23; upgrade when convenient)
+  - In-app subscriptions via `cordova-plugin-purchases@^8.0.7` (RevenueCat); requires the Google Play Billing permission, declared in `config.xml` as `<uses-permission android:name="com.android.vending.BILLING" />`
+  - App id `com.havenn.studyspace`; `content src` points to the hosted app (`https://havennapp.onrender.com`)
+  - Android SDK levels: `minSdkVersion` 23, `targetSdkVersion` 35, `compileSdkVersion` 35; AndroidX enabled
 
 ## Error Handling & Logging
 - Central error handler logs via `winston` and returns 500 JSON
@@ -144,12 +155,21 @@ Mounted in `server.js` under `/api/*` with auth/data/subscription guards where n
   - Server: `PORT`, `SESSION_SECRET`
   - Cloudinary: `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`
   - Payments: `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`, `RAZORPAY_WEBHOOK_SECRET`
-  - Google Play Billing (Backend):
+  - RevenueCat (Backend — primary subscription system):
+    - `REVENUECAT_SECRET_API_KEY` (v1 secret key, used for server-to-server subscriber lookups; must stay private)
+    - `REVENUECAT_ENTITLEMENT_ID` (must match `VITE_REVENUECAT_ENTITLEMENT_ID`; defaults to `premium`)
+    - `REVENUECAT_WEBHOOK_AUTH_HEADER` (shared secret expected in the webhook `Authorization` header; set the same value in RevenueCat → Integrations → Webhooks)
+  - RevenueCat (Frontend — Cordova only):
+    - `VITE_REVENUECAT_ANDROID_API_KEY` (public Android SDK key, starts with `goog_`; safe to ship)
+    - `VITE_REVENUECAT_ENTITLEMENT_ID` (entitlement identifier; defaults to `premium`)
+    - `VITE_REVENUECAT_OFFERING_ID` (optional; forces a specific offering, otherwise uses the "current" offering)
+  - Google Play Billing (Backend — legacy/optional):
     - `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` (inline JSON with escaped newlines in `private_key`) OR `GOOGLE_PLAY_SERVICE_ACCOUNT_PATH`
     - `GOOGLE_PLAY_PACKAGE_NAME` (e.g., `com.havenn.studyspace` from `havenn/config.xml`)
     - `GOOGLE_PLAY_PRODUCT_ID` (subscription Product ID)
-  - Google Play Billing (Frontend):
-    - Vite: `VITE_GOOGLE_PLAY_PRODUCT_ID` (used by `GooglePlaySubscription`)
+    - `GOOGLE_PLAY_WEBHOOK_TOKEN` (optional shared secret for Pub/Sub push auth)
+  - Google Play Billing (Frontend — legacy):
+    - `VITE_GOOGLE_PLAY_PRODUCT_ID` (kept for reference)
   - Email: `BREVO_API_KEY`, `BREVO_TEMPLATE_ID`
 - CORS: explicit allowlist includes production URLs, localhost dev ports, and mobile WebView origins
 
@@ -177,7 +197,12 @@ Mounted in `server.js` under `/api/*` with auth/data/subscription guards where n
 ## Appendix: Notable Paths
 - Server entry: `Backend/server.js`
 - Route modules: `Backend/routes/*`
-- Migrations: `Backend/migrations/*`
+  - RevenueCat: `Backend/routes/revenueCatSubscriptions.js`
+  - Google Play (legacy): `Backend/routes/googlePlaySubscriptions.js`
+- Migrations: `Backend/migrations/*` (latest: `011_add_revenuecat_fields.sql`)
 - Frontend entry: `Frontend/src/App.tsx`
 - Auth state: `Frontend/src/context/AuthContext.tsx`
+- RevenueCat state: `Frontend/src/context/RevenueCatContext.tsx`
+- RevenueCat service: `Frontend/src/services/revenueCatService.ts`
+- Paywall modal: `Frontend/src/components/Paywall.tsx`
 - Cordova config: `havenn/config.xml`

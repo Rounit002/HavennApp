@@ -1,12 +1,15 @@
 import React from 'react';
-import { Search, User, Star, Award, LogOut, ArrowUp } from 'lucide-react';
+import { Search, Star, Award, LogOut, ArrowUp, Loader2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { isCordova } from '../utils/platformUtils';
+import { useRevenueCat } from '../context/RevenueCatContext';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
-  const navigate = useNavigate();
+  // Paywall control comes from RevenueCatContext, which owns all platform
+  // branching (web vs. Cordova). Navbar never talks to the SDK directly.
+  const { openPaywall, isPremium, isReady } = useRevenueCat();
 
   // Calculate days left in trial
   const calculateDaysLeft = () => {
@@ -43,8 +46,11 @@ const Navbar = () => {
     logout();
   };
 
-  // Determine if user should see upgrade button
-  const showUpgradeButton = user?.role === 'admin' && (!user?.is_subscription_active || user?.is_trial);
+  // Determine if user should see upgrade button. Subscription management is an
+  // admin concern; trial users still see the CTA so they can upgrade early.
+  // Premium (non-trial) users have no upgrade CTA – the active-subscription
+  // banner above already communicates their status.
+  const showUpgradeButton = user?.role === 'admin' && (!isPremium || user?.is_trial);
 
   return (
     <div className="flex flex-col bg-transparent">
@@ -94,14 +100,23 @@ const Navbar = () => {
       
         {/* User Actions */}
         <div className="flex items-center gap-3 ml-6">
-          {/* Upgrade Button - Only show for trial or non-subscribed admins */}
+          {/* Upgrade Button - Only show for trial or non-subscribed admins.
+              Always opens the global Paywall modal; the Paywall/Context handle
+              platform-specific messaging. Disabled until RevenueCat/subscription
+              state has finished loading. */}
           {showUpgradeButton && (
-            <button 
-              onClick={() => navigate('/subscription')}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-[#1D9E75] font-semibold hover:bg-white/90 transition-all duration-200 shadow-md hover:shadow-lg"
+            <button
+              onClick={openPaywall}
+              disabled={!isReady}
+              aria-busy={!isReady}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-[#1D9E75] font-semibold hover:bg-white/90 transition-all duration-200 shadow-md hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:bg-white disabled:hover:shadow-md"
             >
-              <ArrowUp className="h-4 w-4" />
-              <span className="hidden md:inline">Upgrade</span>
+              {isReady ? (
+                <ArrowUp className="h-4 w-4" />
+              ) : (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              )}
+              <span className="hidden md:inline">{isReady ? 'Upgrade' : 'Loading...'}</span>
             </button>
           )}
 

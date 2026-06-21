@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useQueryClient } from '@tanstack/react-query';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import { API_BASE_URL } from '../utils/apiConfig';
 import { isWeb, isCordova } from '../utils/platformUtils';
-import GooglePlaySubscription from '../components/GooglePlaySubscription';
+import { PaywallContent } from '../components/PaywallContent';
 
 
 const SubscriptionPlans = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const { user, refreshUser } = useAuth();
   const [subscriptionInfo, setSubscriptionInfo] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -229,29 +231,23 @@ const SubscriptionPlans = () => {
             </div>
             {/* Platform-specific subscription controls */}
             {isCordova && (
-              <div className="mb-10">
-                {GOOGLE_PLAY_PRODUCT_ID ? (
-                  <GooglePlaySubscription
-                    productId={GOOGLE_PLAY_PRODUCT_ID}
-                    onSuccess={() => {
-                      try { (window as any).dispatchEvent(new Event('subscription:updated')); } catch {}
-                      (async () => {
-                        try {
-                          const response = await axios.get(`${API_BASE_URL}/subscriptions/status`, { withCredentials: true });
-                          setSubscriptionInfo(response.data.subscription);
-                          await refreshUser();
-                        } catch {}
-                      })();
-                    }}
-                    onError={(msg) => {
-                      console.warn('[SubscriptionPlans] Purchase failed:', msg);
-                    }}
-                  />
-                ) : (
-                  <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 rounded-xl p-4">
-                    Google Play product ID is not configured. Set VITE_GOOGLE_PLAY_PRODUCT_ID in the frontend env.
-                  </div>
-                )}
+              <div className="mb-10 rounded-2xl border border-[#9FE1CB] bg-white p-6 shadow-xl sm:p-8">
+                {/* RevenueCat-powered paywall: fetches offerings dynamically and
+                    handles purchase + restore. Premium unlocks automatically via
+                    the RevenueCat customer-info listener in RevenueCatContext. */}
+                <PaywallContent
+                  onPremiumGranted={() => {
+                    // Refresh local subscription banner + session after unlock.
+                    queryClient.invalidateQueries({ queryKey: ['subscription'] });
+                    (async () => {
+                      try {
+                        const response = await axios.get(`${API_BASE_URL}/subscriptions/status`, { withCredentials: true });
+                        setSubscriptionInfo(response.data.subscription);
+                        await refreshUser();
+                      } catch {}
+                    })();
+                  }}
+                />
               </div>
             )}
 
@@ -426,8 +422,6 @@ const SubscriptionPlans = () => {
 };
 
 export default SubscriptionPlans;
-
-
 
 
 

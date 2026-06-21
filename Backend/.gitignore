@@ -1,3 +1,8 @@
 node_modules
 MobileApp
 .env
+
+# Log files (MED-07)
+*.log
+combined.log
+error.log

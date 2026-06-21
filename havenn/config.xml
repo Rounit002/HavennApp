@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.havenn.studyspace" version="1.0.1" android-versionCode="10002" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.havenn.studyspace" version="1.0.2" android-versionCode="10003" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Havenn</name>
     <description>Havenn — Study space management</description>
     <author email="dev@havenn.in" href="https://havenn.in">Lumenbyte Softwares</author>
-    <content src="index.html" />
+    <content src="https://havennapp.onrender.com" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -16,5 +16,14 @@
     </plugin>
     <plugin name="cordova-plugin-filepath" spec="^1.6.0" />
     <plugin name="cordova-plugin-android-permissions" spec="^1.1.5" />
-    <plugin name="cordova-plugin-purchase" spec="^13.7.0" />
+    <!--
+      RevenueCat in-app subscriptions (Android / Google Play Billing).
+      Replaces the previous cordova-plugin-purchase; both bundle a Google Play
+      Billing client and cannot coexist. RevenueCat wraps Billing Client + its
+      backend (receipt validation, entitlements, restore).
+    -->
+    <plugin name="cordova-plugin-purchases" spec="^8.0.7" />
+    <config-file parent="/manifest" target="AndroidManifest.xml">
+        <uses-permission android:name="com.android.vending.BILLING" />
+    </config-file>
 </widget>

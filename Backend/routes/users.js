@@ -1,4 +1,5 @@
 const { checkAdmin } = require('./auth');
+const { hashPassword, verifyPassword } = require('../utils/password');
 
 module.exports = (pool) => {
   const router = require('express').Router();
@@ -45,19 +46,20 @@ module.exports = (pool) => {
 
       if (current_password && new_password) {
         const userResult = await pool.query('SELECT password FROM users WHERE id = $1 AND library_id = $2', [req.session.user.id, req.libraryId]);
-        const isPasswordValid = (current_password === userResult.rows[0].password);
+        const { valid: isPasswordValid } = await verifyPassword(current_password, userResult.rows[0]?.password);
 
         if (!isPasswordValid) {
           return res.status(400).json({ message: 'Current password is incorrect' });
         }
 
+        const hashedNewPassword = await hashPassword(new_password);
         const result = await pool.query(
           `UPDATE users SET 
            full_name = COALESCE($1, full_name),
            email = COALESCE($2, email),
            password = $3
            WHERE id = $4 AND library_id = $5 RETURNING id, username, full_name, email, role`,
-          [full_name, email, new_password, req.session.user.id, req.libraryId]
+          [full_name, email, hashedNewPassword, req.session.user.id, req.libraryId]
         );
 
         return res.json({
@@ -118,11 +120,12 @@ module.exports = (pool) => {
         return res.status(400).json({ message: 'Username already exists' });
       }
 
+      const hashedPassword = await hashPassword(password);
       const result = await client.query(
         `INSERT INTO users (username, password, role, full_name, email, permissions, branch_access, library_id) 
          VALUES ($1, $2, $3, $4, $5, $6, $7, $8) 
          RETURNING id, username, role, permissions, branch_access`,
-        [username, password, role, full_name || '', email || '', permissions || [], branch_access || [], req.libraryId]
+        [username, hashedPassword, role, full_name || '', email || '', permissions || [], branch_access || [], req.libraryId]
       );
 
       await client.query('COMMIT');

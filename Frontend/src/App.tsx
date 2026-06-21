@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { TooltipProvider } from './components/ui/tooltip';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { RevenueCatProvider } from './context/RevenueCatContext';
+import Paywall from './components/Paywall';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
@@ -149,11 +151,15 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <AuthProvider>
-          <HashRouter>
-            <AppRoutes />
-            <Toaster />
-            <HotToaster position="top-right" />
-          </HashRouter>
+          <RevenueCatProvider>
+            <HashRouter>
+              <AppRoutes />
+              {/* Global paywall modal – opened via useRevenueCat().openPaywall() */}
+              <Paywall />
+              <Toaster />
+              <HotToaster position="top-right" />
+            </HashRouter>
+          </RevenueCatProvider>
         </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>

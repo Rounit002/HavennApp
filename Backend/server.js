@@ -10,12 +10,21 @@ const fs = require('fs');
 const cloudinary = require('cloudinary').v2;
 const multer = require('multer');
 const winston = require('winston');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const { hashPassword } = require('./utils/password');
 require('dotenv').config();
 
 const { setupCronJobs } = require('./utils/cronJobs');
 const { sendExpirationReminder } = require('./utils/email');
 
 const app = express();
+
+// Fail fast in production if the session secret is not configured (HIGH-01)
+if (process.env.NODE_ENV === 'production' && !process.env.SESSION_SECRET) {
+  console.error('FATAL: SESSION_SECRET environment variable is required in production.');
+  process.exit(1);
+}
 
 // Logger setup
 const logger = winston.createLogger({
@@ -54,7 +63,9 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: (origin, callback) => {
-    // If no origin (e.g. curl, mobile apps), allow it
+    // Allow requests with no Origin only for non-browser clients (e.g. native mobile, curl).
+    // Browsers always send an Origin for cross-site credentialed requests, so this does not
+    // weaken CORS for web apps while still supporting the Cordova/Capacitor mobile clients.
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -66,6 +77,19 @@ app.use(cors({
   credentials: true,
   optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
 }));
+
+// Security headers (MED-03). CSP disabled here because the SPA/build pipeline
+// is not yet CSP-audited; everything else (HSTS, no-sniff, frameguard) is on.
+app.use(helmet({ contentSecurityPolicy: false }));
+
+// Block access to dotfiles such as /.git/*, /.env, /.htpasswd before any static
+// middleware can serve them (CRIT-01).
+app.use((req, res, next) => {
+  if (req.path.split('/').some((segment) => segment.startsWith('.') && segment.length > 1)) {
+    return res.status(404).end();
+  }
+  next();
+});
 
 // Build PG configuration (support DATABASE_URL or discrete DB_* vars)
 // Build PG configuration (Optimized for Supabase Free Tier Pooler)
@@ -163,6 +187,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('trust proxy', 1);
 
 const staticOptions = {
+  dotfiles: 'deny',
   setHeaders: (res, filePath) => {
     if (filePath.endsWith('.js')) res.setHeader('Content-Type', 'application/javascript');
     else if (filePath.endsWith('.css')) res.setHeader('Content-Type', 'text/css');
@@ -170,7 +195,7 @@ const staticOptions = {
 };
 app.use(express.static(path.join(__dirname, 'dist'), staticOptions));
 app.use('/assets', express.static(path.join(__dirname, 'dist/assets'), staticOptions));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { dotfiles: 'deny' }));
 
 app.use(session({
   // Keep server-side session alive for the same duration as the cookie (30 days)
@@ -181,8 +206,8 @@ app.use(session({
   cookie: { 
     // Extend maxAge to 30 days so users stay signed in unless they log out
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    // In production (served over HTTPS), use cross-site compatible cookie so it works from file:// WebView
-    httpOnly: process.env.NODE_ENV === 'production',
+    // Always prevent JavaScript access to the session cookie (MED-01)
+    httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
   },
@@ -264,9 +289,18 @@ const admissionRequestsRoutes = initializeRoute('./routes/admissionRequests', po
 const authModule = require('./routes/auth');
 const authRoutes = authModule.authRouter(pool);
 
+// Rate limiting for authentication endpoints to slow brute-force attacks (MED-02)
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 20, // max attempts per IP per window
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { message: 'Too many attempts. Please try again later.' },
+});
+
 // Mount routes
-app.use('/api/owner-auth', ownerAuthRoutes);
-app.use('/api/student-auth', studentAuthRoutes);
+app.use('/api/owner-auth', authLimiter, ownerAuthRoutes);
+app.use('/api/student-auth', authLimiter, studentAuthRoutes);
 app.use(
   '/api/owner-dashboard',
   authenticateOwnerOrStaff,
@@ -278,7 +312,7 @@ app.use(
 
 app.use('/api/public-registration', publicRegistrationRoutes);
 app.use('/api/admission-requests', admissionRequestsRoutes);
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authLimiter, authRoutes);
 
 app.use(
   '/api/users',
@@ -334,11 +368,6 @@ app.use(
 const { createSubscriptionRouter } = require('./routes/subscriptions');
 const subscriptionRoutes = createSubscriptionRouter(pool);
 app.use('/api/subscriptions', subscriptionRoutes);
-
-// Google Play Billing routes (verification + webhook)
-const createGooglePlaySubscriptionsRouter = require('./routes/googlePlaySubscriptions');
-const googlePlaySubscriptionsRoutes = createGooglePlaySubscriptionsRouter(pool);
-app.use('/api/subscriptions/google-play', googlePlaySubscriptionsRoutes);
 
 app.use(
   '/api/transactions',
@@ -423,7 +452,14 @@ app.use(
 // Announcements route allows any authenticated user (owner, admin, staff, student)
 app.use('/api/announcements', announcementsRoutes);
 
-app.get('/api/test-email', async (req, res) => {
+const googlePlayRouter = require('./routes/googlePlaySubscriptions');
+app.use('/api/subscriptions/google-play', googlePlayRouter);
+
+// RevenueCat (Android subscriptions) – on-demand sync + webhook receiver.
+const { createRevenueCatRouter } = require('./routes/revenueCatSubscriptions');
+app.use('/api/subscriptions/revenuecat', createRevenueCatRouter(pool));
+
+app.get('/api/test-email', authenticateOwnerOrStaff, async (req, res) => {
   try {
     const settingsResult = await pool.query("SELECT value FROM settings WHERE key = 'brevo_template_id'");
     if (settingsResult.rows.length === 0 || !settingsResult.rows[0].value) {
@@ -457,8 +493,17 @@ app.get('*', (req, res) => {
 });
 
 app.use((err, req, res, next) => {
+  // Handle CORS rejections explicitly
+  if (err && err.message === 'Not allowed by CORS') {
+    return res.status(403).json({ message: 'Origin not allowed' });
+  }
   logger.error('Unhandled error:', { message: err.message, stack: err.stack, path: req.path, method: req.method });
-  res.status(500).json({ message: 'Internal Server Error', error: err.message });
+  // Do not leak internal error details/stack traces to clients in production (HIGH-03)
+  const isProd = process.env.NODE_ENV === 'production';
+  res.status(500).json({
+    message: 'Internal Server Error',
+    ...(isProd ? {} : { error: err.message }),
+  });
 });
 
 // DB helper functions (unchanged logic)
@@ -508,10 +553,15 @@ async function createDefaultAdmin() {
 
     const userCountResult = await pool.query("SELECT COUNT(*) FROM users WHERE role = 'admin'");
     if (parseInt(userCountResult.rows[0].count) === 0) {
-      const plainPassword = process.env.DEFAULT_ADMIN_PASSWORD || 'admin';
+      const plainPassword = process.env.DEFAULT_ADMIN_PASSWORD;
+      if (!plainPassword) {
+        logger.warn('No admin users found and DEFAULT_ADMIN_PASSWORD is not set. Skipping default admin creation. Set a strong DEFAULT_ADMIN_PASSWORD to seed an admin.');
+        return;
+      }
+      const hashedPassword = await hashPassword(plainPassword);
       await pool.query(
         'INSERT INTO users (username, password, role, full_name, email) VALUES ($1, $2, $3, $4, $5)',
-        [process.env.DEFAULT_ADMIN_USERNAME || 'admin', plainPassword, 'admin', 'Default Admin', 'admin@example.com']
+        [process.env.DEFAULT_ADMIN_USERNAME || 'admin', hashedPassword, 'admin', 'Default Admin', 'admin@example.com']
       );
       logger.info('Default admin user created.');
     } else {

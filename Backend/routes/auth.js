@@ -1,5 +1,6 @@
 // ./routes/auth.js
 const express = require('express');
+const { hashPassword, verifyPassword } = require('../utils/password');
 
 // Permission-checking middleware
 const checkPermission = (permission) => {
@@ -171,11 +172,21 @@ const authRouter = (pool) => {
       }
 
       const user = result.rows[0];
-      // In a real app, use bcrypt.compare(password, user.password)
-      const isPasswordValid = (password === user.password);
+      // Verify password (supports bcrypt hashes and legacy plaintext via lazy migration)
+      const { valid: isPasswordValid, needsRehash } = await verifyPassword(password, user.password);
 
       if (!isPasswordValid) {
         return res.status(401).json({ message: 'Invalid credentials' });
+      }
+
+      // Lazy migration: upgrade legacy plaintext passwords to bcrypt on successful login
+      if (needsRehash) {
+        try {
+          const newHash = await hashPassword(password);
+          await pool.query('UPDATE users SET password = $1 WHERE id = $2', [newHash, user.id]);
+        } catch (rehashErr) {
+          console.error('[AUTH.JS] Failed to upgrade legacy password hash:', rehashErr.message);
+        }
       }
 
       const branchAccess = Array.isArray(user.branch_access) ? user.branch_access : [];
@@ -404,16 +415,18 @@ const authRouter = (pool) => {
         return res.status(401).json({ message: 'Password reset verification expired. Please start over.' });
       }
 
-      // Update password in database (for staff/admin, passwords are stored as plain text currently)
+      // Update password in database (hashed with bcrypt)
+      const userId = req.session.staffPasswordReset.userId;
+      const hashedNewPassword = await hashPassword(newPassword);
       await pool.query(
         'UPDATE users SET password = $1 WHERE id = $2',
-        [newPassword, req.session.staffPasswordReset.userId]
+        [hashedNewPassword, userId]
       );
 
       // Clear password reset session
       delete req.session.staffPasswordReset;
 
-      console.log(`[AUTH.JS] Staff password reset successful for user ID: ${req.session.staffPasswordReset?.userId}`);
+      console.log(`[AUTH.JS] Staff password reset successful for user ID: ${userId}`);
 
       res.json({
         message: 'Password reset successfully. You can now log in with your new password.'

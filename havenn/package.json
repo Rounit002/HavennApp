@@ -25,12 +25,12 @@
       },
       "cordova-plugin-filepath": {},
       "cordova-plugin-android-permissions": {},
-      "cordova-plugin-purchase": {}
+      "cordova-plugin-purchases": {}
     }
   },
   "devDependencies": {
     "cordova-android": "^13.0.0",
     "cordova-plugin-android-permissions": "^1.1.5",
-    "cordova-plugin-purchase": "^13.7.0"
+    "cordova-plugin-purchases": "^8.0.7"
   }
 }

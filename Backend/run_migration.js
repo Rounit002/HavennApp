@@ -14,36 +14,48 @@ const pool = new Pool({
 
 async function runMigration() {
   try {
-    console.log('Running subscription fields migration...');
-    
-    // Read the migration file
-    const migrationPath = path.join(__dirname, 'migrations', '002_add_subscription_fields.sql');
-    const migrationSQL = fs.readFileSync(migrationPath, 'utf8');
-    
-    console.log('Migration SQL:', migrationSQL);
-    
-    // Execute the migration
-    await pool.query(migrationSQL);
-    
-    console.log('✅ Migration completed successfully!');
-    console.log('Subscription fields added to libraries table.');
-    
+    console.log('Running migrations...');
+
+    const migrations = [
+      '002_add_subscription_fields.sql',
+      '010_add_google_play_fields.sql',
+    ];
+
+    for (const migrationFile of migrations) {
+      const migrationPath = path.join(__dirname, 'migrations', migrationFile);
+      const migrationSQL = fs.readFileSync(migrationPath, 'utf8');
+
+      console.log(`Running migration: ${migrationFile}`);
+      await pool.query(migrationSQL);
+    }
+
+    console.log('Migrations completed successfully!');
+    console.log('Subscription and Google Play fields added to libraries table.');
+
     // Verify the fields were added
     const result = await pool.query(`
-      SELECT column_name, data_type 
-      FROM information_schema.columns 
-      WHERE table_name = 'libraries' 
-      AND column_name IN ('subscription_plan', 'subscription_start_date', 'subscription_end_date', 'is_trial', 'is_subscription_active')
+      SELECT column_name, data_type
+      FROM information_schema.columns
+      WHERE table_name = 'libraries'
+      AND column_name IN (
+        'subscription_plan',
+        'subscription_start_date',
+        'subscription_end_date',
+        'is_trial',
+        'is_subscription_active',
+        'google_play_purchase_token',
+        'google_play_product_id',
+        'google_play_subscription_id'
+      )
       ORDER BY column_name;
     `);
-    
+
     console.log('\nVerification - Added fields:');
     result.rows.forEach(row => {
-      console.log(`✅ ${row.column_name}: ${row.data_type}`);
+      console.log(`${row.column_name}: ${row.data_type}`);
     });
-    
   } catch (error) {
-    console.error('❌ Migration failed:', error.message);
+    console.error('Migration failed:', error.message);
     console.error('Full error:', error);
   } finally {
     await pool.end();

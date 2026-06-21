@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import api from '../services/api';
 import { authFetch } from '../utils/apiConfig';
+import { logOut as rcLogOut } from '../services/revenueCatService';
 
 interface User {
   id: string;
@@ -286,6 +287,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
       setUser(null);
       try { localStorage.removeItem('user'); } catch {}
+      // Clear the RevenueCat identity so the next user starts clean (Cordova only).
+      try { await rcLogOut(); } catch {}
       // Redirect to landing page after logout
       window.location.href = '/#/'; 
     } catch (error) {

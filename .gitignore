@@ -1,1 +1,13 @@
- rapid-hall-452611-f2-9c19baf0ad81.json
+rapid-hall-452611-f2-9c19baf0ad81.json
+
+# Android signing keystores and credentials (never commit) - CRIT-02
+*.jks
+*.keystore
+havenn/build.json
+
+# Environment files
+.env
+**/.env
+
+# Logs
+*.log
