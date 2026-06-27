@@ -22,7 +22,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@lovable_dev" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    <script type="module" crossorigin src="./assets/index-BbTbclBF.js"></script>
+    <script type="module" crossorigin src="./assets/index-CRTO3oGa.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-Djy0gylr.css">
   </head>
 
@@ -30,12 +30,26 @@
     <div id="root"></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <!-- Load Cordova bridge when running inside Cordova (file://) so plugins work -->
+    <!--
+      Load the Cordova bridge ONLY when this page is the locally-bundled app shell.
+      cordova-android serves the bundled www from https://localhost (no port); older
+      builds use file://. The decision must be made BEFORE window.cordova exists
+      (cordova.js is what defines it), so we detect by ORIGIN, never by window.cordova.
+      On the public web build (havennapp.onrender.com) this stays false, so we never
+      request a non-existent cordova.js.
+    -->
     <script>
-      (function() {
+      (function () {
         try {
-          var isCordovaEnv = (window && window.location && window.location.protocol === 'file:') || (typeof window !== 'undefined' && typeof window.cordova !== 'undefined');
-          if (isCordovaEnv) {
+          var loc = window.location;
+          var isLocalAppShell =
+            loc.protocol === 'file:' ||
+            (
+              (loc.protocol === 'https:' || loc.protocol === 'http:') &&
+              loc.hostname === 'localhost' &&
+              (loc.port === '' || loc.port === '0')
+            );
+          if (isLocalAppShell) {
             var s = document.createElement('script');
             s.src = 'cordova.js';
             document.head.appendChild(s);

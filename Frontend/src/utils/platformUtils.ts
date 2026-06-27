@@ -9,48 +9,8 @@
 const hasDOM = typeof window !== 'undefined' && typeof document !== 'undefined';
 
 /**
- * Safely retrieve the current document URL (or empty string if unavailable).
- */
-function getDocumentURL(): string {
-  if (!hasDOM) return '';
-  try {
-    return (document && (document as any).URL) || (window && window.location && window.location.href) || '';
-  } catch {
-    return '';
-  }
-}
-
-/**
- * Get a list of known host domains that might be loaded inside Cordova WebView.
- * Priority: environment variable > known production domain fallback.
- */
-function getHostedDomains(): string[] {
-  const domains: string[] = [];
-  // Try to read from common env patterns across bundlers (Vite/CRA/etc.)
-  const viteEnv = (typeof import.meta !== 'undefined' && (import.meta as any)?.env) || undefined;
-  const procEnv = (typeof process !== 'undefined' && (process as any)?.env) || undefined;
-
-  const envDomain =
-    (viteEnv?.VITE_CORDOVA_HOST_DOMAIN as string | undefined) ||
-    (viteEnv?.VITE_PUBLIC_HOST as string | undefined) ||
-    (viteEnv?.VITE_APP_HOST as string | undefined) ||
-    (procEnv?.REACT_APP_CORDOVA_HOST_DOMAIN as string | undefined) ||
-    (procEnv?.PUBLIC_URL as string | undefined);
-
-  if (envDomain && typeof envDomain === 'string') {
-    domains.push(envDomain);
-  }
-
-  // Fallback to known production host for Havenn
-  domains.push('havennapp.onrender.com');
-
-  // Deduplicate and clean
-  return Array.from(new Set(domains.filter(Boolean)));
-}
-
-/**
  * Heuristic to determine if the UA string looks like a desktop browser.
- * Used as an optional safety check to avoid false positives on desktop.
+ * Used as a safety check to avoid false positives on desktop.
  */
 function isLikelyDesktopUA(ua: string): boolean {
   const hasDesktopToken = /(Windows NT|Macintosh|Mac OS X|X11; Linux x86_64)/i.test(ua);
@@ -58,20 +18,41 @@ function isLikelyDesktopUA(ua: string): boolean {
   return hasDesktopToken && !hasMobileToken;
 }
 
-const hasCordovaObject = hasDOM && typeof (window as any).cordova !== 'undefined';
-const docUrl = getDocumentURL();
-const looksLikeCordovaUrl = docUrl.startsWith('file://') || getHostedDomains().some((h) => docUrl.includes(h));
+/**
+ * True when this page is the locally-bundled Cordova app shell.
+ *
+ * The UI is bundled INSIDE the APK and served by cordova-android from
+ * `https://localhost` (no port); older builds use `file://`. We detect the app
+ * purely by its ORIGIN — NOT by `window.cordova` — because `window.cordova` is
+ * defined asynchronously by cordova.js and may not exist yet when this module is
+ * first evaluated. The origin, by contrast, is known synchronously and never
+ * changes, so there is no race.
+ *
+ * The public web build (https://havennapp.onrender.com) and the Vite dev server
+ * (localhost:5173 etc.) both have a different origin, so they correctly resolve
+ * to web.
+ */
+function isLocalAppShellOrigin(): boolean {
+  if (!hasDOM) return false;
+  const loc = window.location;
+  if (loc.protocol === 'file:') return true;
+  return (
+    (loc.protocol === 'https:' || loc.protocol === 'http:') &&
+    loc.hostname === 'localhost' &&
+    (loc.port === '' || loc.port === '0')
+  );
+}
+
 const notDesktopUA = hasDOM ? !isLikelyDesktopUA(navigator.userAgent || '') : true;
 
 /**
- * Boolean indicating if the app is running inside Cordova Android WebView.
+ * Boolean indicating if the app is running inside the Cordova Android WebView.
  *
  * Checks used:
- * - window.cordova exists
- * - URL is a local file (file://) OR contains a known hosted domain used inside Cordova
- * - User agent does not look like desktop (optional safety check)
+ * - The page origin is the locally-bundled app shell (file:// or https://localhost)
+ * - The user agent does not look like a desktop browser (safety check)
  */
-export const isCordova: boolean = Boolean(hasCordovaObject && looksLikeCordovaUrl && notDesktopUA);
+export const isCordova: boolean = Boolean(isLocalAppShellOrigin() && notDesktopUA);
 
 /**
  * Boolean indicating if the app is running in a regular web browser.

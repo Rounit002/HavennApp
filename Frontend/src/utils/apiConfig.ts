@@ -8,7 +8,7 @@ export const getApiUrl = () => {
     (['localhost', '127.0.0.1'].includes(window.location.hostname)) &&
     (['5173', '3000', '4173', '8080'].includes(window.location.port))
   );
-  const isDevelopment = Boolean(import.meta.env?.DEV) || isDevHostPort;
+  const isDevelopment = Boolean(import.meta.env.DEV) || isDevHostPort;
 
   // Detect Cordova/Capacitor WebViews:
   // - file:// protocol (older Cordova)

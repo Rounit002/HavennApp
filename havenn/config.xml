@@ -3,13 +3,28 @@
     <name>Havenn</name>
     <description>Havenn — Study space management</description>
     <author email="dev@havenn.in" href="https://havenn.in">Lumenbyte Softwares</author>
-    <content src="https://havennapp.onrender.com" />
+    <!--
+      The UI is bundled INSIDE the app and served locally (cordova-android serves
+      it from https://localhost). This is what lets Cordova inject its bridge
+      (window.cordova + plugins like cordova-plugin-purchases / RevenueCat). A
+      remote `content src` runs the page on an external origin where the bridge is
+      never injected, so the app would behave as if it were on the web.
+      The build copies Frontend/dist into ./www (see havenn/package.json).
+    -->
+    <content src="index.html" />
+    <!-- Allow API/network calls to the Havenn backend (data stays live from Render). -->
     <access origin="*" />
+    <allow-navigation href="https://havennapp.onrender.com/*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <preference name="android-minSdkVersion" value="23" />
-    <preference name="android-targetSdkVersion" value="35" />
-    <preference name="android-compileSdkVersion" value="35" />
+    <!--
+      cordova-android 15 targets Android 16 (API 36) and its CordovaLib references
+      API-36 symbols (e.g. Build.VERSION_CODES.BAKLAVA), so compileSdk MUST be 36 or
+      CordovaLib fails to compile. SDK Platform 36 + build-tools 36.0.0 are installed.
+    -->
+    <preference name="android-targetSdkVersion" value="36" />
+    <preference name="android-compileSdkVersion" value="36" />
     <preference name="AndroidXEnabled" value="true" />
     <plugin name="cordova-plugin-camera" spec="^8.0.0">
         <variable name="ANDROIDX_CORE_VERSION" value="1.6.+" />

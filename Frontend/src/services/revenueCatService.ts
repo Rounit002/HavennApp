@@ -156,17 +156,24 @@ declare global {
 /*  Configuration (environment driven)                                         */
 /* -------------------------------------------------------------------------- */
 
-// Android PUBLIC SDK key from the RevenueCat dashboard (starts with "goog_").
+// Android PUBLIC SDK key from the RevenueCat dashboard (starts with "goog_", or
+// "test_" for the RevenueCat Test Store).
+//
+// IMPORTANT: these MUST be written as the exact member expression
+// `import.meta.env.VITE_*`. Vite statically replaces that literal pattern at build
+// time. Wrapping it (e.g. `(import.meta as any)?.env?.VITE_*`) defeats the static
+// replacement, leaving a runtime `import.meta.env` lookup that is `undefined` in a
+// production bundle — so the value silently becomes ''.
 const REVENUECAT_ANDROID_API_KEY: string =
-  (import.meta as any)?.env?.VITE_REVENUECAT_ANDROID_API_KEY || '';
+  import.meta.env.VITE_REVENUECAT_ANDROID_API_KEY || '';
 
 // The entitlement identifier configured in RevenueCat (e.g. "premium").
 export const ENTITLEMENT_ID: string =
-  (import.meta as any)?.env?.VITE_REVENUECAT_ENTITLEMENT_ID || 'premium';
+  import.meta.env.VITE_REVENUECAT_ENTITLEMENT_ID || 'premium';
 
 // Optional: force a specific offering instead of the "current" one.
 const FORCED_OFFERING_ID: string =
-  (import.meta as any)?.env?.VITE_REVENUECAT_OFFERING_ID || '';
+  import.meta.env.VITE_REVENUECAT_OFFERING_ID || '';
 
 /* -------------------------------------------------------------------------- */
 /*  Internal state                                                             */
@@ -255,7 +262,7 @@ export function configure(appUserId?: string | null): Promise<void> {
 
       try {
         // Verbose logs only in dev builds to aid debugging with RevenueCat support.
-        if ((import.meta as any)?.env?.DEV) {
+        if (import.meta.env.DEV) {
           Purchases.setLogLevel(Purchases.LOG_LEVEL.DEBUG);
         } else {
           Purchases.setLogLevel(Purchases.LOG_LEVEL.ERROR);

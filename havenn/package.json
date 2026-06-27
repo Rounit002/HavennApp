@@ -6,7 +6,10 @@
   "main": "index.js",
   "scripts": {
     "prepare": "cordova prepare",
-    "build:android": "cordova build android"
+    "build:web": "cd ../Frontend && npm run build",
+    "sync:www": "rimraf www && cpr ../Frontend/dist www",
+    "build:android": "npm run build:web && npm run sync:www && cordova build android",
+    "build:android:release": "npm run build:web && npm run sync:www && cordova build android --release"
   },
   "keywords": [
     "cordova",
@@ -29,8 +32,10 @@
     }
   },
   "devDependencies": {
-    "cordova-android": "^13.0.0",
+    "cordova-android": "^15.0.0",
     "cordova-plugin-android-permissions": "^1.1.5",
-    "cordova-plugin-purchases": "^8.0.7"
+    "cordova-plugin-purchases": "^8.0.7",
+    "cpr": "^3.0.1",
+    "rimraf": "^5.0.0"
   }
 }

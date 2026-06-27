@@ -21,7 +21,7 @@ const SubscriptionPlans = () => {
 
   // Product ID from environment (frontend)
   const GOOGLE_PLAY_PRODUCT_ID =
-    (import.meta as any)?.env?.VITE_GOOGLE_PLAY_PRODUCT_ID ||
+    import.meta.env.VITE_GOOGLE_PLAY_PRODUCT_ID ||
     (typeof process !== 'undefined' && (process as any)?.env?.REACT_APP_GOOGLE_PLAY_PRODUCT_ID) ||
     '';
 

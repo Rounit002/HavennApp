@@ -51,3 +51,28 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 - File edited: `Frontend/src/components/PaywallContent.tsx`.
 - Added an `isWeb` branch (after the `isPremium` block, before loading/offerings) that shows a "Subscribe in the Havenn app" message + a "Get the Android app" button linking to the Play Store (`com.havenn.studyspace`). Replaces the previous generic "No subscription plans available" empty state on web.
 - Premium web users still see "You're Premium" first; no SDK calls added on web.
+
+## 2026-06-25 — Created PROJECT_SETUP.md (full reproducibility guide)
+- New file: `PROJECT_SETUP.md` at repo root. Goal: clone-and-recreate everything
+  (backend, web, signed Android APK/AAB) with no questions.
+- Inspected actual files (not assumptions): `Frontend/package.json`,
+  `havenn/package.json`, `havenn/config.xml`, `havenn/build.json`,
+  `havenn/gradle.properties`, `havenn/PLATFORM_ANDROID_CUSTOMIZATIONS.md`,
+  `Backend/package.json`, both `.env.example`, `vite.config.ts`,
+  `Frontend/src/utils/apiConfig.ts`, and the full `Frontend/src` tree.
+- Key corrections vs the task's Expo/EAS/React-Native/Firebase template:
+  - Real stack = Vite/React SPA + Express/PG backend + **Cordova** Android wrapper.
+  - **No Expo, no eas.json, no app.json.** APK/AAB built via Cordova + Gradle.
+  - **No Firebase** anywhere (verified). Documented as N/A; Cloudinary=images, Brevo=email.
+  - RevenueCat (`cordova-plugin-purchases ^8.0.7`) primary; legacy direct Google Play in backend.
+- Documented exact values: package `com.havenn.studyspace`, version 1.0.2,
+  versionCode 10003, min23/target36/compile36, API base
+  `https://havennapp.onrender.com/api`, build scripts from `havenn/package.json`,
+  signing via `havenn/build.json` + `my-release-key.keystore` (alias myalias).
+- FLAGGED security/consistency issues in the doc (Sections 5 & 14):
+  - `Backend/.env.example` ships a real-looking RevenueCat key value and
+    `havenn/build.json` contains a real keystore password — recommend rotating + removing from git.
+  - Entitlement id mismatch: backend example `Havenn Library Pro` vs frontend `premium`;
+    must be made identical.
+  - config.xml/package.json say cordova-android 15 / compile 36, but
+    PLATFORM_ANDROID_CUSTOMIZATIONS.md still references 13 / 35 — doc tells reader to trust committed config (36).

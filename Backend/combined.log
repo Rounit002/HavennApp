@@ -4388,3 +4388,6 @@
 {"host":"loc***ost","level":"info","message":"Postgres connection test succeeded","timestamp":"2026-06-21T16:45:48.442Z","user":"pos***res"}
 {"level":"info","message":"Admin user(s) already exist, skipping default admin creation.","timestamp":"2026-06-21T16:45:48.596Z"}
 {"level":"info","message":"Server running on port 3000","timestamp":"2026-06-21T16:45:48.605Z"}
+{"host":"loc***ost","level":"info","message":"Postgres connection test succeeded","timestamp":"2026-06-21T18:45:40.584Z","user":"pos***res"}
+{"level":"info","message":"Admin user(s) already exist, skipping default admin creation.","timestamp":"2026-06-21T18:45:40.663Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2026-06-21T18:45:40.668Z"}
